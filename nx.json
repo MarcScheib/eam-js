@@ -1,0 +1,18 @@
+{
+  "npmScope": "eam-js",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "eam-js": {
+      "tags": []
+    },
+    "api": {
+      "tags": []
+    }
+  }
+}
