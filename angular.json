@@ -111,6 +111,14 @@
             "assets": ["apps/api/src/assets"]
           },
           "configurations": {
+            "custom": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/api/src/environments/environment.ts",
+                  "with": "apps/api/src/environments/environment.custom.ts"
+                }
+              ]
+            },
             "production": {
               "optimization": true,
               "extractLicenses": true,
@@ -128,6 +136,14 @@
           "builder": "@nrwl/node:execute",
           "options": {
             "buildTarget": "api:build"
+          },
+          "configurations": {
+            "custom": {
+              "buildTarget": "api:build:custom"
+            },
+            "production": {
+              "buildTarget": "api:build:production"
+            }
           }
         },
         "lint": {
