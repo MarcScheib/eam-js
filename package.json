@@ -51,6 +51,8 @@
     "@angular/cli": "8.3.3",
     "@angular/compiler-cli": "^8.2.0",
     "@angular/language-service": "^8.2.0",
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
     "@nestjs/schematics": "^6.3.0",
     "@nestjs/testing": "^6.2.4",
     "@nrwl/jest": "8.5.2",
@@ -60,14 +62,32 @@
     "@types/jest": "24.0.9",
     "@types/node": "~8.9.4",
     "codelyzer": "~5.0.1",
+    "conventional-changelog-cli": "^2.0.23",
     "dotenv": "6.2.0",
     "eslint": "6.1.0",
+    "husky": "^3.0.7",
     "jest": "24.1.0",
     "jest-preset-angular": "7.0.0",
+    "lint-staged": "^9.4.0",
     "prettier": "1.18.2",
     "ts-jest": "24.0.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
     "typescript": "~3.4.5"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,md,css}": [
+      "prettier --write",
+      "git add"
+    ],
+    "yarn.lock": [
+      "git rm --cached"
+    ]
   }
 }
