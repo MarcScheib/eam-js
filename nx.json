@@ -9,10 +9,10 @@
   },
   "projects": {
     "eam-js": {
-      "tags": []
+      "tags": ["type:app"]
     },
     "api": {
-      "tags": []
+      "tags": ["type:app"]
     }
   }
 }
