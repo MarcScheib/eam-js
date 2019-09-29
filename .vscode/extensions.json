@@ -3,6 +3,11 @@
     "nrwl.angular-console",
     "angular.ng-template",
     "ms-vscode.vscode-typescript-tslint-plugin",
-    "esbenp.prettier-vscode"
+    "esbenp.prettier-vscode",
+    "johnpapa.angular2",
+    "mikael.angular-beastcode",
+    "k--kato.intellij-idea-keybindings",
+    "orta.vscode-jest",
+    "pkief.material-icon-theme"
   ]
 }
