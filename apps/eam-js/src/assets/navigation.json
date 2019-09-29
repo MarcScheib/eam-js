@@ -1,0 +1,9 @@
+{
+  "SideNav": [
+    {
+      "title": "Projects",
+      "tooltip": "Project Management",
+      "url": "projects"
+    }
+  ]
+}

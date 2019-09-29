@@ -13,6 +13,9 @@
     },
     "api": {
       "tags": ["type:app"]
+    },
+    "common-navigation": {
+      "tags": []
     }
   }
 }

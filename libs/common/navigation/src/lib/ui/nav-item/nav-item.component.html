@@ -1,0 +1,48 @@
+<div *ngIf="!node.children">
+  <a
+    routerLink="/{{ node.url }}"
+    title="{{ node.tooltip }}"
+    class="vertical-menu-item"
+    [ngClass]="classes"
+  >
+    {{ node.title }}
+  </a>
+</div>
+
+<div *ngIf="node.children">
+  <a
+    *ngIf="node.url != null"
+    routerLink="/{{ node.url }}"
+    title="{{ node.tooltip }}"
+    class="vertical-menu-item heading"
+    [ngClass]="classes"
+    (click)="headerClicked()"
+  >
+    {{ node.title }}
+    <mat-icon class="rotating-icon">keyboard_arrow_right</mat-icon>
+  </a>
+
+  <button
+    *ngIf="node.url == null"
+    type="button"
+    title="{{ node.tooltip }}"
+    class="vertical-menu-item heading"
+    [ngClass]="classes"
+    [attr.aria-pressed]="isExpanded"
+    (click)="headerClicked()"
+  >
+    {{ node.title }}
+    <mat-icon class="rotating-icon">keyboard_arrow_right</mat-icon>
+  </button>
+
+  <div class="heading-children" [ngClass]="classes">
+    <nav-item
+      class="nav-item"
+      *ngFor="let node of nodeChildren"
+      [level]="level + 1"
+      [node]="node"
+      [isParentExpanded]="isExpanded"
+      [selectedNodes]="selectedNodes"
+    ></nav-item>
+  </div>
+</div>
