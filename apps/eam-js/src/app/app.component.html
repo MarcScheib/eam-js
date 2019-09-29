@@ -1,7 +1,11 @@
-<div style="text-align:center">
-  <h1>Welcome to eam-js!</h1>
-  <img
-    width="450"
-    src="https://raw.githubusercontent.com/nrwl/nx/master/nx-logo.png"
-  />
-</div>
+<mat-toolbar color="primary" class="app-toolbar">
+  <button mat-icon-button>
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <a class="nav-link" routerLink="/" [ngSwitch]="isSideBySide">
+    <span *ngSwitchCase="true"></span>
+  </a>
+
+  <div class="flex-spacer"></div>
+</mat-toolbar>

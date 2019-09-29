@@ -22,7 +22,10 @@
             "tsConfig": "apps/eam-js/tsconfig.app.json",
             "aot": false,
             "assets": ["apps/eam-js/src/favicon.ico", "apps/eam-js/src/assets"],
-            "styles": ["apps/eam-js/src/styles.scss"],
+            "styles": [
+              "node_modules/material-design-icons-iconfont/dist/material-design-icons.css",
+              "apps/eam-js/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {

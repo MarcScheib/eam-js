@@ -1,0 +1,19 @@
+.root-router-outlet {
+  display: block;
+
+  & ~ * {
+    position: absolute;
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+  }
+}
+
+.mat-drawer-content {
+  backface-visibility: hidden;
+  position: relative;
+  z-index: 1;
+  display: block;
+  height: 100%;
+  overflow: auto;
+}

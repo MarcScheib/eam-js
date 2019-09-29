@@ -1,0 +1,26 @@
+.app-toolbar.mat-toolbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  padding: 0 16px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+
+  .mat-icon {
+    color: $white;
+  }
+
+  a.nav-link {
+    margin: 0;
+    padding: 24px 16px;
+    cursor: pointer;
+
+    &:focus {
+      background: rgba($white, 0.15);
+      border-radius: 4px;
+      outline: none;
+      padding: 8px 16px;
+    }
+  }
+}

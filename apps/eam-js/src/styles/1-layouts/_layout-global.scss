@@ -1,0 +1,25 @@
+html,
+body {
+  height: 100%;
+}
+
+.main-app-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 64px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.sidenav {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.sidenav-container {
+  background-color: $backgroundgray;
+  flex: 1;
+}

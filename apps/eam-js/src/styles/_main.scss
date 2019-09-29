@@ -1,0 +1,10 @@
+@import 'common';
+@import 'mixins';
+
+// specify theme
+@include mat-core;
+@include angular-material-theme($app-theme);
+
+// import directories
+@import './0-base/base-dir';
+@import './1-layouts/layouts-dir';

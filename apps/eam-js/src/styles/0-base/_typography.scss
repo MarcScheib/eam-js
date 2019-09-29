@@ -1,0 +1,36 @@
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: $main-font;
+}
+
+a {
+  text-decoration: none;
+}
+
+.app-toolbar a {
+  font-size: 16px;
+  font-weight: 400;
+  color: $white;
+  font-family: $main-font;
+  padding: 21px 0;
+}
+
+// typography coloring
+$primary: map-get($app-theme, primary);
+$accent: map-get($app-theme, accent);
+$warn: map-get($app-theme, warn);
+
+.theme-text {
+  &.mat-primary {
+    color: mat-color($primary);
+  }
+
+  &.mat-accent {
+    color: mat-color($accent);
+  }
+
+  &.mat-warn {
+    color: mat-color($warn);
+  }
+}

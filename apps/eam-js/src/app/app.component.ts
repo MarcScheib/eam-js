@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'eam-js-root',
+  selector: 'eam-js-shell',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(private http: HttpClient) {}
+  isSideBySide = false;
 }

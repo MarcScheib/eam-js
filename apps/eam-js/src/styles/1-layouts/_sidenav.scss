@@ -1,0 +1,132 @@
+.nav-menu {
+  display: block;
+  margin: 0 auto;
+  font-size: 13px;
+
+  &:first-child {
+    margin-top: 16px;
+  }
+
+  .nav-item div a {
+    padding-left: 6px;
+  }
+}
+
+.mat-sidenav.sidenav {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  padding: 0;
+  min-width: 260px;
+  background-color: $offwhite;
+  box-shadow: 6px 0 6px rgba(0, 0, 0, 0.1);
+  height: calc(100vh - 64px);
+
+  &.collapsed {
+    top: 56px;
+  }
+}
+
+.vertical-menu-item {
+  box-sizing: border-box;
+  color: $darkgray;
+  cursor: pointer;
+  display: block;
+  max-width: 260px;
+  overflow-wrap: break-word;
+  padding-left: 6px;
+  padding-top: 8px;
+  padding-bottom: 10px;
+  text-decoration: none;
+  text-align: left;
+  width: 90%;
+  word-wrap: break-word;
+
+  &:hover {
+    background-color: $lightgray;
+    color: mat-color($app-primary, 800);
+    text-shadow: 0 0 5px #ffffff;
+  }
+
+  &:focus {
+    outline: mat-color($app-primary, 800) auto 2px;
+  }
+
+  .mat-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 4px;
+  }
+}
+
+.vertical-menu-item.selected {
+  color: mat-color($app-primary, 800);
+}
+
+button.vertical-menu-item {
+  border: none;
+  background-color: transparent;
+  margin-right: 0;
+}
+
+.heading {
+  color: $darkgray;
+  cursor: pointer;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.heading-children.expanded {
+  visibility: visible;
+  opacity: 1;
+  max-height: 4000px; // Arbitrary max-height. Can increase if needed. Must have measurement to transition height.
+  transition: visibility 500ms, opacity 500ms, max-height 500ms;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+}
+
+.heading-children.collapsed {
+  visibility: hidden;
+  opacity: 0;
+  max-height: 1px; // Must have measurement to transition height.
+  transition: visibility 275ms, opacity 275ms, max-height 280ms;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+.level-1 {
+  font-family: $main-font;
+  font-size: 14px;
+  font-weight: 400;
+  margin-left: 14px;
+  transition: background-color 0.2s;
+  text-transform: uppercase;
+}
+
+.level-2 {
+  color: $mediumgray;
+  font-family: $main-font;
+  font-size: 14px;
+  font-weight: 400;
+  margin-left: 12px;
+  text-transform: none;
+}
+
+.level-3 {
+  color: $mediumgray;
+  font-family: $main-font;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.level-1.expanded .mat-icon,
+.level-2.expanded .mat-icon {
+  @include rotate(90deg);
+}
+
+.level-1:not(.expanded) .mat-icon,
+.level-2:not(.expanded) .mat-icon {
+  @include rotate(0deg);
+}
