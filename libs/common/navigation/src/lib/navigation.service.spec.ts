@@ -8,7 +8,10 @@ import {
 
 import { Subject } from 'rxjs';
 
-import { NavigationService, navigationPath } from './navigation.service';
+import {
+  NavigationService,
+  DEFAULT_NAVIGATION_PATH,
+} from './navigation.service';
 import {
   NavigationViews,
   NavigationNode,
@@ -50,7 +53,7 @@ describe('NavigationService', () => {
   describe('navigationViews', () => {
     it('should make a single connection to the server', () => {
       const req = httpMock.expectOne({});
-      expect(req.request.url).toBe('generated/navigation.json');
+      expect(req.request.url).toBe('assets/navigation.json');
     });
 
     it('should expose the server response', () => {
@@ -68,7 +71,9 @@ describe('NavigationService', () => {
         complete: () => (completed = true),
       });
 
-      httpMock.expectOne({ method: 'get', url: navigationPath }).flush({});
+      httpMock
+        .expectOne({ method: 'get', url: DEFAULT_NAVIGATION_PATH })
+        .flush({});
       expect(completed).toBe(true);
     });
 

@@ -13,7 +13,7 @@ import {
 } from './navigation.model';
 import { LocationService } from './location.service';
 
-const DEFAULT_NAVIGATION_PATH = 'assets/navigation.json';
+export const DEFAULT_NAVIGATION_PATH = 'assets/navigation.json';
 export const NAVIGATION_PATH = new InjectionToken<string>('NavigationPath', {
   providedIn: 'root',
   factory: () => DEFAULT_NAVIGATION_PATH,
