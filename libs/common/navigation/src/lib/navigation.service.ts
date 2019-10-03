@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject, InjectionToken } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { combineLatest, ConnectableObservable, Observable } from 'rxjs';
@@ -13,7 +13,11 @@ import {
 } from './navigation.model';
 import { LocationService } from './location.service';
 
-export const navigationPath = 'assets/navigation.json';
+const DEFAULT_NAVIGATION_PATH = 'assets/navigation.json';
+export const NAVIGATION_PATH = new InjectionToken<string>('NavigationPath', {
+  providedIn: 'root',
+  factory: () => DEFAULT_NAVIGATION_PATH,
+});
 
 @Injectable()
 export class NavigationService {
@@ -21,7 +25,11 @@ export class NavigationService {
   versionInfo: Observable<VersionInfo>;
   currentNodes: Observable<CurrentNodes>;
 
-  constructor(private http: HttpClient, private location: LocationService) {
+  constructor(
+    private readonly http: HttpClient,
+    private readonly location: LocationService,
+    @Inject(NAVIGATION_PATH) private readonly navigationPath: string
+  ) {
     const navigationInfo = this.fetchNavigationInfo();
     this.navigationViews = this.getNavigationViews(navigationInfo);
     this.currentNodes = this.getCurrentNodes(this.navigationViews);
@@ -30,7 +38,7 @@ export class NavigationService {
 
   private fetchNavigationInfo(): Observable<NavigationResponse> {
     const navigationInfo = this.http
-      .get<NavigationResponse>(navigationPath)
+      .get<NavigationResponse>(this.navigationPath)
       .pipe(publishLast());
     (navigationInfo as ConnectableObservable<NavigationResponse>).connect();
     return navigationInfo;
