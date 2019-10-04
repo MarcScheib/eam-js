@@ -15,7 +15,7 @@
       "tags": ["type:app"]
     },
     "common-navigation": {
-      "tags": []
+      "tags": ["type:feature"]
     }
   }
 }

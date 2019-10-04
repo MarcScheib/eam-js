@@ -3,7 +3,13 @@
     {
       "title": "Projects",
       "tooltip": "Project Management",
-      "url": "projects"
+      "children": [
+        {
+          "title": "Overview",
+          "tooltip": "List all Projects",
+          "url": "projects"
+        }
+      ]
     }
   ]
 }

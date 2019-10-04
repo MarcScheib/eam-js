@@ -10,6 +10,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { NavigationModule } from '@eam-js/common/navigation';
 
+import { routes } from './routes';
+import { NotFoundModule } from './containers/not-found/not-found.module';
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -17,12 +19,13 @@ import { AppComponent } from './app.component';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    RouterModule.forRoot([]),
+    RouterModule.forRoot(routes, { useHash: true }),
     MatButtonModule,
     MatIconModule,
     MatSidenavModule,
     MatToolbarModule,
     NavigationModule,
+    NotFoundModule,
   ],
   declarations: [AppComponent],
   providers: [],

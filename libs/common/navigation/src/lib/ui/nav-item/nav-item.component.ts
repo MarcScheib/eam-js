@@ -11,6 +11,7 @@ import { NavigationNode } from '../../navigation.model';
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'nav-item',
   templateUrl: 'nav-item.component.html',
+  styleUrls: ['nav-item.component.scss'],
 })
 export class NavItemComponent implements OnChanges {
   @Input() node: NavigationNode;

@@ -6,6 +6,7 @@ import { CurrentNode, NavigationNode } from '../../navigation.model';
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'nav-menu',
   templateUrl: 'nav-menu.component.html',
+  styleUrls: ['nav-menu.component.scss'],
 })
 export class NavMenuComponent {
   @Input() currentNode: CurrentNode;

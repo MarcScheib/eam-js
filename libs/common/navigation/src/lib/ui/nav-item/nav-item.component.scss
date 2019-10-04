@@ -1,0 +1,97 @@
+:host {
+  display: block;
+}
+
+.vertical-menu-item {
+  box-sizing: border-box;
+  cursor: pointer;
+  display: block;
+  max-width: 260px;
+  overflow-wrap: break-word;
+  padding-left: 6px;
+  padding-top: 8px;
+  padding-bottom: 10px;
+  text-decoration: none;
+  text-align: left;
+  width: 90%;
+  word-wrap: break-word;
+
+  .mat-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 4px;
+  }
+}
+
+button.vertical-menu-item {
+  border: none;
+  background-color: transparent;
+  margin-right: 0;
+}
+
+.heading {
+  cursor: pointer;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.heading-children.expanded {
+  visibility: visible;
+  opacity: 1;
+  max-height: 4000px; // Arbitrary max-height. Can increase if needed. Must have measurement to transition height.
+  transition: visibility 500ms, opacity 500ms, max-height 500ms;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+}
+
+.heading-children.collapsed {
+  visibility: hidden;
+  opacity: 0;
+  max-height: 1px; // Must have measurement to transition height.
+  transition: visibility 275ms, opacity 275ms, max-height 280ms;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+.level-1 {
+  font-size: 14px;
+  font-weight: 400;
+  margin-left: 14px;
+  transition: background-color 0.2s;
+  text-transform: uppercase;
+}
+
+.level-2 {
+  font-size: 14px;
+  font-weight: 400;
+  margin-left: 12px;
+  text-transform: none;
+}
+
+.level-3 {
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.level-1.expanded .mat-icon,
+.level-2.expanded .mat-icon {
+  -moz-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+  transition: transform 150ms;
+  transition-timing-function: ease-in-out;
+}
+
+.level-1:not(.expanded) .mat-icon,
+.level-2:not(.expanded) .mat-icon {
+  -moz-transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+  transition: transform 150ms;
+  transition-timing-function: ease-in-out;
+}
