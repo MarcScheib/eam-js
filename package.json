@@ -52,7 +52,11 @@
     "reflect-metadata": "^0.1.12",
     "rxjs": "~6.4.0",
     "typeorm": "^0.2.19",
-    "zone.js": "^0.9.1"
+    "zone.js": "^0.9.1",
+    "@ngrx/store": "8.3.0",
+    "@ngrx/effects": "8.3.0",
+    "@ngrx/entity": "8.3.0",
+    "@ngrx/router-store": "8.3.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.803.3",
@@ -81,7 +85,9 @@
     "ts-jest": "24.0.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
-    "typescript": "~3.4.5"
+    "typescript": "~3.4.5",
+    "@ngrx/schematics": "8.3.0",
+    "@ngrx/store-devtools": "8.3.0"
   },
   "husky": {
     "hooks": {
