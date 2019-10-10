@@ -16,6 +16,9 @@
     },
     "common-navigation": {
       "tags": ["type:feature"]
+    },
+    "projects-feature-shell": {
+      "tags": ["type:feature"]
     }
   }
 }

@@ -16,7 +16,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@eam-js/common/navigation": ["libs/common/navigation/src/index.ts"]
+      "@eam-js/common/navigation": ["libs/common/navigation/src/index.ts"],
+      "@eam-js/projects/feature-shell": [
+        "libs/projects/feature-shell/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

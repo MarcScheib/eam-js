@@ -198,6 +198,37 @@
           "styleext": "scss"
         }
       }
+    },
+    "projects-feature-shell": {
+      "projectType": "library",
+      "root": "libs/projects/feature-shell",
+      "sourceRoot": "libs/projects/feature-shell/src",
+      "prefix": "eam-js",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/projects/feature-shell/tsconfig.lib.json",
+              "libs/projects/feature-shell/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/projects/feature-shell/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/projects/feature-shell/jest.config.js",
+            "tsConfig": "libs/projects/feature-shell/tsconfig.spec.json",
+            "setupFile": "libs/projects/feature-shell/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {
