@@ -21,16 +21,16 @@ $primary: map-get($app-theme, primary);
 $accent: map-get($app-theme, accent);
 $warn: map-get($app-theme, warn);
 
-.theme-text {
-  &.mat-primary {
+.mat-text {
+  &.primary {
     color: mat-color($primary);
   }
 
-  &.mat-accent {
+  &.accent {
     color: mat-color($accent);
   }
 
-  &.mat-warn {
+  &.warn {
     color: mat-color($warn);
   }
 }
