@@ -6,8 +6,8 @@ export const routes: Routes = [
   {
     path: 'projects',
     loadChildren: () =>
-      import('@eam-js/projects/feature-shell').then(
-        m => m.ProjectsFeatureShellModule
+      import('@eam-js/projects/overview-shell').then(
+        m => m.ProjectsOverviewShellModule
       ),
   },
   {
