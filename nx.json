@@ -19,6 +19,9 @@
     },
     "projects-overview-shell": {
       "tags": ["type:feature"]
+    },
+    "projects-api": {
+      "tags": ["type:data"]
     }
   }
 }
