@@ -10,6 +10,17 @@
           "url": "projects"
         }
       ]
+    },
+    {
+      "title": "Customers",
+      "tooltip": "Manage your customers",
+      "children": [
+        {
+          "title": "Overview",
+          "tooltip": "List all Customers",
+          "url": "customers"
+        }
+      ]
     }
   ]
 }
