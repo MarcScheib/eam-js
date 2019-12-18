@@ -16,12 +16,12 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@eam-js/components/*": ["libs/components/src/lib/*"],
       "@eam-js/common/navigation": ["libs/common/navigation/src/index.ts"],
       "@eam-js/projects/overview-shell": [
         "libs/projects/overview-shell/src/index.ts"
       ],
-      "@eam-js/projects/api": ["libs/projects/api/src/index.ts"],
-      "@eam-js/components": ["libs/components/src/index.ts"]
+      "@eam-js/projects/api": ["libs/projects/api/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

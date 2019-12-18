@@ -53,7 +53,7 @@
     "nx-enforce-module-boundaries": [
       true,
       {
-        "allow": [],
+        "allow": ["@eam-js/components/heading"],
         "depConstraints": [
           {
             "sourceTag": "type:app",
