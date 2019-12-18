@@ -4,6 +4,9 @@
   "telemetry.enableCrashReporter": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true
+  },
   "prettier.requireConfig": true,
   "prettier.singleQuote": true,
   "typescript.tsdk": "node_modules\\typescript\\lib"
