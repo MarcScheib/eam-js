@@ -22,6 +22,9 @@
     },
     "projects-api": {
       "tags": ["type:data"]
+    },
+    "components": {
+      "tags": []
     }
   }
 }

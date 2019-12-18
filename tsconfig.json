@@ -20,7 +20,8 @@
       "@eam-js/projects/overview-shell": [
         "libs/projects/overview-shell/src/index.ts"
       ],
-      "@eam-js/projects/api": ["libs/projects/api/src/index.ts"]
+      "@eam-js/projects/api": ["libs/projects/api/src/index.ts"],
+      "@eam-js/components": ["libs/components/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
