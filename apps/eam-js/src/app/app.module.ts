@@ -8,7 +8,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { NavigationModule } from '@eam-js/common/navigation';
-import { EntityDataModule } from '@ngrx/data';
+import { DefaultDataServiceConfig, EntityDataModule } from '@ngrx/data';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
@@ -46,6 +46,15 @@ import { NavigationStateModule } from './state/navigation/navigation-state.modul
     MatToolbarModule,
     NavigationModule,
     NotFoundModule,
+  ],
+  providers: [
+    {
+      provide: DefaultDataServiceConfig,
+      useValue: {
+        root: 'https://my-api-domain.com:8000/api/v1',
+        timeout: 3000,
+      },
+    },
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent],

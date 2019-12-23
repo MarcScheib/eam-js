@@ -1,17 +1,13 @@
 import { NgModule } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { readFirst } from '@nrwl/angular/testing';
-
+import { NavigationService } from '@eam-js/common/navigation';
 import { EffectsModule } from '@ngrx/effects';
-import { StoreModule, Store } from '@ngrx/store';
-
+import { Store, StoreModule } from '@ngrx/store';
 import { NxModule } from '@nrwl/angular';
-
+import { readFirst } from '@nrwl/angular/testing';
+import { of } from 'rxjs';
 import { NavigationFacade } from './navigation.facade';
-
-import { navigationQuery } from './navigation.selectors';
-import { ToggleSidenav } from './navigation.actions';
-import { NavigationState, initialState, reducer } from './navigation.reducer';
+import { initialState, NavigationState, reducer } from './navigation.reducer';
 
 interface TestSchema {
   navigation: NavigationState;
@@ -37,6 +33,12 @@ describe('NavigationFacade', () => {
           StoreModule.forRoot({}),
           EffectsModule.forRoot([]),
           CustomFeatureModule,
+        ],
+        providers: [
+          {
+            provide: NavigationService,
+            useValue: { navigationViews: of(null), currentNodes: of(null) },
+          },
         ],
       })
       class RootModule {}
