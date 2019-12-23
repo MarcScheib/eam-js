@@ -2,10 +2,14 @@
   display: block;
 
   & ~ * {
+    box-sizing: border-box;
     position: absolute;
     width: 100%;
-    box-sizing: border-box;
   }
+}
+
+.wrapper-content {
+  margin: 30px 20px 40px;
 }
 
 .mat-drawer-content {

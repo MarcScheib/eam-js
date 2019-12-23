@@ -17,17 +17,20 @@
     "common-navigation": {
       "tags": ["type:feature"]
     },
+    "components": {
+      "tags": ["type:ui"]
+    },
     "projects-overview-shell": {
       "tags": ["type:feature"]
     },
     "projects-api": {
-      "tags": ["type:data"]
-    },
-    "components": {
-      "tags": ["type:ui"]
+      "tags": ["type:api"]
     },
     "projects-data-access": {
       "tags": ["type:data-access"]
+    },
+    "projects-ui": {
+      "tags": ["type:ui"]
     }
   }
 }
