@@ -20,8 +20,8 @@
     >
       <nav-menu
         class="nav-menu"
-        [nodes]="sideNavNodes"
-        [currentNode]="currentSideNavNode"
+        [nodes]="sideNavNodes$ | async"
+        [currentNode]="currentSideNavNode$ | async"
       ></nav-menu>
     </mat-sidenav>
 

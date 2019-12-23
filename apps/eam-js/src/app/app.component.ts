@@ -1,54 +1,28 @@
 import {
-  Component,
-  OnInit,
-  HostListener,
   ChangeDetectionStrategy,
+  Component,
+  HostListener,
+  OnInit,
 } from '@angular/core';
-
-import {
-  NavigationNode,
-  CurrentNodes,
-  CurrentNode,
-  NavigationService,
-  NavigationViews,
-} from '@eam-js/common/navigation';
-
 import { NavigationFacade } from './state/navigation/navigation.facade';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'eam-js-shell',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
   isOpened$ = this.navigationFacade.isSidenavOpen$;
+  sideNavNodes$ = this.navigationFacade.sideNavNodes$;
+  currentSideNavNode$ = this.navigationFacade.currentSideNavNode$;
 
-  sideNavNodes: NavigationNode[];
-  currentNodes: CurrentNodes;
-  currentSideNavNode: CurrentNode;
   isSideBySide = false;
   private readonly sideBySideWidth = 992;
 
-  constructor(
-    private readonly navigationService: NavigationService,
-    private readonly navigationFacade: NavigationFacade
-  ) {}
+  constructor(private readonly navigationFacade: NavigationFacade) {}
 
   ngOnInit() {
-    this.navigationService.currentNodes.subscribe(
-      (currentNodes: CurrentNodes) => {
-        this.currentNodes = currentNodes;
-        this.currentSideNavNode = currentNodes
-          ? currentNodes['SideNav']
-          : undefined;
-      }
-    );
-    this.navigationService.navigationViews.subscribe(
-      (views: NavigationViews) => {
-        this.sideNavNodes = views['SideNav'] || [];
-      }
-    );
-
     this.onResize(window.innerWidth);
   }
 
