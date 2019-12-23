@@ -51,7 +51,7 @@ import { NavigationStateModule } from './state/navigation/navigation-state.modul
     {
       provide: DefaultDataServiceConfig,
       useValue: {
-        root: 'https://my-api-domain.com:8000/api/v1',
+        root: 'http://localhost:3333/api',
         timeout: 3000,
       },
     },
