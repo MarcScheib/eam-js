@@ -288,6 +288,37 @@
           "styleext": "scss"
         }
       }
+    },
+    "projects-data-access": {
+      "projectType": "library",
+      "root": "libs/projects/data-access",
+      "sourceRoot": "libs/projects/data-access/src",
+      "prefix": "eam-js",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/projects/data-access/tsconfig.lib.json",
+              "libs/projects/data-access/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/projects/data-access/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/projects/data-access/jest.config.js",
+            "tsConfig": "libs/projects/data-access/tsconfig.spec.json",
+            "setupFile": "libs/projects/data-access/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {

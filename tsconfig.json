@@ -21,7 +21,8 @@
       "@eam-js/projects/overview-shell": [
         "libs/projects/overview-shell/src/index.ts"
       ],
-      "@eam-js/projects/api": ["libs/projects/api/src/index.ts"]
+      "@eam-js/projects/api": ["libs/projects/api/src/index.ts"],
+      "@eam-js/projects/data-access": ["libs/projects/data-access/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

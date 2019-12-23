@@ -2,4 +2,4 @@
   <eamx-heading-title>Projects</eamx-heading-title>
 </eamx-heading>
 
-<p>project-overview works!</p>
+<p *ngFor="let project of projects$ | async">{{ project | json }}</p>
