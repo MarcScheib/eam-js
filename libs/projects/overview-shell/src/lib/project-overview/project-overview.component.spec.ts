@@ -1,13 +1,22 @@
+import { ProjectsService } from '@eam-js/projects/data-access';
+import { createComponentFactory, Spectator } from '@ngneat/spectator/jest';
 import { ProjectOverviewComponent } from './project-overview.component';
+import { ProjectOverviewModule } from './project-overview.module';
 
 describe('ProjectOverviewComponent', () => {
-  let component: ProjectOverviewComponent;
+  let spectator: Spectator<ProjectOverviewComponent>;
+  const createComponent = createComponentFactory({
+    component: ProjectOverviewComponent,
+    imports: [ProjectOverviewModule],
+    mocks: [ProjectsService],
+    declareComponent: false,
+  });
 
   beforeEach(() => {
-    component = new ProjectOverviewComponent();
+    spectator = createComponent();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(spectator.component).toBeTruthy();
   });
 });

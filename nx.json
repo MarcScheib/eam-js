@@ -24,10 +24,10 @@
       "tags": ["type:data"]
     },
     "components": {
-      "tags": []
+      "tags": ["type:ui"]
     },
     "projects-data-access": {
-      "tags": []
+      "tags": ["type:data-access"]
     }
   }
 }
