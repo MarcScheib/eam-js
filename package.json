@@ -46,6 +46,7 @@
     "@nestjs/jwt": "^6.1.1",
     "@nestjs/passport": "^6.1.1",
     "@nestjs/platform-express": "^6.10.12",
+    "@nestjs/swagger": "^4.0.9",
     "@nestjs/typeorm": "^6.2.0",
     "@ngrx/data": "^8.6.0",
     "@ngrx/effects": "8.6.0",
@@ -62,6 +63,7 @@
     "passport-jwt": "^4.0.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~6.5.3",
+    "swagger-ui-express": "^4.1.2",
     "typeorm": "^0.2.22",
     "zone.js": "^0.9.1"
   },

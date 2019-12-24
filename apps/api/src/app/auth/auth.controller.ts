@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-
+import { ApiTags } from '@nestjs/swagger';
 import { AuthContext, AuthService } from './auth.service';
 
 interface AuthCredentialsDTO {
@@ -8,6 +8,7 @@ interface AuthCredentialsDTO {
   password: string;
 }
 
+@ApiTags('auth')
 @Controller('auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
