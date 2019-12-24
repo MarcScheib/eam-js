@@ -1,13 +1,16 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ProjectsService } from '@eam-js/projects/data-access';
 
 @Component({
-  selector: 'eam-js-create-project',
+  selector: 'create-project',
   templateUrl: './create-project.component.html',
   styleUrls: ['./create-project.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CreateProjectComponent implements OnInit {
-  constructor() {}
+export class CreateProjectComponent {
+  constructor(private readonly projectsService: ProjectsService) {}
 
-  ngOnInit() {}
+  create() {
+    console.log('create project');
+  }
 }

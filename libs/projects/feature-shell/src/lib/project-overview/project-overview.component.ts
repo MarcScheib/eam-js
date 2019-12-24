@@ -15,8 +15,4 @@ export class ProjectOverviewComponent implements OnInit {
   ngOnInit() {
     this.projectsService.getAll();
   }
-
-  create() {
-    console.log('Create New Project');
-  }
 }

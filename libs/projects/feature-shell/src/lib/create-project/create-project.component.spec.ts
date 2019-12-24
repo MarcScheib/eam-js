@@ -1,24 +1,22 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ProjectsService } from '@eam-js/projects/data-access';
+import { createComponentFactory, Spectator } from '@ngneat/spectator/jest';
 import { CreateProjectComponent } from './create-project.component';
+import { CreateProjectModule } from './create-project.module';
 
 describe('CreateProjectComponent', () => {
-  let component: CreateProjectComponent;
-  let fixture: ComponentFixture<CreateProjectComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [CreateProjectComponent],
-    }).compileComponents();
-  }));
+  let spectator: Spectator<CreateProjectComponent>;
+  const createComponent = createComponentFactory({
+    component: CreateProjectComponent,
+    imports: [CreateProjectModule],
+    mocks: [ProjectsService],
+    declareComponent: false,
+  });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CreateProjectComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    spectator = createComponent();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(spectator.component).toBeTruthy();
   });
 });
