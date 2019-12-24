@@ -28,7 +28,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: npm install and test
-        run: |
-          npm install
-          npm run affected:test:all -- --passWithNoTests
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Test
+        run: npm run affected:test:all -- --passWithNoTests
