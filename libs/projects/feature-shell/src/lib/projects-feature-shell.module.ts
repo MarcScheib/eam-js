@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ProjectsDataAccessModule } from '@eam-js/projects/data-access';
 import { EntityDefinitionService } from '@ngrx/data';
+import { CreateProjectComponent } from './create-project/create-project.component';
+import { CreateProjectModule } from './create-project/create-project.module';
 import { ProjectOverviewComponent } from './project-overview/project-overview.component';
 import { ProjectOverviewModule } from './project-overview/project-overview.module';
 
@@ -10,10 +12,12 @@ import { ProjectOverviewModule } from './project-overview/project-overview.modul
   imports: [
     CommonModule,
     RouterModule.forChild([
+      { path: 'create', component: CreateProjectComponent },
       { path: '', pathMatch: 'full', component: ProjectOverviewComponent },
     ]),
     ProjectsDataAccessModule,
     ProjectOverviewModule,
+    CreateProjectModule,
   ],
 })
 export class ProjectsFeatureShellModule {
