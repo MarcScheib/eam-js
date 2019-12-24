@@ -13,6 +13,14 @@ export class ProjectOverviewComponent implements OnInit {
   constructor(private readonly projectsService: ProjectsService) {}
 
   ngOnInit() {
+    this.refresh();
+  }
+
+  refresh() {
     this.projectsService.getAll();
+  }
+
+  search() {
+    console.log('serach');
   }
 }

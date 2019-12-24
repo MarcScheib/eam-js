@@ -1,0 +1,11 @@
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+
+  mat-form-field {
+    width: 100%;
+    margin: 0 16px;
+  }
+}

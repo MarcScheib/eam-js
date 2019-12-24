@@ -9,6 +9,17 @@
 
 <mat-card class="wrapper-content">
   <mat-card-content>
+    <div class="search-bar">
+      <button mat-stroked-button color="accent" (click)="refresh()">
+        <mat-icon>refresh</mat-icon>
+      </button>
+      <mat-form-field>
+        <input matInput placeholder="Search for projects..." />
+      </mat-form-field>
+      <button mat-stroked-button color="accent" (click)="search()">
+        Search
+      </button>
+    </div>
     <project-list [projects]="projects$ | async"></project-list>
   </mat-card-content>
 </mat-card>
