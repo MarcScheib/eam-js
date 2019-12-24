@@ -199,31 +199,28 @@
         }
       }
     },
-    "projects-overview-shell": {
+    "projects-feature-shell": {
       "projectType": "library",
-      "root": "libs/projects/overview-shell",
-      "sourceRoot": "libs/projects/overview-shell/src",
+      "root": "libs/projects/feature-shell",
+      "sourceRoot": "libs/projects/feature-shell/src",
       "prefix": "eam-js",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/projects/overview-shell/tsconfig.lib.json",
-              "libs/projects/overview-shell/tsconfig.spec.json"
+              "libs/projects/feature-shell/tsconfig.lib.json",
+              "libs/projects/feature-shell/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/projects/overview-shell/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/projects/feature-shell/**"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/projects/overview-shell/jest.config.js",
-            "tsConfig": "libs/projects/overview-shell/tsconfig.spec.json",
-            "setupFile": "libs/projects/overview-shell/src/test-setup.ts"
+            "jestConfig": "libs/projects/feature-shell/jest.config.js",
+            "tsConfig": "libs/projects/feature-shell/tsconfig.spec.json",
+            "setupFile": "libs/projects/feature-shell/src/test-setup.ts"
           }
         }
       },

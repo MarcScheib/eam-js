@@ -20,7 +20,7 @@
     "components": {
       "tags": ["type:ui"]
     },
-    "projects-overview-shell": {
+    "projects-feature-shell": {
       "tags": ["type:feature"]
     },
     "projects-api": {
