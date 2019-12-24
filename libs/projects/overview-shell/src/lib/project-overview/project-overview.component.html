@@ -9,13 +9,6 @@
 
 <mat-card class="wrapper-content">
   <mat-card-content>
-    <project-list></project-list>
-    <div *ngIf="projects$ | async as projects; else noProjects">
-      <p *ngFor="let project of projects">{{ project | json }}</p>
-    </div>
+    <project-list [projects]="projects$ | async"></project-list>
   </mat-card-content>
 </mat-card>
-
-<ng-template #noProjects>
-  There are no projects available.
-</ng-template>

@@ -1,1 +1,7 @@
-<p>project-list works!</p>
+<div *ngIf="projects?.length; else noProjects">
+  <p *ngFor="let project of projects">{{ project | json }}</p>
+</div>
+
+<ng-template #noProjects>
+  There are no projects available.
+</ng-template>

@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { Project } from '@eam-js/projects/api';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -6,8 +7,6 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   templateUrl: './project-list.component.html',
   styleUrls: ['./project-list.component.scss'],
 })
-export class ProjectListComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit() {}
+export class ProjectListComponent {
+  @Input() projects: Project[];
 }
