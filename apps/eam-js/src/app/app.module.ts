@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -15,7 +15,9 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
+import { ErrorModule } from './containers/error/error.module';
 import { NotFoundModule } from './containers/not-found/not-found.module';
+import { CustomErrorHandler } from './custom-error-handler.service';
 import { routes } from './routes';
 import { NavigationStateModule } from './state/navigation/navigation-state.module';
 
@@ -45,9 +47,14 @@ import { NavigationStateModule } from './state/navigation/navigation-state.modul
     MatSidenavModule,
     MatToolbarModule,
     NavigationModule,
+    ErrorModule,
     NotFoundModule,
   ],
   providers: [
+    {
+      provide: ErrorHandler,
+      useClass: CustomErrorHandler,
+    },
     {
       provide: DefaultDataServiceConfig,
       useValue: {

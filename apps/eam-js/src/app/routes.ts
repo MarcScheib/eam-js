@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { ErrorComponent } from './containers/error/error.component';
 import { NotFoundComponent } from './containers/not-found/not-found.component';
 
 export const routes: Routes = [
@@ -11,6 +12,10 @@ export const routes: Routes = [
     data: {
       label: 'Projects',
     },
+  },
+  {
+    path: 'error',
+    component: ErrorComponent,
   },
   {
     path: '**',
