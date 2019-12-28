@@ -1,0 +1,26 @@
+.eamx-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  & > li a {
+    color: inherit;
+  }
+
+  .eamx-breadcrumb-item + .eamx-breadcrumb-item {
+    padding-left: 0.5rem;
+  }
+
+  .eamx-breadcrumb-item + .eamx-breadcrumb-item::before {
+    display: inline-block;
+    padding-right: 0.5rem;
+    color: #6c757d;
+    content: '/';
+  }
+
+  .eamx-breadcrumb-active > a {
+    font-weight: 600;
+  }
+}
