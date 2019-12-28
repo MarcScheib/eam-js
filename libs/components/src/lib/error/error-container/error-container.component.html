@@ -1,0 +1,37 @@
+<div *ngIf="errors?.length; else noErrors">
+  <div class="error-panel">
+    <div>
+      <button
+        mat-icon-button
+        color="primary"
+        [disabled]="index === 0"
+        (click)="previous()"
+      >
+        <mat-icon>navigate_before</mat-icon>
+      </button>
+      <span>Showing {{ index + 1 }} of {{ errors.length }}.</span>
+      <button
+        mat-icon-button
+        color="primary"
+        [disabled]="index === errors.length - 1"
+        (click)="next()"
+      >
+        <mat-icon>navigate_next</mat-icon>
+      </button>
+      <span>Occurred on {{ errors[index].timestamp | date }}.</span>
+    </div>
+    <div>
+      <p>{{ errors[index].message }}</p>
+      <pre>{{ errors[index].error.stack }}</pre>
+    </div>
+  </div>
+  <div class="error-actions">
+    <button mat-raised-button color="primary" (click)="clearAll.emit()">
+      Clear All
+    </button>
+  </div>
+</div>
+
+<ng-template #noErrors>
+  There were no errors recently.
+</ng-template>

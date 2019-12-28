@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { ErrorComponent } from './containers/error/error.component';
+import { ErrorViewComponent } from '@eam-js/components/error';
 import { NotFoundComponent } from './containers/not-found/not-found.component';
 
 export const routes: Routes = [
@@ -15,7 +15,7 @@ export const routes: Routes = [
   },
   {
     path: 'error',
-    component: ErrorComponent,
+    component: ErrorViewComponent,
   },
   {
     path: '**',

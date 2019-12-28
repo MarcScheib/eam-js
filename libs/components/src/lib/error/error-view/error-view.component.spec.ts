@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ErrorComponent } from './error.component';
+import { ErrorViewComponent } from './error-view.component';
 
-describe('ErrorComponent', () => {
-  let component: ErrorComponent;
-  let fixture: ComponentFixture<ErrorComponent>;
+describe('ErrorViewComponent', () => {
+  let component: ErrorViewComponent;
+  let fixture: ComponentFixture<ErrorViewComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ErrorComponent],
+      declarations: [ErrorViewComponent],
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ErrorComponent);
+    fixture = TestBed.createComponent(ErrorViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
