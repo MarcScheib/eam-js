@@ -2,8 +2,8 @@
 
 @import 'constants';
 
-$app-primary: mat-palette($mat-amber);
-$app-accent: mat-palette($mat-brown);
+$app-primary: mat-palette($mat-purple, 800);
+$app-accent: mat-palette($mat-amber);
 $app-warn: mat-palette($mat-red);
 
 $app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
