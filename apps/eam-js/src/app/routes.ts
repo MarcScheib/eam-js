@@ -8,6 +8,9 @@ export const routes: Routes = [
       import('@eam-js/projects/feature-shell').then(
         m => m.ProjectsFeatureShellModule
       ),
+    data: {
+      label: 'Projects',
+    },
   },
   {
     path: '**',

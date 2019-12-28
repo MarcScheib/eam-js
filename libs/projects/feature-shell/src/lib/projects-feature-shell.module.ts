@@ -12,8 +12,17 @@ import { ProjectOverviewModule } from './project-overview/project-overview.modul
   imports: [
     CommonModule,
     RouterModule.forChild([
-      { path: 'create', component: CreateProjectComponent },
-      { path: '', pathMatch: 'full', component: ProjectOverviewComponent },
+      {
+        path: 'create',
+        component: CreateProjectComponent,
+        data: { label: 'Create Project' },
+      },
+      {
+        path: '',
+        pathMatch: 'full',
+        component: ProjectOverviewComponent,
+        data: { label: 'Project Overview' },
+      },
     ]),
     ProjectsDataAccessModule,
     ProjectOverviewModule,
