@@ -9,7 +9,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { NavigationModule } from '@eam-js/common/navigation';
 import { ErrorsModule } from '@eam-js/components/error';
-import { DefaultDataServiceConfig, EntityDataModule } from '@ngrx/data';
+import { PluralHttpUrlGenerator } from '@eam-js/utilities';
+import {
+  DefaultDataServiceConfig,
+  EntityDataModule,
+  HttpUrlGenerator,
+} from '@ngrx/data';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
@@ -57,6 +62,7 @@ import { NavigationStateModule } from './state/navigation/navigation-state.modul
         timeout: 3000,
       },
     },
+    { provide: HttpUrlGenerator, useClass: PluralHttpUrlGenerator },
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent],

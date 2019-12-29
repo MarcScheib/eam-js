@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProjectsService } from '@eam-js/projects/data-access';
 
 @Component({
@@ -8,9 +9,23 @@ import { ProjectsService } from '@eam-js/projects/data-access';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CreateProjectComponent {
-  constructor(private readonly projectsService: ProjectsService) {}
+  createProjectForm: FormGroup;
+
+  constructor(
+    formBuilder: FormBuilder,
+    private readonly projectsService: ProjectsService
+  ) {
+    this.createProjectForm = formBuilder.group({
+      name: ['', Validators.required],
+      description: [''],
+    });
+  }
 
   create() {
-    console.log('create project');
+    if (!this.createProjectForm.valid) {
+      return;
+    }
+
+    this.projectsService.add(this.createProjectForm.value);
   }
 }
