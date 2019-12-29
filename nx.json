@@ -31,6 +31,9 @@
     },
     "projects-ui": {
       "tags": ["type:ui"]
+    },
+    "utilities": {
+      "tags": []
     }
   }
 }
