@@ -1,8 +1,9 @@
 import { Project } from '@eam-js/projects/api';
 import { Column, Entity, Index, PrimaryGeneratedColumn } from 'typeorm';
+import { TimestampEntity } from '../shared/timestamp.entity';
 
 @Entity()
-export class ProjectEntity implements Project {
+export class ProjectEntity extends TimestampEntity implements Project {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -12,4 +13,10 @@ export class ProjectEntity implements Project {
 
   @Column({ length: 255 })
   description: string;
+
+  @Column({
+    type: 'boolean',
+    default: () => true,
+  })
+  isActive: boolean;
 }

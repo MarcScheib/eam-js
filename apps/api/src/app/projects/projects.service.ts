@@ -20,7 +20,8 @@ export class ProjectsService {
   }
 
   create(project: Project): Promise<ProjectEntity> {
-    return this.projectsRepository.save(project);
+    const projectEntity = this.projectsRepository.create(project);
+    return this.projectsRepository.save(projectEntity);
   }
 
   delete(id: number): Promise<DeleteResult> {
