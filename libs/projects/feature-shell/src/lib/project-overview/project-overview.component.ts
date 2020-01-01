@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Project } from '@eam-js/projects/api';
 import { ProjectsService } from '@eam-js/projects/data-access';
 
 @Component({
@@ -22,5 +23,11 @@ export class ProjectOverviewComponent implements OnInit {
 
   search() {
     console.log('serach');
+  }
+
+  onDelete(project: Project) {
+    console.log(project);
+    console.dir(this.projectsService);
+    this.projectsService.delete(project.id);
   }
 }

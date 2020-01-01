@@ -1,0 +1,18 @@
+.project-table {
+  width: 100%;
+
+  .cdk-column-name {
+    a {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    small {
+      font-size: 0.8rem;
+    }
+  }
+
+  .cdk-column-actions a {
+    margin-right: 8px;
+  }
+}

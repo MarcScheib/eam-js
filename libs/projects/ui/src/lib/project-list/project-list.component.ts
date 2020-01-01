@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 import { Project } from '@eam-js/projects/api';
 
 @Component({
@@ -9,4 +15,12 @@ import { Project } from '@eam-js/projects/api';
 })
 export class ProjectListComponent {
   @Input() projects: Project[];
+
+  @Output() delete = new EventEmitter<Project>();
+
+  displayedColumns = ['ative', 'name', 'actions'];
+
+  deleteProject(project: Project) {
+    this.delete.emit(project);
+  }
 }

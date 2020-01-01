@@ -1,22 +1,31 @@
-import { Project } from '@eam-js/projects/api';
-import { Column, Entity, Index, PrimaryGeneratedColumn } from 'typeorm';
-import { TimestampEntity } from '../shared/timestamp.entity';
+import { CrudValidationGroups } from '@nestjsx/crud';
+import {
+  IsBoolean,
+  IsDefined,
+  IsOptional,
+  IsString,
+  MaxLength,
+} from 'class-validator';
+import { Column, Entity } from 'typeorm';
+import { BaseEntity } from '../base-entity';
 
-@Entity()
-export class ProjectEntity extends TimestampEntity implements Project {
-  @PrimaryGeneratedColumn()
-  id: number;
+const { CREATE, UPDATE } = CrudValidationGroups;
 
-  @Column({ length: 20 })
-  @Index()
+@Entity('projects')
+export class Project extends BaseEntity {
+  @IsOptional({ groups: [UPDATE] })
+  @IsDefined({ groups: [CREATE] })
+  @IsString({ always: true })
+  @MaxLength(100, { always: true })
+  @Column({ type: 'varchar', length: 100, nullable: false, unique: true })
   name: string;
 
-  @Column({ length: 255 })
+  @IsOptional({ always: true })
+  @Column({ type: 'text', nullable: true })
   description: string;
 
-  @Column({
-    type: 'boolean',
-    default: () => true,
-  })
+  @IsOptional({ always: true })
+  @IsBoolean({ always: true })
+  @Column({ type: 'boolean', default: true })
   isActive: boolean;
 }

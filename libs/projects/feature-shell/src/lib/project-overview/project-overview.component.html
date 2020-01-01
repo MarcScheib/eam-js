@@ -21,6 +21,9 @@
         Search
       </button>
     </div>
-    <project-list [projects]="projects$ | async"></project-list>
+    <project-list
+      [projects]="projects$ | async"
+      (delete)="onDelete($event)"
+    ></project-list>
   </mat-card-content>
 </mat-card>
