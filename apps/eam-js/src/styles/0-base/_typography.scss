@@ -34,3 +34,7 @@ $warn: map-get($app-theme, warn);
     color: mat-color($warn);
   }
 }
+
+a {
+  color: mat-color($primary);
+}
