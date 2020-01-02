@@ -1,9 +1,11 @@
 @import 'common';
 @import 'mixins';
+@import 'components/src/lib/theming';
 
 // specify theme
 @include mat-core;
 @include angular-material-theme($app-theme);
+@include eamx-components-theme($app-theme);
 
 // import directories
 @import './0-base/base-dir';

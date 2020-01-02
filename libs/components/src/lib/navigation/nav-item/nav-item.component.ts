@@ -1,8 +1,11 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  ElementRef,
   Input,
   OnChanges,
+  Renderer2,
+  ViewEncapsulation,
 } from '@angular/core';
 import { NavigationNode } from '../navigation.model';
 
@@ -11,6 +14,8 @@ import { NavigationNode } from '../navigation.model';
   selector: 'eamx-nav-item',
   templateUrl: 'nav-item.component.html',
   styleUrls: ['nav-item.component.scss'],
+  encapsulation: ViewEncapsulation.None,
+  host: { class: 'eamx-nav-item' },
 })
 export class NavItemComponent implements OnChanges {
   @Input() node: NavigationNode;
@@ -20,8 +25,12 @@ export class NavItemComponent implements OnChanges {
 
   isExpanded = false;
   isSelected = false;
-  classes: { [index: string]: boolean };
   nodeChildren: NavigationNode[];
+
+  childrenContainerClasses: { [index: string]: boolean };
+  itemClasses: { [index: string]: boolean };
+
+  constructor(private elementRef: ElementRef, private renderer: Renderer2) {}
 
   ngOnChanges(): void {
     this.nodeChildren =
@@ -41,12 +50,22 @@ export class NavItemComponent implements OnChanges {
   }
 
   setClasses(): void {
-    this.classes = {
-      ['level-' + this.level]: true,
+    this.childrenContainerClasses = {
       collapsed: !this.isExpanded,
       expanded: this.isExpanded,
       selected: this.isSelected,
     };
+
+    this.itemClasses = {
+      ['level-' + this.level]: true,
+      ...this.childrenContainerClasses,
+    };
+
+    if (this.level === 1 && this.isExpanded) {
+      this.renderer.addClass(this.elementRef.nativeElement, 'expanded');
+    } else if (this.level === 1 && !this.isExpanded) {
+      this.renderer.removeClass(this.elementRef.nativeElement, 'expanded');
+    }
   }
 
   headerClicked(): void {

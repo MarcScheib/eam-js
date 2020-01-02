@@ -1,9 +1,9 @@
 <div *ngIf="!node.children">
   <a
+    class="vertical-menu-item"
     routerLink="/{{ node.url }}"
     title="{{ node.tooltip }}"
-    class="vertical-menu-item"
-    [ngClass]="classes"
+    [ngClass]="itemClasses"
   >
     {{ node.title }}
   </a>
@@ -12,10 +12,10 @@
 <div *ngIf="node.children">
   <a
     *ngIf="node.url != null"
+    class="vertical-menu-item heading"
     routerLink="/{{ node.url }}"
     title="{{ node.tooltip }}"
-    class="vertical-menu-item heading"
-    [ngClass]="classes"
+    [ngClass]="itemClasses"
     (click)="headerClicked()"
   >
     {{ node.title }}
@@ -27,7 +27,7 @@
     type="button"
     title="{{ node.tooltip }}"
     class="vertical-menu-item heading"
-    [ngClass]="classes"
+    [ngClass]="itemClasses"
     [attr.aria-pressed]="isExpanded"
     (click)="headerClicked()"
   >
@@ -35,7 +35,7 @@
     <mat-icon class="rotating-icon">keyboard_arrow_right</mat-icon>
   </button>
 
-  <div class="heading-children" [ngClass]="classes">
+  <div class="heading-children" [ngClass]="childrenContainerClasses">
     <eamx-nav-item
       class="nav-item"
       *ngFor="let node of nodeChildren"

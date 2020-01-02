@@ -18,39 +18,3 @@
 .nav-menu {
   margin-top: 16px;
 }
-
-.vertical-menu-item {
-  color: $darkgray;
-
-  &:hover {
-    background-color: $lightgray;
-    color: mat-color($app-primary, 800);
-    text-shadow: 0 0 5px $white;
-  }
-
-  &:focus {
-    outline: mat-color($app-primary, 800) auto 2px;
-  }
-}
-
-.vertical-menu-item.selected {
-  color: mat-color($app-primary, 800);
-}
-
-.heading {
-  color: $darkgray;
-}
-
-.level-1 {
-  font-family: $main-font;
-}
-
-.level-2 {
-  color: $mediumgray;
-  font-family: $main-font;
-}
-
-.level-3 {
-  color: $mediumgray;
-  font-family: $main-font;
-}

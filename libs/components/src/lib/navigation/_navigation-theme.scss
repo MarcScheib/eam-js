@@ -1,0 +1,30 @@
+@mixin eamx-navigation-theme($theme) {
+  $primary: map-get($theme, primary);
+
+  .eamx-nav-menu > .eamx-nav-item {
+    border-left: 4px solid transparent;
+
+    &.expanded {
+      color: mat-color($primary, 800);
+      background-color: #f8f8f9;
+      border-left: 4px solid mat-color($primary, 800);
+    }
+  }
+
+  .eamx-nav-item {
+    .vertical-menu-item {
+      color: $darkgray;
+
+      &:hover,
+      &.selected {
+        font-weight: 600;
+        color: mat-color($primary, 800);
+        text-shadow: 0 0 5px $white;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}

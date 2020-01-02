@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  ViewEncapsulation,
+} from '@angular/core';
 import { CurrentNode, NavigationNode } from '../navigation.model';
 
 @Component({
@@ -6,6 +11,8 @@ import { CurrentNode, NavigationNode } from '../navigation.model';
   selector: 'eamx-nav-menu',
   templateUrl: 'nav-menu.component.html',
   styleUrls: ['nav-menu.component.scss'],
+  encapsulation: ViewEncapsulation.None,
+  host: { class: 'eamx-nav-menu' },
 })
 export class NavMenuComponent {
   @Input() currentNode: CurrentNode;

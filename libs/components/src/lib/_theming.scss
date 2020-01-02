@@ -1,0 +1,5 @@
+@import './navigation/navigation-theme';
+
+@mixin eamx-components-theme($theme) {
+  @include eamx-navigation-theme($theme);
+}
