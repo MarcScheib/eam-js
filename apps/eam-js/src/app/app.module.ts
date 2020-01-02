@@ -7,8 +7,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
-import { NavigationModule } from '@eam-js/common/navigation';
 import { ErrorsModule } from '@eam-js/components/error';
+import { NavigationModule } from '@eam-js/components/navigation';
 import { PluralHttpUrlGenerator } from '@eam-js/utilities';
 import {
   DefaultDataServiceConfig,

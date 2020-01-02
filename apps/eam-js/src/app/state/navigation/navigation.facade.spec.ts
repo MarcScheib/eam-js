@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { NavigationService } from '@eam-js/common/navigation';
+import { NavigationService } from '@eam-js/components/navigation';
 import { EffectsModule } from '@ngrx/effects';
 import { Store, StoreModule } from '@ngrx/store';
 import { NxModule } from '@nrwl/angular';

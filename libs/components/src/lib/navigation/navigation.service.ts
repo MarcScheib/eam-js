@@ -1,9 +1,8 @@
-import { Injectable, Inject, InjectionToken } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import { Inject, Injectable, InjectionToken } from '@angular/core';
 import { combineLatest, ConnectableObservable, Observable } from 'rxjs';
 import { map, publishLast, publishReplay } from 'rxjs/operators';
-
+import { LocationService } from './location.service';
 import {
   CurrentNodes,
   NavigationNode,
@@ -11,7 +10,6 @@ import {
   NavigationViews,
   VersionInfo,
 } from './navigation.model';
-import { LocationService } from './location.service';
 
 export const DEFAULT_NAVIGATION_PATH = 'assets/navigation.json';
 export const NAVIGATION_PATH = new InjectionToken<string>('NavigationPath', {

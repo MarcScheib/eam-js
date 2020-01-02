@@ -168,37 +168,6 @@
         }
       }
     },
-    "common-navigation": {
-      "projectType": "library",
-      "root": "libs/common/navigation",
-      "sourceRoot": "libs/common/navigation/src",
-      "prefix": "eam-js",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/common/navigation/tsconfig.lib.json",
-              "libs/common/navigation/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/common/navigation/**"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/common/navigation/jest.config.js",
-            "tsConfig": "libs/common/navigation/tsconfig.spec.json",
-            "setupFile": "libs/common/navigation/src/test-setup.ts"
-          }
-        }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "styleext": "scss"
-        }
-      }
-    },
     "projects-feature-shell": {
       "projectType": "library",
       "root": "libs/projects/feature-shell",

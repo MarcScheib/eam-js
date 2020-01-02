@@ -36,13 +36,13 @@
   </button>
 
   <div class="heading-children" [ngClass]="classes">
-    <nav-item
+    <eamx-nav-item
       class="nav-item"
       *ngFor="let node of nodeChildren"
       [level]="level + 1"
       [node]="node"
       [isParentExpanded]="isExpanded"
       [selectedNodes]="selectedNodes"
-    ></nav-item>
+    ></eamx-nav-item>
   </div>
 </div>

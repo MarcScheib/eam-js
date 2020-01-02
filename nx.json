@@ -14,9 +14,6 @@
     "api": {
       "tags": ["type:app"]
     },
-    "common-navigation": {
-      "tags": ["type:feature"]
-    },
     "components": {
       "tags": ["type:ui"]
     },
@@ -33,7 +30,7 @@
       "tags": ["type:ui"]
     },
     "utilities": {
-      "tags": []
+      "tags": ["type:util"]
     }
   }
 }

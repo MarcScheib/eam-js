@@ -17,7 +17,6 @@
     "baseUrl": ".",
     "paths": {
       "@eam-js/components/*": ["libs/components/src/lib/*"],
-      "@eam-js/common/navigation": ["libs/common/navigation/src/index.ts"],
       "@eam-js/projects/feature-shell": [
         "libs/projects/feature-shell/src/index.ts"
       ],

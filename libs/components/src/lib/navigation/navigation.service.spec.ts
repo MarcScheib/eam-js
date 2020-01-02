@@ -1,24 +1,22 @@
-import { TestBed } from '@angular/core/testing';
-import { Router, NavigationEnd } from '@angular/router';
-import { RouterTestingModule } from '@angular/router/testing';
 import {
   HttpClientTestingModule,
   HttpTestingController,
 } from '@angular/common/http/testing';
-
+import { TestBed } from '@angular/core/testing';
+import { NavigationEnd, Router } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 import { Subject } from 'rxjs';
-
 import {
-  NavigationService,
-  DEFAULT_NAVIGATION_PATH,
-} from './navigation.service';
-import {
-  NavigationViews,
-  NavigationNode,
   CurrentNodes,
+  NavigationNode,
+  NavigationViews,
   VersionInfo,
 } from './navigation.model';
 import { NavigationModule } from './navigation.module';
+import {
+  DEFAULT_NAVIGATION_PATH,
+  NavigationService,
+} from './navigation.service';
 
 describe('NavigationService', () => {
   let navService: NavigationService;

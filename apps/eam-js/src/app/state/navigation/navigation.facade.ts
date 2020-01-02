@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { NavigationService } from '@eam-js/common/navigation';
+import { NavigationService } from '@eam-js/components/navigation';
 import { select, Store } from '@ngrx/store';
 import { pluck } from 'rxjs/operators';
 import { ToggleSidenav } from './navigation.actions';

@@ -1,12 +1,11 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
 import { MatIconModule } from '@angular/material';
-
-import { NavItemComponent } from './ui/nav-item/nav-item.component';
-import { NavMenuComponent } from './ui/nav-menu/nav-menu.component';
-import { NavigationService } from './navigation.service';
+import { RouterModule } from '@angular/router';
 import { LocationService } from './location.service';
+import { NavItemComponent } from './nav-item/nav-item.component';
+import { NavMenuComponent } from './nav-menu/nav-menu.component';
+import { NavigationService } from './navigation.service';
 
 @NgModule({
   imports: [CommonModule, RouterModule, MatIconModule],

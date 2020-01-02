@@ -4,12 +4,11 @@ import {
   Input,
   OnChanges,
 } from '@angular/core';
-
-import { NavigationNode } from '../../navigation.model';
+import { NavigationNode } from '../navigation.model';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  selector: 'nav-item',
+  selector: 'eamx-nav-item',
   templateUrl: 'nav-item.component.html',
   styleUrls: ['nav-item.component.scss'],
 })
