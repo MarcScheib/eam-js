@@ -9,6 +9,8 @@ import { ProjectsService } from '@eam-js/projects/data-access';
   styleUrls: ['./project-overview.component.scss'],
 })
 export class ProjectOverviewComponent implements OnInit {
+  errors$ = this.projectsService.errors$;
+  loading$ = this.projectsService.loading$;
   projects$ = this.projectsService.entities$;
 
   constructor(private readonly projectsService: ProjectsService) {}
@@ -26,8 +28,6 @@ export class ProjectOverviewComponent implements OnInit {
   }
 
   onDelete(project: Project) {
-    console.log(project);
-    console.dir(this.projectsService);
     this.projectsService.delete(project.id);
   }
 }

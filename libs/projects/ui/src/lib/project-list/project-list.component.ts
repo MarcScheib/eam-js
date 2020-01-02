@@ -14,6 +14,7 @@ import { Project } from '@eam-js/projects/api';
   styleUrls: ['./project-list.component.scss'],
 })
 export class ProjectListComponent {
+  @Input() loading = false;
   @Input() projects: Project[];
 
   @Output() delete = new EventEmitter<Project>();

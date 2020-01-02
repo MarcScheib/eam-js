@@ -22,6 +22,7 @@
       </button>
     </div>
     <project-list
+      [loading]="loading$ | async"
       [projects]="projects$ | async"
       (delete)="onDelete($event)"
     ></project-list>
