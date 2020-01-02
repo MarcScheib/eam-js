@@ -1,6 +1,11 @@
 {
   "SideNav": [
     {
+      "title": "Dashboard",
+      "tooltip": "Go to the main Dashboard",
+      "url": ""
+    },
+    {
       "title": "Projects",
       "tooltip": "Project Management",
       "children": [
