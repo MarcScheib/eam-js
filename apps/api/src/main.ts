@@ -3,10 +3,11 @@
  * This is only a minimal backend to get started.
  **/
 import { NestFactory } from '@nestjs/core';
-import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import * as compression from 'compression';
 import * as helmet from 'helmet';
 import { AppModule } from './app/app.module';
+import { environment } from './environments/environment';
+import { setupSwagger } from './swagger';
 
 const globalPrefix = 'api';
 
@@ -18,13 +19,9 @@ async function bootstrap() {
   app.use(helmet());
   app.use(compression());
 
-  const options = new DocumentBuilder()
-    .setTitle('EAM-JS API')
-    .setDescription('The EAM-JS API description')
-    .setVersion('1.0')
-    .build();
-  const document = SwaggerModule.createDocument(app, options);
-  SwaggerModule.setup('docs', app, document);
+  if (!environment.production) {
+    setupSwagger(app);
+  }
 
   const port = process.env.port || 3333;
   await app.listen(port, () => {
