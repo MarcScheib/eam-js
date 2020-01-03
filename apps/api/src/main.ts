@@ -4,12 +4,19 @@
  **/
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import * as compression from 'compression';
+import * as helmet from 'helmet';
 import { AppModule } from './app/app.module';
 
+const globalPrefix = 'api';
+
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule, { cors: true });
-  const globalPrefix = 'api';
+  const app = await NestFactory.create(AppModule, {
+    cors: true,
+  });
   app.setGlobalPrefix(globalPrefix);
+  app.use(helmet());
+  app.use(compression());
 
   const options = new DocumentBuilder()
     .setTitle('EAM-JS API')
@@ -21,7 +28,7 @@ async function bootstrap() {
 
   const port = process.env.port || 3333;
   await app.listen(port, () => {
-    console.log('Listening at http://localhost:' + port + '/' + globalPrefix);
+    console.log(`Listening at http://localhost:${port}/${globalPrefix}`);
   });
 }
 
