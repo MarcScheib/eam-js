@@ -10,6 +10,10 @@
       [formGroup]="createProjectForm"
       (ngSubmit)="create()"
     >
+      <p *ngIf="error$ | async as error" class="mat-text warn">
+        {{ error }}
+      </p>
+
       <mat-form-field class="form--input-full-width">
         <input matInput placeholder="Name" formControlName="name" />
       </mat-form-field>
@@ -22,7 +26,12 @@
         ></textarea>
       </mat-form-field>
 
-      <button type="submit" mat-raised-button color="primary">
+      <button
+        type="submit"
+        mat-raised-button
+        color="primary"
+        [disabled]="loading$ | async"
+      >
         Create Project
       </button>
     </form>

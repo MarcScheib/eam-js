@@ -9,7 +9,6 @@ import { ProjectsService } from '@eam-js/projects/data-access';
   styleUrls: ['./project-overview.component.scss'],
 })
 export class ProjectOverviewComponent implements OnInit {
-  errors$ = this.projectsService.errors$;
   loading$ = this.projectsService.loading$;
   projects$ = this.projectsService.entities$;
 
@@ -24,7 +23,7 @@ export class ProjectOverviewComponent implements OnInit {
   }
 
   search() {
-    console.log('serach');
+    console.log('search');
   }
 
   onDelete(project: Project) {

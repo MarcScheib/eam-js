@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { RouterModule } from '@angular/router';
 import { BreadcrumbModule } from '@eam-js/components/breadcrumb';
 import { HeadingModule } from '@eam-js/components/heading';
 import { CreateProjectComponent } from './create-project.component';
@@ -13,6 +14,7 @@ import { CreateProjectComponent } from './create-project.component';
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    RouterModule,
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
