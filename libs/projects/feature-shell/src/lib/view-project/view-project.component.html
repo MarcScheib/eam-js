@@ -8,7 +8,7 @@
   </eamx-heading-actions>
 </eamx-heading>
 
-<mat-card class="wrapper-content">
-  <mat-card-header>Project</mat-card-header>
+<mat-card class="wrapper-content" *ngIf="project$ | async as project">
+  <mat-card-header>{{ project.name }}</mat-card-header>
   <mat-card-content>Blubbber</mat-card-content>
 </mat-card>
