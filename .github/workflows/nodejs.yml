@@ -8,7 +8,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x, 13.x]
+        node-version: [12.x]
 
     steps:
       - uses: actions/checkout@v1
@@ -32,4 +32,4 @@ jobs:
         run: npm install
 
       - name: Test
-        run: npm run affected:test:all -- --passWithNoTests
+        run: npm run affected:test -- --parallel --maxParallel=5 --passWithNoTests
