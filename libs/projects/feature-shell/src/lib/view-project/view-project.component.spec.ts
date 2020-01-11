@@ -1,24 +1,21 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { RouterTestingModule } from '@angular/router/testing';
+import { createComponentFactory, Spectator } from '@ngneat/spectator/jest';
 import { ViewProjectComponent } from './view-project.component';
+import { ViewProjectModule } from './view-project.module';
 
 describe('ViewProjectComponent', () => {
-  let component: ViewProjectComponent;
-  let fixture: ComponentFixture<ViewProjectComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ViewProjectComponent],
-    }).compileComponents();
-  }));
+  let spectator: Spectator<ViewProjectComponent>;
+  const createComponent = createComponentFactory({
+    component: ViewProjectComponent,
+    imports: [RouterTestingModule, ViewProjectModule],
+    declareComponent: false,
+  });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ViewProjectComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    spectator = createComponent();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(spectator.component).toBeTruthy();
   });
 });
