@@ -8,13 +8,7 @@
     {
       "title": "Projects",
       "tooltip": "Project Management",
-      "children": [
-        {
-          "title": "Overview",
-          "tooltip": "List all Projects",
-          "url": "projects"
-        }
-      ]
+      "url": "projects"
     },
     {
       "title": "Customers",

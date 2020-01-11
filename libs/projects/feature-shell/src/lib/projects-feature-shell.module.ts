@@ -7,6 +7,8 @@ import { CreateProjectComponent } from './create-project/create-project.componen
 import { CreateProjectModule } from './create-project/create-project.module';
 import { ProjectOverviewComponent } from './project-overview/project-overview.component';
 import { ProjectOverviewModule } from './project-overview/project-overview.module';
+import { ViewProjectComponent } from './view-project/view-project.component';
+import { ViewProjectModule } from './view-project/view-project.module';
 
 @NgModule({
   imports: [
@@ -15,18 +17,24 @@ import { ProjectOverviewModule } from './project-overview/project-overview.modul
       {
         path: 'create',
         component: CreateProjectComponent,
-        data: { label: 'Create Project' },
+        data: { label: 'Create' },
+      },
+      {
+        path: ':id',
+        component: ViewProjectComponent,
+        data: { label: 'View' },
       },
       {
         path: '',
         pathMatch: 'full',
         component: ProjectOverviewComponent,
-        data: { label: 'Project Overview' },
+        data: { label: 'Overview' },
       },
     ]),
     ProjectsDataAccessModule,
     ProjectOverviewModule,
     CreateProjectModule,
+    ViewProjectModule,
   ],
 })
 export class ProjectsFeatureShellModule {
