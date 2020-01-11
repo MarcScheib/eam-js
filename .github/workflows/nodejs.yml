@@ -32,4 +32,4 @@ jobs:
         run: npm install
 
       - name: Test
-        run: npm run affected:test -- --parallel --maxParallel=5 --passWithNoTests
+        run: npm run affected:test -- --parallel --maxParallel=5 --passWithNoTests --base=remotes/origin/master
