@@ -4,15 +4,15 @@ import {
   HostListener,
   OnInit,
 } from '@angular/core';
-import { NavigationFacade } from './state/navigation/navigation.facade';
+import { NavigationFacade } from '../../state/navigation/navigation.facade';
 
 @Component({
+  selector: 'app-shell',
+  templateUrl: './app-shell.component.html',
+  styleUrls: ['./app-shell.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  selector: 'eam-js-shell',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppShellComponent implements OnInit {
   isOpened$ = this.navigationFacade.isSidenavOpen$;
   sideNavNodes$ = this.navigationFacade.sideNavNodes$;
   currentSideNavNode$ = this.navigationFacade.currentSideNavNode$;

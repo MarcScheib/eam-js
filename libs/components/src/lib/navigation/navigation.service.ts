@@ -17,7 +17,7 @@ export const NAVIGATION_PATH = new InjectionToken<string>('NavigationPath', {
   factory: () => DEFAULT_NAVIGATION_PATH,
 });
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class NavigationService {
   navigationViews: Observable<NavigationViews>;
   versionInfo: Observable<VersionInfo>;

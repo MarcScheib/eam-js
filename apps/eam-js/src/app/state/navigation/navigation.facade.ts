@@ -6,7 +6,7 @@ import { ToggleSidenav } from './navigation.actions';
 import { NavigationPartialState } from './navigation.reducer';
 import { navigationQuery } from './navigation.selectors';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class NavigationFacade {
   isSidenavOpen$ = this.store$.pipe(select(navigationQuery.isShowSidenav));
   sideNavNodes$ = this.navigationService.navigationViews.pipe(pluck('SideNav'));

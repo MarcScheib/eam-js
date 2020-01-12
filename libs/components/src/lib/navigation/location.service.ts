@@ -3,7 +3,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { ReplaySubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class LocationService {
   private urlSubject = new ReplaySubject<string>(1);
 
