@@ -4,7 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { ErrorsModule } from '@eam-js/components/error';
-import { PluralHttpUrlGenerator } from '@eam-js/utilities';
+import {
+  LocalStorageService,
+  PluralHttpUrlGenerator,
+  storageMetaReducer,
+} from '@eam-js/utilities';
 import {
   DefaultDataServiceConfig,
   EntityDataModule,
@@ -12,7 +16,7 @@ import {
 } from '@ngrx/data';
 import { EffectsModule } from '@ngrx/effects';
 import { RouterState, StoreRouterConnectingModule } from '@ngrx/router-store';
-import { StoreModule } from '@ngrx/store';
+import { MetaReducer, StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { AppShellComponent } from './containers/app-shell/app-shell.component';
@@ -20,6 +24,14 @@ import { AppShellModule } from './containers/app-shell/app-shell.module';
 import { NotFoundModule } from './containers/not-found/not-found.module';
 import { routes } from './routes';
 import { NavigationStateModule } from './state/navigation/navigation-state.module';
+
+export function getMetaReducers(
+  saveKeys: string[],
+  localStorageKey: string,
+  storageService: LocalStorageService
+): MetaReducer<any>[] {
+  return [storageMetaReducer(saveKeys, localStorageKey, storageService)];
+}
 
 @NgModule({
   imports: [
