@@ -6,6 +6,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
 import { NavigationModule } from '@eam-js/components/navigation';
+import { LoggedInUserMenuModule } from '@eam-js/users/ui';
 import { AppShellComponent } from './app-shell.component';
 
 @NgModule({
@@ -17,6 +18,7 @@ import { AppShellComponent } from './app-shell.component';
     MatSidenavModule,
     MatToolbarModule,
     NavigationModule,
+    LoggedInUserMenuModule,
   ],
   declarations: [AppShellComponent],
   exports: [AppShellComponent],
