@@ -1,8 +1,8 @@
 html,
 body {
   height: 100%;
+  width: 100%;
   margin: 0;
-  padding: 0;
 }
 
 .main-app-container {
@@ -15,13 +15,6 @@ body {
   right: 0;
 }
 
-.sidenav {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-}
-
-.sidenav-container {
+.app-sidenav-container {
   background-color: $backgroundgray;
-  flex: 1;
 }

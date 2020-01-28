@@ -1,20 +1,4 @@
-.mat-sidenav.sidenav {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  padding: 0;
-  min-width: 260px;
-  background-color: $white;
+.mat-sidenav.app-sidenav {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2),
     0 1px 5px 0 rgba(0, 0, 0, 0.12);
-  height: calc(100vh - 64px);
-
-  &.collapsed {
-    top: 56px;
-  }
-}
-
-.nav-menu {
-  margin-top: 16px;
 }

@@ -10,23 +10,21 @@
   <div class="flex-spacer"></div>
 </mat-toolbar>
 
-<div class="sidenav">
-  <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav
-      #sidenav
-      class="sidenav"
-      [opened]="isOpened$ | async"
-      [mode]="mode"
-    >
-      <eamx-nav-menu
-        class="nav-menu"
-        [nodes]="sideNavNodes$ | async"
-        [currentNode]="currentSideNavNode$ | async"
-      ></eamx-nav-menu>
-    </mat-sidenav>
+<mat-sidenav-container class="app-sidenav-container">
+  <mat-sidenav
+    #sidenav
+    class="app-sidenav"
+    [opened]="isOpened$ | async"
+    [mode]="mode"
+  >
+    <eamx-nav-menu
+      class="nav-menu"
+      [nodes]="sideNavNodes$ | async"
+      [currentNode]="currentSideNavNode$ | async"
+    ></eamx-nav-menu>
+  </mat-sidenav>
 
-    <mat-sidenav-content>
-      <router-outlet class="root-router-outlet" #o="outlet"></router-outlet>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-</div>
+  <mat-sidenav-content>
+    <router-outlet class="root-router-outlet" #o="outlet"></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,37 @@
+.app-toolbar {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+
+  .nav-link {
+    padding: 8px 16px;
+
+    &:focus {
+      border-radius: 4px;
+      outline: none;
+    }
+  }
+
+  .flex-spacer {
+    flex-grow: 1;
+  }
+}
+
+.app-sidenav-container {
+  flex: 1;
+
+  .nav-menu {
+    margin-top: 16px;
+  }
+}
+
+.root-router-outlet {
+  display: block;
+
+  & ~ * {
+    box-sizing: border-box;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
+}
