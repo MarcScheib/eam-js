@@ -58,6 +58,7 @@
           {
             "sourceTag": "type:app",
             "onlyDependOnLibsWithTags": [
+              "type:lib",
               "type:data-access",
               "type:api",
               "type:feature",
@@ -68,6 +69,7 @@
           {
             "sourceTag": "type:data-access",
             "onlyDependOnLibsWithTags": [
+              "type:lib",
               "type:data-access",
               "type:api",
               "type:util"
@@ -76,6 +78,7 @@
           {
             "sourceTag": "type:feature",
             "onlyDependOnLibsWithTags": [
+              "type:lib",
               "type:data-access",
               "type:api",
               "type:ui",

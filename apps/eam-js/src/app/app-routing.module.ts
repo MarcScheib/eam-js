@@ -1,4 +1,5 @@
-import { Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 import { ErrorViewComponent } from '@eam-js/components/error';
 import { NotFoundComponent } from './containers/not-found/not-found.component';
 
@@ -22,3 +23,13 @@ export const routes: Routes = [
     component: NotFoundComponent,
   },
 ];
+
+@NgModule({
+  imports: [
+    RouterModule.forRoot(routes, {
+      useHash: true,
+    }),
+  ],
+  exports: [RouterModule],
+})
+export class AppRoutingModule {}

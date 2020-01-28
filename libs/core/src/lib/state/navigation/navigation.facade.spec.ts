@@ -7,7 +7,8 @@ import { NxModule } from '@nrwl/angular';
 import { readFirst } from '@nrwl/angular/testing';
 import { of } from 'rxjs';
 import { NavigationFacade } from './navigation.facade';
-import { initialState, NavigationState, reducer } from './navigation.reducer';
+import { initialState, navigationReducer } from './navigation.reducer';
+import { NavigationState } from './navigation.state';
 
 interface TestSchema {
   navigation: NavigationState;
@@ -21,7 +22,9 @@ describe('NavigationFacade', () => {
     beforeEach(() => {
       @NgModule({
         imports: [
-          StoreModule.forFeature('navigation', reducer, { initialState }),
+          StoreModule.forFeature('navigation', navigationReducer, {
+            initialState,
+          }),
         ],
         providers: [NavigationFacade],
       })

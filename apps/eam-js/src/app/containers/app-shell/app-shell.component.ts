@@ -4,7 +4,7 @@ import {
   HostListener,
   OnInit,
 } from '@angular/core';
-import { NavigationFacade } from '../../state/navigation/navigation.facade';
+import { NavigationFacade } from '@eam-js/core';
 
 @Component({
   selector: 'app-shell',

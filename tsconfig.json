@@ -25,7 +25,8 @@
         "libs/projects/data-access/src/index.ts"
       ],
       "@eam-js/projects/ui": ["libs/projects/ui/src/index.ts"],
-      "@eam-js/utilities": ["libs/utilities/src/index.ts"]
+      "@eam-js/utilities": ["libs/utilities/src/index.ts"],
+      "@eam-js/core": ["libs/core/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

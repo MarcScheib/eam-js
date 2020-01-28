@@ -31,6 +31,9 @@
     },
     "utilities": {
       "tags": ["type:util"]
+    },
+    "core": {
+      "tags": ["type:lib"]
     }
   }
 }
