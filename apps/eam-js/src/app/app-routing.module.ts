@@ -17,10 +17,16 @@ export const routes: Routes = [
   {
     path: 'error',
     component: ErrorViewComponent,
+    data: {
+      label: 'Error',
+    },
   },
   {
     path: '**',
     component: NotFoundComponent,
+    data: {
+      label: '404 Not Found',
+    },
   },
 ];
 

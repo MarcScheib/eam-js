@@ -3,9 +3,12 @@
     <mat-icon>menu</mat-icon>
   </button>
 
-  <a class="nav-link" routerLink="/" [ngSwitch]="isSideBySide">
-    <span *ngSwitchCase="true"></span>
+  <a class="nav-title nav-link" routerLink="/" *ngIf="isSideBySide">
+    Enterprise Administration & Management
   </a>
+  <span class="nav-sub-title" *ngIf="isSideBySide">
+    {{ viewTitle$ | async }}
+  </span>
 
   <div class="flex-spacer"></div>
   <logged-in-user-menu></logged-in-user-menu>

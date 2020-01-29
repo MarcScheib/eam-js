@@ -4,7 +4,7 @@ import {
   HostListener,
   OnInit,
 } from '@angular/core';
-import { NavigationFacade } from '@eam-js/core';
+import { ApplicationFacade, NavigationFacade } from '@eam-js/core';
 
 @Component({
   selector: 'app-shell',
@@ -13,6 +13,7 @@ import { NavigationFacade } from '@eam-js/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppShellComponent implements OnInit {
+  viewTitle$ = this.applicationFacade.viewTitle$;
   isOpened$ = this.navigationFacade.isSidenavOpen$;
   sideNavNodes$ = this.navigationFacade.sideNavNodes$;
   currentSideNavNode$ = this.navigationFacade.currentSideNavNode$;
@@ -20,7 +21,10 @@ export class AppShellComponent implements OnInit {
   isSideBySide = false;
   private readonly sideBySideWidth = 992;
 
-  constructor(private readonly navigationFacade: NavigationFacade) {}
+  constructor(
+    private readonly applicationFacade: ApplicationFacade,
+    private readonly navigationFacade: NavigationFacade
+  ) {}
 
   ngOnInit() {
     this.onResize(window.innerWidth);
