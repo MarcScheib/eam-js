@@ -10,6 +10,7 @@ import { RouterState, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { PluralHttpUrlGenerator } from './entity-data/plural-http-url-generator';
+import { AppEffects } from './state/app/app.effects';
 import { reducers } from './state/core.state';
 
 @NgModule({
@@ -23,7 +24,7 @@ import { reducers } from './state/core.state';
         strictStateSerializability: false,
       },
     }),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([AppEffects]),
     EntityDataModule.forRoot({}),
     StoreDevtoolsModule.instrument({
       name: 'StableNet Store DevTools',

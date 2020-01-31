@@ -1,40 +1,39 @@
-import {
-  getSelectors,
-  routerReducer,
-  RouterReducerState,
-} from '@ngrx/router-store';
+import { routerReducer, RouterReducerState } from '@ngrx/router-store';
 import { ActionReducerMap, createFeatureSelector } from '@ngrx/store';
+import { appReducer } from './app/app.reducer';
+import { AppState } from './app/app.state';
 import { navigationReducer } from './navigation/navigation.reducer';
 import { NavigationState } from './navigation/navigation.state';
 import { RouterStateUrl } from './router/router.state';
 import { settingsReducer } from './settings/settings.reducer';
 import { SettingsState } from './settings/settings.state';
 
-export interface AppState {
+export interface State {
+  app: AppState;
   settings: SettingsState;
   navigation: NavigationState;
   router: RouterReducerState<RouterStateUrl>;
 }
 
-export const reducers: ActionReducerMap<AppState> = {
+export const reducers: ActionReducerMap<State> = {
+  app: appReducer,
   settings: settingsReducer,
   navigation: navigationReducer,
   router: routerReducer,
 };
 
-export const selectSettingsState = createFeatureSelector<
-  AppState,
-  SettingsState
->('settings');
+export const selectAppState = createFeatureSelector<State, AppState>('app');
+
+export const selectSettingsState = createFeatureSelector<State, SettingsState>(
+  'settings'
+);
 
 export const selectNavigationState = createFeatureSelector<
-  AppState,
+  State,
   NavigationState
 >('navigation');
 
 export const selectRouterState = createFeatureSelector<
-  AppState,
+  State,
   RouterReducerState<RouterStateUrl>
 >('router');
-
-export const routerSelectors = getSelectors(selectRouterState);

@@ -5,7 +5,7 @@ import {
   OnInit,
   ViewEncapsulation,
 } from '@angular/core';
-import { ApplicationFacade, NavigationFacade } from '@eam-js/core';
+import { AppFacade, NavigationFacade } from '@eam-js/core';
 
 @Component({
   selector: 'app-shell',
@@ -15,8 +15,8 @@ import { ApplicationFacade, NavigationFacade } from '@eam-js/core';
   encapsulation: ViewEncapsulation.None,
 })
 export class AppShellComponent implements OnInit {
-  viewTitle$ = this.applicationFacade.viewTitle$;
-  isOpened$ = this.navigationFacade.isSidenavOpen$;
+  viewTitle$ = this.appFacade.viewTitle$;
+  isSidenavOpen$ = this.navigationFacade.isSidenavOpen$;
   sideNavNodes$ = this.navigationFacade.sideNavNodes$;
   currentSideNavNode$ = this.navigationFacade.currentSideNavNode$;
 
@@ -24,7 +24,7 @@ export class AppShellComponent implements OnInit {
   private readonly sideBySideWidth = 992;
 
   constructor(
-    private readonly applicationFacade: ApplicationFacade,
+    private readonly appFacade: AppFacade,
     private readonly navigationFacade: NavigationFacade
   ) {}
 
