@@ -3,6 +3,7 @@ import {
   Component,
   HostListener,
   OnInit,
+  ViewEncapsulation,
 } from '@angular/core';
 import { ApplicationFacade, NavigationFacade } from '@eam-js/core';
 
@@ -11,6 +12,7 @@ import { ApplicationFacade, NavigationFacade } from '@eam-js/core';
   templateUrl: './app-shell.component.html',
   styleUrls: ['./app-shell.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
 })
 export class AppShellComponent implements OnInit {
   viewTitle$ = this.applicationFacade.viewTitle$;
