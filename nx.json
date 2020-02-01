@@ -39,7 +39,10 @@
       "tags": ["type:ui"]
     },
     "users-feature-shell": {
-      "tags": []
+      "tags": ["type:feature"]
+    },
+    "auth-feature-shell": {
+      "tags": ["type:feature"]
     }
   }
 }

@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Output,
+} from '@angular/core';
 
 @Component({
   selector: 'logged-in-user-menu',
@@ -7,7 +12,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoggedInUserMenuComponent {
-  openSignIn() {}
-
-  logout() {}
+  @Output() signIn = new EventEmitter<void>();
+  @Output() logout = new EventEmitter<void>();
 }

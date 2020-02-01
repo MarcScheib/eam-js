@@ -28,7 +28,8 @@
       "@eam-js/utilities": ["libs/utilities/src/index.ts"],
       "@eam-js/core": ["libs/core/src/index.ts"],
       "@eam-js/users/ui": ["libs/users/ui/src/index.ts"],
-      "@eam-js/users/feature-shell": ["libs/users/feature-shell/src/index.ts"]
+      "@eam-js/users/feature-shell": ["libs/users/feature-shell/src/index.ts"],
+      "@eam-js/auth/feature-shell": ["libs/auth/feature-shell/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

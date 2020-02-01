@@ -443,6 +443,37 @@
           "styleext": "scss"
         }
       }
+    },
+    "auth-feature-shell": {
+      "projectType": "library",
+      "root": "libs/auth/feature-shell",
+      "sourceRoot": "libs/auth/feature-shell/src",
+      "prefix": "eam-js",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/auth/feature-shell/tsconfig.lib.json",
+              "libs/auth/feature-shell/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/auth/feature-shell/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/auth/feature-shell/jest.config.js",
+            "tsConfig": "libs/auth/feature-shell/tsconfig.spec.json",
+            "setupFile": "libs/auth/feature-shell/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {

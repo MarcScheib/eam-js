@@ -1,4 +1,4 @@
-<button mat-icon-button (click)="openSignIn()">
+<button mat-icon-button (click)="signIn.emit()">
   <mat-icon>lock</mat-icon>
 </button>
 
@@ -12,7 +12,7 @@
     <span>Profile</span>
   </button>
   <mat-divider></mat-divider>
-  <button mat-menu-item disabled (click)="logout()">
+  <button mat-menu-item disabled (click)="logout.emit()">
     <mat-icon>exit_to_app</mat-icon>
     <span>Logout</span>
   </button>
