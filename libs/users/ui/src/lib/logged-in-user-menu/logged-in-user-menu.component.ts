@@ -6,4 +6,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrls: ['./logged-in-user-menu.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LoggedInUserMenuComponent {}
+export class LoggedInUserMenuComponent {
+  openSignIn() {}
+
+  logout() {}
+}

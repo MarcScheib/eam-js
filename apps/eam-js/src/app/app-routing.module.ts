@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { ErrorViewComponent } from '@eam-js/components/error';
+import { DataRoutes } from '@eam-js/core';
 import { NotFoundComponent } from './containers/not-found/not-found.component';
 
-export const routes: Routes = [
+export const routes: DataRoutes = [
   {
     path: 'projects',
     loadChildren: () =>
@@ -12,6 +13,16 @@ export const routes: Routes = [
       ),
     data: {
       label: 'Projects',
+    },
+  },
+  {
+    path: 'users',
+    loadChildren: () =>
+      import('@eam-js/users/feature-shell').then(
+        m => m.UsersFeatureShellModule
+      ),
+    data: {
+      label: 'Users',
     },
   },
   {

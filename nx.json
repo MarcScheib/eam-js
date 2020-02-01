@@ -37,6 +37,9 @@
     },
     "users-ui": {
       "tags": ["type:ui"]
+    },
+    "users-feature-shell": {
+      "tags": []
     }
   }
 }

@@ -33,7 +33,7 @@ export class BreadcrumbComponent implements OnInit {
     url: string = '',
     breadcrumbs: BreadCrumb[] = []
   ): BreadCrumb[] {
-    const label = route.routeConfig
+    const label = route.routeConfig // FIXME: error when data is not available
       ? route.routeConfig.data['label']
       : this.rootLabel;
     const path = route.routeConfig ? route.routeConfig.path : '';
