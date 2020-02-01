@@ -43,6 +43,9 @@
     },
     "auth-feature-shell": {
       "tags": ["type:feature"]
+    },
+    "dashboard-feature-shell": {
+      "tags": ["type:feature"]
     }
   }
 }

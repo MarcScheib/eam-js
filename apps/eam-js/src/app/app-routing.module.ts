@@ -6,6 +6,16 @@ import { NotFoundComponent } from './containers/not-found/not-found.component';
 
 export const routes: DataRoutes = [
   {
+    path: 'dashboard',
+    loadChildren: () =>
+      import('@eam-js/dashboard/feature-shell').then(
+        m => m.DashboardFeatureShellModule
+      ),
+    data: {
+      label: 'Dashboard',
+    },
+  },
+  {
     path: 'projects',
     loadChildren: () =>
       import('@eam-js/projects/feature-shell').then(
@@ -31,6 +41,11 @@ export const routes: DataRoutes = [
     data: {
       label: 'Error',
     },
+  },
+  {
+    path: '',
+    redirectTo: 'dashboard',
+    pathMatch: 'full',
   },
   {
     path: '**',
