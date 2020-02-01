@@ -31,5 +31,8 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
+      - name: Lint
+        run: npm run affected:lint -- --parallel --maxParallel=5 --base=origin/master~1 --head=origin/master
+
       - name: Test
         run: npm run affected:test -- --parallel --maxParallel=5 --passWithNoTests --base=origin/master~1 --head=origin/master
