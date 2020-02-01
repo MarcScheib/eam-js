@@ -1,7 +1,22 @@
 {
   "name": "eam-js",
+  "description": "Administrate and manage your enterprise employees/customers/projects/issues",
+  "keywords": [
+    "administration",
+    "management",
+    "employees",
+    "customers",
+    "projects",
+    "issues",
+    "nodejs",
+    "angular"
+  ],
+  "author": {
+    "name": "Marc Scheib"
+  },
   "version": "0.2.0",
   "license": "MIT",
+  "private": true,
   "scripts": {
     "ng": "ng",
     "nx": "nx",
@@ -29,7 +44,6 @@
     "help": "nx help",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "^8.2.14",
     "@angular/cdk": "^8.2.3",
@@ -60,7 +74,7 @@
     "class-transformer": "^0.2.3",
     "class-validator": "^0.11.0",
     "compression": "^1.7.4",
-    "core-js": "^3.6.4",
+    "core-js": "^2.6.11",
     "helmet": "^3.21.2",
     "jwt-decode": "^2.2.0",
     "material-design-icons-iconfont": "^5.0.1",
