@@ -3,7 +3,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { environment } from '../environments/environment';
 import { AuthModule } from './auth/auth.module';
 import { LdapAuthStrategy } from './auth/strategies/ldap-auth-strategy';
-import { EmployeesModule } from './employees/employees.module';
 import { ormConfig } from './orm.config';
 import { ProjectsModule } from './projects/projects.module';
 import { UsersModule } from './users/users.module';
@@ -17,7 +16,6 @@ import { UsersModule } from './users/users.module';
       }),
     }),
     UsersModule,
-    EmployeesModule,
     ProjectsModule,
   ],
 })
