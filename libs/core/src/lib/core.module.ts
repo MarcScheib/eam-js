@@ -7,11 +7,24 @@ import {
 } from '@ngrx/data';
 import { EffectsModule } from '@ngrx/effects';
 import { RouterState, StoreRouterConnectingModule } from '@ngrx/router-store';
-import { StoreModule } from '@ngrx/store';
+import {
+  MetaReducer,
+  StoreModule,
+  USER_PROVIDED_META_REDUCERS,
+} from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { PluralHttpUrlGenerator } from './entity-data/plural-http-url-generator';
+import { LocalStorageService } from './local-storage/local-storage.service';
+import { initStateFromLocalStorage } from './meta-reducers/init-state-from-local-storage';
 import { AppEffects } from './state/app/app.effects';
 import { reducers } from './state/core.state';
+import { SettingsEffects } from './state/settings/settings.effects';
+
+export function getMetaReducers(
+  storageService: LocalStorageService
+): MetaReducer<any>[] {
+  return [initStateFromLocalStorage(storageService)];
+}
 
 @NgModule({
   imports: [
@@ -24,7 +37,7 @@ import { reducers } from './state/core.state';
         strictStateSerializability: false,
       },
     }),
-    EffectsModule.forRoot([AppEffects]),
+    EffectsModule.forRoot([AppEffects, SettingsEffects]),
     EntityDataModule.forRoot({}),
     StoreDevtoolsModule.instrument({
       name: 'StableNet Store DevTools',
@@ -48,6 +61,11 @@ export class CoreModule {
           },
         },
         { provide: HttpUrlGenerator, useClass: PluralHttpUrlGenerator },
+        {
+          provide: USER_PROVIDED_META_REDUCERS,
+          deps: [LocalStorageService],
+          useFactory: getMetaReducers,
+        },
       ],
     };
   }
