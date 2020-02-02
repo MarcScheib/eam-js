@@ -32,6 +32,9 @@
       "@eam-js/auth/feature-shell": ["libs/auth/feature-shell/src/index.ts"],
       "@eam-js/dashboard/feature-shell": [
         "libs/dashboard/feature-shell/src/index.ts"
+      ],
+      "@eam-js/settings/feature-shell": [
+        "libs/settings/feature-shell/src/index.ts"
       ]
     }
   },

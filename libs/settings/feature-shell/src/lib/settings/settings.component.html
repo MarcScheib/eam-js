@@ -1,0 +1,35 @@
+<eamx-heading>
+  <eamx-heading-title>Settings</eamx-heading-title>
+  <eamx-breadcrumb></eamx-breadcrumb>
+</eamx-heading>
+
+<div *ngIf="settings$ | async as settings" class="wrapper-content">
+  <div class="wrapper-group">
+    <h2>Themes</h2>
+    <div class="icon-form-field">
+      <mat-icon color="primary">color_lens</mat-icon>
+      <mat-form-field>
+        <mat-select
+          placeholder="Color Theme"
+          name="themes"
+          [value]="settings.theme"
+          (selectionChange)="onThemeSelect($event)"
+        >
+          <mat-option *ngFor="let theme of themes" [value]="theme.value">
+            {{ theme.label }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="icon-form-field">
+      <mat-icon color="primary">wb_incandescent</mat-icon>
+      <mat-placeholder>Auto night mode (from 21:00 to 7:00)</mat-placeholder>
+      <mat-slide-toggle
+        [checked]="settings.autoNightMode"
+        (change)="onAutoNightModeToggle($event)"
+      >
+      </mat-slide-toggle>
+    </div>
+  </div>
+</div>

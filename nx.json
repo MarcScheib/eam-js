@@ -46,6 +46,9 @@
     },
     "dashboard-feature-shell": {
       "tags": ["type:feature"]
+    },
+    "settings-feature-shell": {
+      "tags": ["type:feature"]
     }
   }
 }
