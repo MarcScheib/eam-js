@@ -7,7 +7,7 @@ import {
 import { SettingsState } from './settings.state';
 
 export const initialState: SettingsState = {
-  theme: 'light',
+  theme: 'default',
   autoNightMode: false,
   nightTheme: 'dark',
   hour: 0,

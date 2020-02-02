@@ -1,10 +1,9 @@
 import { createSelector } from '@ngrx/store';
 import { selectSettingsState } from '../core.state';
-import { SettingsState } from './settings.state';
 
 export const selectSettings = createSelector(
   selectSettingsState,
-  (state: SettingsState) => state
+  state => state
 );
 
 export const selectTheme = createSelector(
