@@ -26,6 +26,16 @@ export const routes: DataRoutes = [
     },
   },
   {
+    path: 'settings',
+    loadChildren: () =>
+      import('@eam-js/settings/feature-shell').then(
+        m => m.SettingsFeatureShellModule
+      ),
+    data: {
+      label: 'Settings',
+    },
+  },
+  {
     path: 'users',
     loadChildren: () =>
       import('@eam-js/users/feature-shell').then(
