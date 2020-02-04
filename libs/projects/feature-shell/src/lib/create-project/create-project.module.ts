@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { RouterModule } from '@angular/router';
 import { BreadcrumbModule } from '@eam-js/components/breadcrumb';
 import { HeadingModule } from '@eam-js/components/heading';
+import { TextEditorModule } from '@eam-js/components/text-editor';
 import { CreateProjectComponent } from './create-project.component';
 
 @NgModule({
@@ -21,6 +22,7 @@ import { CreateProjectComponent } from './create-project.component';
     MatInputModule,
     BreadcrumbModule,
     HeadingModule,
+    TextEditorModule,
   ],
   declarations: [CreateProjectComponent],
 })

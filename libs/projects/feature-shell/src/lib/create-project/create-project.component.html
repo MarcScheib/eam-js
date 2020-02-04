@@ -18,13 +18,10 @@
         <input matInput placeholder="Name" formControlName="name" />
       </mat-form-field>
 
-      <mat-form-field class="form--input-full-width">
-        <textarea
-          matInput
-          placeholder="Describe the project..."
-          formControlName="description"
-        ></textarea>
-      </mat-form-field>
+      <eamx-text-editor
+        formControlName="description"
+        placeholder="Describe the project..."
+      ></eamx-text-editor>
 
       <button
         type="submit"
