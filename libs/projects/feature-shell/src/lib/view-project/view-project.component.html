@@ -8,7 +8,22 @@
   </eamx-heading-actions>
 </eamx-heading>
 
-<mat-card class="wrapper-content" *ngIf="project$ | async as project">
-  <mat-card-header>{{ project.name }}</mat-card-header>
-  <mat-card-content>Blubbber</mat-card-content>
-</mat-card>
+<div class="mdc-layout-grid" *ngIf="project$ | async as project">
+  <div class="mdc-layout-grid__inner">
+    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-9">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>{{ project.name }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Created on {{ project.createdAt | date: 'medium' }}</p>
+          <p>Last update on {{ project.updatedAt | date: 'medium' }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+      <h4>Project Description</h4>
+      <div [innerHTML]="project.description"></div>
+    </div>
+  </div>
+</div>
