@@ -4,6 +4,7 @@ import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { SettingsFacade } from '@eam-js/core';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'settings',
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.scss'],
