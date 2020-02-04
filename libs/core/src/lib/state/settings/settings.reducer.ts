@@ -1,6 +1,7 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import {
   actionSettingsChangeAutoNightMode,
+  actionSettingsChangeHour,
   actionSettingsChangeTheme,
 } from './settings.actions';
 import { SettingsState } from './settings.state';
@@ -21,6 +22,10 @@ const reducer = createReducer(
   on(actionSettingsChangeAutoNightMode, (state, action) => ({
     ...state,
     autoNightMode: action.autoNightMode,
+  })),
+  on(actionSettingsChangeHour, (state, action) => ({
+    ...state,
+    hour: action.hour,
   }))
 );
 
