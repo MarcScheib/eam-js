@@ -1,3 +1,35 @@
+<a name="0.3.0"></a>
+
+# [0.3.0](https://github.com/MarcScheib/eam-js/compare/0.2.0...0.3.0) (2020-02-04)
+
+### Bug Fixes
+
+- **core:** set night hour correctly in reducer ([b9d0d42](https://github.com/MarcScheib/eam-js/commit/b9d0d42))
+- **eam-js:** set encapsulation to none for correct route styles ([3959c2d](https://github.com/MarcScheib/eam-js/commit/3959c2d))
+
+### Features
+
+- **api:** add compression and security middlewares ([2ff8bfa](https://github.com/MarcScheib/eam-js/commit/2ff8bfa))
+- **api:** remove employees module ([a456611](https://github.com/MarcScheib/eam-js/commit/a456611))
+- **auth:** add auth lib with sign in ([d721867](https://github.com/MarcScheib/eam-js/commit/d721867))
+- **components:** add text editor based on quill ([984b2bc](https://github.com/MarcScheib/eam-js/commit/984b2bc))
+- **core:** add app state ([5f4b107](https://github.com/MarcScheib/eam-js/commit/5f4b107))
+- **core:** add route interface with labels ([7d7cc7b](https://github.com/MarcScheib/eam-js/commit/7d7cc7b))
+- **core:** add settings facade ([4414b0e](https://github.com/MarcScheib/eam-js/commit/4414b0e))
+- **core:** add state saving/loading to local storage ([f6f3fe2](https://github.com/MarcScheib/eam-js/commit/f6f3fe2))
+- **core:** add states ([39a2fbf](https://github.com/MarcScheib/eam-js/commit/39a2fbf))
+- **core:** add title service ([292a199](https://github.com/MarcScheib/eam-js/commit/292a199))
+- **dashboard:** add dashboard feature ([9266989](https://github.com/MarcScheib/eam-js/commit/9266989))
+- **eam-js:** add state hydration to navigation ([411f209](https://github.com/MarcScheib/eam-js/commit/411f209))
+- **eam-js:** include settings feature ([23c58c1](https://github.com/MarcScheib/eam-js/commit/23c58c1))
+- **projects:** add dates and description to project view ([679ec26](https://github.com/MarcScheib/eam-js/commit/679ec26))
+- **projects:** add view project component ([f06ecb4](https://github.com/MarcScheib/eam-js/commit/f06ecb4))
+- **projects:** connect view project to service ([a178ed9](https://github.com/MarcScheib/eam-js/commit/a178ed9))
+- **projects:** use text editor for description ([436509c](https://github.com/MarcScheib/eam-js/commit/436509c))
+- **settings:** add settings lib and view ([e70353d](https://github.com/MarcScheib/eam-js/commit/e70353d))
+- **users:** add feature with profile view ([084a6ac](https://github.com/MarcScheib/eam-js/commit/084a6ac))
+- **users:** add logged in user menu ([c30aa14](https://github.com/MarcScheib/eam-js/commit/c30aa14))
+
 <a name="0.2.0"></a>
 
 # [0.2.0](https://github.com/MarcScheib/eam-js/compare/0.1.0...0.2.0) (2020-01-03)
