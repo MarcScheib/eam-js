@@ -1,11 +1,11 @@
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: $main-font;
+  font-family: mat-font-family($app-typography);
 }
 
 button {
-  font-family: $main-font;
+  font-family: mat-font-family($app-typography);
 }
 
 a {
@@ -15,33 +15,9 @@ a {
 .app-toolbar a,
 .app-toolbar .nav-title {
   font-size: 16px;
-  color: $white;
 }
 
 .app-toolbar .nav-sub-title {
   font-size: 14px;
   font-weight: 400;
-}
-
-// typography coloring
-$primary: map-get($app-theme, primary);
-$accent: map-get($app-theme, accent);
-$warn: map-get($app-theme, warn);
-
-.mat-text {
-  &.primary {
-    color: mat-color($primary);
-  }
-
-  &.accent {
-    color: mat-color($accent);
-  }
-
-  &.warn {
-    color: mat-color($warn);
-  }
-}
-
-a {
-  color: mat-color($primary);
 }

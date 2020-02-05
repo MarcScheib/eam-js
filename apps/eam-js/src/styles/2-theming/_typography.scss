@@ -1,0 +1,28 @@
+@mixin app-typography-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+
+  .mat-text {
+    &.primary {
+      color: mat-color($primary);
+    }
+
+    &.accent {
+      color: mat-color($accent);
+    }
+
+    &.warn {
+      color: mat-color($warn);
+    }
+  }
+
+  a {
+    color: mat-color($primary);
+  }
+
+  .app-toolbar a,
+  .app-toolbar .nav-title {
+    color: mat-color($primary, default-contrast);
+  }
+}

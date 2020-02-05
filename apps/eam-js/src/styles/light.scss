@@ -1,0 +1,23 @@
+@import 'theme-config';
+
+$background-color: #f3f3f4;
+
+$primary: mat-palette($mat-purple, 800);
+$accent: mat-palette($mat-amber);
+$warn: mat-palette($mat-red);
+$theme: map_merge(
+  mat-light-theme($primary, $accent, $warn),
+  (
+    background:
+      map_merge(
+        $mat-light-theme-background,
+        (
+          background: $background-color,
+        )
+      ),
+  )
+);
+
+@include angular-material-theme($theme);
+@include eamx-components-theme($theme);
+@include app-theme($theme);

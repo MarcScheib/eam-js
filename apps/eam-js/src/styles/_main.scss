@@ -1,11 +1,15 @@
-@import 'common';
 @import 'mixins';
-@import 'components/src/lib/theming';
+@import '~@angular/material/theming';
+
+$app-typography: mat-typography-config(
+  $font-family:
+    'Roboto, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif',
+);
 
 // specify theme
-@include mat-core;
-@include angular-material-theme($app-theme);
-@include eamx-components-theme($app-theme);
+@include mat-core($app-typography);
+
+@import 'light';
 
 // import directories
 @import './0-base/base-dir';

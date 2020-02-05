@@ -2,17 +2,13 @@ $eamx-heading-padding: 16px !default;
 
 .eamx-heading {
   display: flex;
-  box-sizing: border-box;
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-end;
 
   padding: $eamx-heading-padding;
   padding-top: 0;
-  width: 100%;
 
-  color: #676a6c;
-  background-color: white;
   box-shadow: 0px 1px 1px -1px rgba(0, 0, 0, 0.2),
     0px 1px 1px 0px rgba(0, 0, 0, 0.14);
 

@@ -1,0 +1,15 @@
+@import 'theme-config';
+
+$primary: mat-palette($mat-pink);
+$accent: mat-palette($mat-amber, A200, A100, A400);
+$warn: mat-palette($mat-red);
+$theme: map_merge(
+  mat-dark-theme($primary, $accent, $warn),
+  (
+    background: $mat-dark-theme-background,
+  )
+);
+
+@include angular-material-theme($theme);
+@include eamx-components-theme($theme);
+@include app-theme($theme);
