@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MatSelectChange } from '@angular/material/select';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
-import { SettingsFacade } from '@eam-js/core';
+import { SettingsFacade, THEMES } from '@eam-js/core';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -13,10 +13,7 @@ import { SettingsFacade } from '@eam-js/core';
 export class SettingsComponent {
   settings$ = this.settingsFacade.settings$;
 
-  themes = [
-    { value: 'default', label: 'Default' },
-    { value: 'dark', label: 'Dark' },
-  ];
+  themes = THEMES;
 
   constructor(private readonly settingsFacade: SettingsFacade) {}
 
