@@ -4,12 +4,12 @@ import {
   actionSettingsChangeHour,
   actionSettingsChangeTheme,
 } from './settings.actions';
-import { SettingsState } from './settings.state';
+import { SettingsState, ThemeName } from './settings.state';
 
 export const initialState: SettingsState = {
-  theme: 'default',
+  theme: ThemeName.LIGHT,
   autoNightMode: false,
-  nightTheme: 'dark',
+  nightTheme: ThemeName.DARK,
   hour: 0,
 };
 

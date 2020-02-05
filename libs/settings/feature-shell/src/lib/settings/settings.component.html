@@ -15,8 +15,11 @@
           [value]="settings.theme"
           (selectionChange)="onThemeSelect($event)"
         >
-          <mat-option *ngFor="let theme of themes" [value]="theme.value">
-            {{ theme.label }}
+          <mat-option
+            *ngFor="let theme of themes | keyvalue"
+            [value]="theme.key"
+          >
+            {{ theme.value.name }}
           </mat-option>
         </mat-select>
       </mat-form-field>
