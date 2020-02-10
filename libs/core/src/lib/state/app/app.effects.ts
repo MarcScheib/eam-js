@@ -29,7 +29,7 @@ export class AppEffects {
     { dispatch: false }
   );
 
-  loadApp$ = createEffect(() =>
+  updateViewTitle$ = createEffect(() =>
     this.actions$.pipe(
       ofType(ROUTER_NAVIGATED),
       withLatestFrom(
