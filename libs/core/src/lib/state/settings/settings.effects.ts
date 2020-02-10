@@ -9,7 +9,6 @@ import {
   actionSettingsChangeTheme,
 } from './settings.actions';
 import { selectSettings } from './settings.selectors';
-import { THEMES } from './settings.state';
 
 @Injectable()
 export class SettingsEffects {
@@ -29,13 +28,7 @@ export class SettingsEffects {
     () =>
       this.actions$.pipe(
         ofType(actionSettingsChangeTheme),
-        tap(action => {
-          console.log(action);
-          this.themeManagerService.setStyle(
-            action.theme,
-            THEMES[action.theme].href
-          );
-        })
+        tap(action => this.themeManagerService.setTheme(action.theme))
       ),
     { dispatch: false }
   );

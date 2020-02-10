@@ -21,6 +21,7 @@
             "polyfills": "apps/eam-js/src/polyfills.ts",
             "tsConfig": "apps/eam-js/tsconfig.app.json",
             "aot": false,
+            "extractCss": true,
             "assets": ["apps/eam-js/src/favicon.ico", "apps/eam-js/src/assets"],
             "styles": [
               "node_modules/material-design-icons-iconfont/dist/material-design-icons.css",
