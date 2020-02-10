@@ -13,7 +13,7 @@ import { THEMES } from './settings.state';
 
 @Injectable()
 export class SettingsEffects {
-  persistSettings = createEffect(
+  persistSettings$ = createEffect(
     () =>
       this.actions$.pipe(
         ofType(actionSettingsChangeAutoNightMode, actionSettingsChangeTheme),
@@ -25,7 +25,7 @@ export class SettingsEffects {
     { dispatch: false }
   );
 
-  changeTheme = createEffect(
+  changeTheme$ = createEffect(
     () =>
       this.actions$.pipe(
         ofType(actionSettingsChangeTheme),
