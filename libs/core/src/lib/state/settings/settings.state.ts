@@ -7,6 +7,7 @@ export interface Theme {
   readonly value: string;
   readonly name: string;
   readonly href: string;
+  readonly default?: boolean;
 }
 
 export const THEMES: { [key: string]: Theme } = {
@@ -14,11 +15,12 @@ export const THEMES: { [key: string]: Theme } = {
     value: ThemeName.LIGHT,
     name: 'Light',
     href: 'light.css',
+    default: true,
   },
   [ThemeName.DARK]: {
     value: ThemeName.DARK,
     name: 'Dark',
-    href: 'dark.js',
+    href: 'dark.css',
   },
 };
 
