@@ -1,6 +1,8 @@
 name: Node CI
 
-on: [push]
+on:
+  schedule:
+    - cron: '0 0 * * *'
 
 jobs:
   build:
@@ -32,7 +34,7 @@ jobs:
         run: npm install
 
       - name: Lint
-        run: npm run affected:lint -- --parallel --maxParallel=5 --base=origin/master~1 --head=origin/master
+        run: npm run nx -- run-many --target=lint --all --parallel --maxParallel=5
 
       - name: Test
-        run: npm run affected:test -- --parallel --maxParallel=5 --passWithNoTests --base=origin/master~1 --head=origin/master
+        run: npm run nx -- run-many --target=test --all --parallel --maxParallel=5 --passWithNoTests
