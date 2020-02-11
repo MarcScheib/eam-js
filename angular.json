@@ -20,7 +20,7 @@
             "main": "apps/eam-js/src/main.ts",
             "polyfills": "apps/eam-js/src/polyfills.ts",
             "tsConfig": "apps/eam-js/tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "extractCss": true,
             "assets": ["apps/eam-js/src/favicon.ico", "apps/eam-js/src/assets"],
             "styles": [
@@ -50,7 +50,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
