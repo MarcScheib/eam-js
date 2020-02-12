@@ -13,7 +13,8 @@ $eamx-heading-padding: 16px !default;
     0px 1px 1px 0px rgba(0, 0, 0, 0.14);
 
   .eamx-heading-actions {
-    button:not(:last-of-type) {
+    a:not(:last-child),
+    button:not(:last-child) {
       margin-right: 8px;
     }
   }
