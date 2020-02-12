@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Project } from '@eam-js/projects/api';
 import { ProjectsService } from '@eam-js/projects/data-access';
 import { DataServiceError } from '@ngrx/data';
 import { Subject } from 'rxjs';
@@ -34,16 +35,16 @@ export class CreateProjectComponent {
       return;
     }
 
-    this.projectsService
-      .add(this.createProjectForm.value)
-      .subscribe(
-        () => this.goToParent(),
-        err => this.error$.next(getErrorMessage(err))
-      );
+    this.projectsService.add(this.createProjectForm.value).subscribe(
+      project => this._goToProject(project),
+      err => this.error$.next(getErrorMessage(err))
+    );
   }
 
-  private goToParent() {
-    this.router.navigate(['..'], { relativeTo: this.activatedRoute });
+  private _goToProject(project: Project) {
+    this.router.navigate(['..', project.id], {
+      relativeTo: this.activatedRoute,
+    });
   }
 }
 
