@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Project } from '@eam-js/projects/api';
 import { ProjectsService } from '@eam-js/projects/data-access';
@@ -16,19 +16,17 @@ export class CreateProjectComponent {
   loading$ = this.projectsService.loading$;
   error$ = new Subject<string>();
 
-  createProjectForm: FormGroup;
+  createProjectForm = this.formBuilder.group({
+    name: ['', Validators.required],
+    description: [''],
+  });
 
   constructor(
-    readonly formBuilder: FormBuilder,
+    private readonly formBuilder: FormBuilder,
     private readonly projectsService: ProjectsService,
     private readonly router: Router,
     private readonly activatedRoute: ActivatedRoute
-  ) {
-    this.createProjectForm = formBuilder.group({
-      name: ['', Validators.required],
-      description: [''],
-    });
-  }
+  ) {}
 
   create() {
     if (!this.createProjectForm.valid) {
