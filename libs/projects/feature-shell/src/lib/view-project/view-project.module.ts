@@ -5,6 +5,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 import { BreadcrumbModule } from '@eam-js/components/breadcrumb';
+import { ConfirmationDialogModule } from '@eam-js/components/confirmation-dialog';
 import { HeadingModule } from '@eam-js/components/heading';
 import { ViewProjectComponent } from './view-project.component';
 
@@ -12,11 +13,12 @@ import { ViewProjectComponent } from './view-project.component';
   imports: [
     CommonModule,
     RouterModule,
-    HeadingModule,
-    BreadcrumbModule,
     MatButtonModule,
     MatCardModule,
     MatIconModule,
+    BreadcrumbModule,
+    ConfirmationDialogModule,
+    HeadingModule,
   ],
   declarations: [ViewProjectComponent],
 })
