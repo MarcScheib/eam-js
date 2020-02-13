@@ -19,6 +19,5 @@ import { SignInDialogComponent } from './sign-in-dialog.component';
     MatInputModule,
   ],
   declarations: [SignInDialogComponent],
-  entryComponents: [SignInDialogComponent],
 })
 export class SignInDialogModule {}
