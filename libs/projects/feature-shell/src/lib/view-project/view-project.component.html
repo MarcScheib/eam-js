@@ -1,10 +1,13 @@
-<eamx-heading>
+<eamx-heading *ngIf="project$ | async as project">
   <eamx-heading-title>Projects</eamx-heading-title>
   <eamx-breadcrumb></eamx-breadcrumb>
   <eamx-heading-actions>
     <a mat-stroked-button color="primary" [routerLink]="['edit']">
-      <mat-icon>edit</mat-icon> Edit Project
+      <mat-icon>edit</mat-icon> Edit
     </a>
+    <button mat-stroked-button color="primary" (click)="delete(project)">
+      <mat-icon>delete</mat-icon> Delete
+    </button>
   </eamx-heading-actions>
 </eamx-heading>
 
