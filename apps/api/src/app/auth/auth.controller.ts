@@ -1,12 +1,8 @@
-import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
+import { Body, Controller, Post } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { AuthContext, AuthService } from './auth.service';
-
-interface AuthCredentialsDTO {
-  username: string;
-  password: string;
-}
+import { AuthService } from './auth.service';
+import { AuthCredentialsDto } from './dto/auth-credentials.dto';
+import { AuthTokenDto } from './dto/auth-token.dto';
 
 @ApiTags('auth')
 @Controller('auth')
@@ -15,15 +11,9 @@ export class AuthController {
 
   @Post('signIn')
   async signIn(
-    @Body() authCredentialsDTO: AuthCredentialsDTO
-  ): Promise<AuthContext> {
-    const { username, password } = authCredentialsDTO;
+    @Body() authCredentials: AuthCredentialsDto
+  ): Promise<AuthTokenDto> {
+    const { username, password } = authCredentials;
     return await this.authService.signIn(username, password);
-  }
-
-  @Get('user')
-  @UseGuards(AuthGuard())
-  findAll() {
-    return { user: 'blabla' };
   }
 }
