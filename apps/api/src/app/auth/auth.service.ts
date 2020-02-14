@@ -1,19 +1,10 @@
+import { AuthToken, AuthTokenPayload } from '@eam-js/auth/api';
 import { Inject, Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { UserEntity } from '../users/user.entity';
 import { UsersService } from '../users/users.service';
 import { AuthModuleOptions } from './auth-module-options';
 import { AUTH_MODULE_OPTIONS } from './auth.constants';
-
-export interface AuthContext {
-  expiresIn: number;
-  accessToken: string;
-}
-
-export interface TokenPayload {
-  id: number;
-  username: string;
-}
 
 @Injectable()
 export class AuthService {
@@ -28,28 +19,25 @@ export class AuthService {
   }
 
   async retrieveUser(username: string): Promise<UserEntity> {
-    const user = await this.usersService.getUser(username);
+    const user = await this.usersService.getUserByName(username);
     if (user) {
       return user;
     }
     return await this.usersService.create({ name: username });
   }
 
-  async signIn(username: string, password: string): Promise<AuthContext> {
-    const authenticated: boolean = await this.authenticate(username, password);
+  async signIn(username: string, password: string): Promise<AuthToken> {
+    const authenticated = await this.authenticate(username, password);
     if (authenticated) {
       const user = await this.retrieveUser(username);
-      const payload: TokenPayload = { id: user.id, username: user.name };
-      const accessToken = this.jwtService.sign(payload);
-      return {
-        expiresIn: 3600,
-        accessToken,
-      };
+      const payload: Partial<AuthTokenPayload> = { id: user.id };
+      const token = this.jwtService.sign(payload);
+      return { token };
     }
     throw new UnauthorizedException();
   }
 
-  async validateUser(payload: TokenPayload): Promise<UserEntity> {
-    return await this.usersService.getUser(payload.username);
+  async validateUser(payload: AuthTokenPayload): Promise<UserEntity> {
+    return await this.usersService.getUser(payload.id);
   }
 }
