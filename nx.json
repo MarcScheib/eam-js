@@ -41,6 +41,9 @@
     "users-feature-shell": {
       "tags": ["type:feature"]
     },
+    "auth-api": {
+      "tags": ["type:api"]
+    },
     "auth-feature-shell": {
       "tags": ["type:feature"]
     },
