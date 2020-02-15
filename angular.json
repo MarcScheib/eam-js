@@ -606,6 +606,37 @@
           "styleext": "scss"
         }
       }
+    },
+    "auth-ui": {
+      "projectType": "library",
+      "root": "libs/auth/ui",
+      "sourceRoot": "libs/auth/ui/src",
+      "prefix": "eam-js",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/auth/ui/tsconfig.lib.json",
+              "libs/auth/ui/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/auth/ui/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/auth/ui/jest.config.js",
+            "tsConfig": "libs/auth/ui/tsconfig.spec.json",
+            "setupFile": "libs/auth/ui/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {
