@@ -1,9 +1,8 @@
+import { AuthTokenPayload } from '@eam-js/auth/api';
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
-
 import { ExtractJwt, Strategy } from 'passport-jwt';
-
-import { AuthService, TokenPayload } from './auth.service';
+import { AuthService } from './auth.service';
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
@@ -14,7 +13,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     });
   }
 
-  async validate(payload: TokenPayload) {
+  async validate(payload: AuthTokenPayload) {
     const user = await this.authService.validateUser(payload);
     if (!user) {
       throw new UnauthorizedException();
