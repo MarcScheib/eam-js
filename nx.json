@@ -44,6 +44,9 @@
     "auth-api": {
       "tags": ["type:api"]
     },
+    "auth-data-access": {
+      "tags": ["type:data-access"]
+    },
     "auth-feature-shell": {
       "tags": ["type:feature"]
     },

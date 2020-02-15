@@ -36,7 +36,8 @@
       "@eam-js/settings/feature-shell": [
         "libs/settings/feature-shell/src/index.ts"
       ],
-      "@eam-js/auth/api": ["libs/auth/api/src/index.ts"]
+      "@eam-js/auth/api": ["libs/auth/api/src/index.ts"],
+      "@eam-js/auth/data-access": ["libs/auth/data-access/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
