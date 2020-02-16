@@ -1,4 +1,1 @@
-export {
-  SignInDialogComponent,
-  SignInDialogModule,
-} from './lib/sign-in-dialog';
+export { AuthFeatureShellModule } from './lib/auth-feature-shell.module';

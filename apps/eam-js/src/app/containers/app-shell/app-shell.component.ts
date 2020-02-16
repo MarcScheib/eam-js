@@ -5,8 +5,7 @@ import {
   OnInit,
   ViewEncapsulation,
 } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { SignInDialogComponent } from '@eam-js/auth/feature-shell';
+import { Router } from '@angular/router';
 import { AppFacade, NavigationFacade } from '@eam-js/core';
 
 @Component({
@@ -26,9 +25,9 @@ export class AppShellComponent implements OnInit {
   private readonly sideBySideWidth = 992;
 
   constructor(
+    private readonly router: Router,
     private readonly appFacade: AppFacade,
-    private readonly navigationFacade: NavigationFacade,
-    private readonly dialogService: MatDialog
+    private readonly navigationFacade: NavigationFacade
   ) {}
 
   ngOnInit() {
@@ -45,9 +44,7 @@ export class AppShellComponent implements OnInit {
   }
 
   onSignIn() {
-    const dialogRef = this.dialogService.open<SignInDialogComponent>(
-      SignInDialogComponent
-    );
+    this.router.navigate(['auth/sign-in']);
   }
 
   onLogout() {}

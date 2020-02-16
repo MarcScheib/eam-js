@@ -1,0 +1,11 @@
+:host {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  padding: 15px;
+
+  .sign-in-form {
+    display: block;
+    width: 600px;
+  }
+}
