@@ -5,7 +5,7 @@ import {
   OnInit,
   ViewEncapsulation,
 } from '@angular/core';
-import { Router } from '@angular/router';
+import { AuthFacade } from '@eam-js/auth/data-access';
 import { AppFacade, NavigationFacade } from '@eam-js/core';
 
 @Component({
@@ -25,8 +25,8 @@ export class AppShellComponent implements OnInit {
   private readonly sideBySideWidth = 992;
 
   constructor(
-    private readonly router: Router,
     private readonly appFacade: AppFacade,
+    private readonly authFacade: AuthFacade,
     private readonly navigationFacade: NavigationFacade
   ) {}
 
@@ -44,10 +44,12 @@ export class AppShellComponent implements OnInit {
   }
 
   onSignIn() {
-    this.router.navigate(['auth/sign-in']);
+    this.authFacade.goToSignIn();
   }
 
-  onLogout() {}
+  onSignOut() {
+    this.authFacade.signOut();
+  }
 
   get mode() {
     return this.isSideBySide ? 'side' : 'over';
