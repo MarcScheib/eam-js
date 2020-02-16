@@ -22,7 +22,14 @@ export class SignInFormComponent {
     } else {
       this.form.enable();
     }
+    this._loading = isLoading;
   }
+
+  get loading() {
+    return this._loading;
+  }
+
+  private _loading = false;
 
   @Input() errorMessage: string | null;
 
