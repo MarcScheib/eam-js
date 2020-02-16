@@ -1,0 +1,32 @@
+<mat-card>
+  <mat-card-title>Sign In</mat-card-title>
+  <mat-card-content>
+    <form class="form--full-width" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <mat-form-field class="form--input-full-width">
+        <input
+          matInput
+          type="text"
+          formControlName="username"
+          placeholder="Enter your username..."
+          cdkFocusInitial
+        />
+      </mat-form-field>
+      <mat-form-field class="form--input-full-width">
+        <input
+          matInput
+          type="password"
+          placeholder="Enter your password..."
+          formControlName="password"
+        />
+      </mat-form-field>
+      <div class="form--input-checkbox">
+        <mat-checkbox color="primary" formControlName="keepToken">
+          Remember my login on this computer
+        </mat-checkbox>
+      </div>
+      <div class="form--button-container">
+        <button mat-raised-button color="primary" type="submit">Sign In</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
