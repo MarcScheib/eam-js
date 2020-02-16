@@ -1,6 +1,10 @@
 <mat-card>
   <mat-card-title>Sign In</mat-card-title>
   <mat-card-content>
+    <p *ngIf="errorMessage" class="mat-text warn">
+      {{ errorMessage | json }}
+    </p>
+
     <form class="form--full-width" [formGroup]="form" (ngSubmit)="onSubmit()">
       <mat-form-field class="form--input-full-width">
         <input
@@ -25,7 +29,14 @@
         </mat-checkbox>
       </div>
       <div class="form--button-container">
-        <button mat-raised-button color="primary" type="submit">Sign In</button>
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="loading"
+        >
+          Sign In
+        </button>
       </div>
     </form>
   </mat-card-content>

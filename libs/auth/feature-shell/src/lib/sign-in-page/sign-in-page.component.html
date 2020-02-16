@@ -1,1 +1,6 @@
-<sign-in-form class="sign-in-form" (signIn)="onSignIn($event)"></sign-in-form>
+<sign-in-form
+  class="sign-in-form"
+  [loading]="loading$ | async"
+  [errorMessage]="error$ | async"
+  (signIn)="onSignIn($event)"
+></sign-in-form>
