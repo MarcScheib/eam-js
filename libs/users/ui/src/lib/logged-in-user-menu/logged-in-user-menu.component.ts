@@ -13,5 +13,5 @@ import {
 })
 export class LoggedInUserMenuComponent {
   @Output() signIn = new EventEmitter<void>();
-  @Output() logout = new EventEmitter<void>();
+  @Output() signOut = new EventEmitter<void>();
 }

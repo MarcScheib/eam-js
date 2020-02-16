@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AuthCredentials } from '@eam-js/auth/api';
 import { select, Store } from '@ngrx/store';
+import { signInRedirectAction } from './auth-api.actions';
 import { signInAction } from './auth-page.actions';
+import { signOutAction } from './auth.action';
 import { authQuery } from './auth.selectors';
 
 @Injectable()
@@ -13,5 +15,13 @@ export class AuthFacade {
 
   signIn(credentials: AuthCredentials) {
     this.store$.dispatch(signInAction({ credentials }));
+  }
+
+  goToSignIn() {
+    this.store$.dispatch(signInRedirectAction());
+  }
+
+  signOut() {
+    this.store$.dispatch(signOutAction());
   }
 }
