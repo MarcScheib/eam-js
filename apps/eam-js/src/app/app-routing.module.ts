@@ -6,6 +6,13 @@ import { NotFoundComponent } from './containers/not-found/not-found.component';
 
 export const routes: DataRoutes = [
   {
+    path: 'auth',
+    loadChildren: () =>
+      import('@eam-js/auth/feature-shell').then(
+        m => m.AuthFeatureShellModule,
+      ),
+  },
+  {
     path: 'dashboard',
     loadChildren: () =>
       import('@eam-js/dashboard/feature-shell').then(
