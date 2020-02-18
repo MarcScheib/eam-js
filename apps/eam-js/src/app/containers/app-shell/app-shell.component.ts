@@ -6,6 +6,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { AuthFacade } from '@eam-js/auth/data-access';
+import { ConfirmationService } from '@eam-js/components/confirmation-dialog';
 import { AppFacade, NavigationFacade } from '@eam-js/core';
 
 @Component({
@@ -27,7 +28,8 @@ export class AppShellComponent implements OnInit {
   constructor(
     private readonly appFacade: AppFacade,
     private readonly authFacade: AuthFacade,
-    private readonly navigationFacade: NavigationFacade
+    private readonly navigationFacade: NavigationFacade,
+    private readonly confirmationService: ConfirmationService
   ) {}
 
   ngOnInit() {
@@ -48,7 +50,16 @@ export class AppShellComponent implements OnInit {
   }
 
   onSignOut() {
-    this.authFacade.signOut();
+    this.confirmationService
+      .open({
+        title: 'Sign Out',
+        message: 'Are you sure you want to sign out?',
+      })
+      .subscribe(confirmed => {
+        if (confirmed) {
+          this.authFacade.signOut();
+        }
+      });
   }
 
   get mode() {

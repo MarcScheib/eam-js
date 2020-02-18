@@ -5,6 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
+import { ConfirmationDialogModule } from '@eam-js/components/confirmation-dialog';
 import { NavigationModule } from '@eam-js/components/navigation';
 import { LoggedInUserMenuModule } from '@eam-js/users/ui';
 import { AppShellComponent } from './app-shell.component';
@@ -17,8 +18,9 @@ import { AppShellComponent } from './app-shell.component';
     MatIconModule,
     MatSidenavModule,
     MatToolbarModule,
-    NavigationModule,
+    ConfirmationDialogModule,
     LoggedInUserMenuModule,
+    NavigationModule,
   ],
   declarations: [AppShellComponent],
   exports: [AppShellComponent],
