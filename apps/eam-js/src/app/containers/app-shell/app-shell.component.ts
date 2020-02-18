@@ -17,6 +17,7 @@ import { AppFacade, NavigationFacade } from '@eam-js/core';
   encapsulation: ViewEncapsulation.None,
 })
 export class AppShellComponent implements OnInit {
+  loggedIn$ = this.authFacade.loggedIn$;
   viewTitle$ = this.appFacade.viewTitle$;
   isSidenavOpen$ = this.navigationFacade.isSidenavOpen$;
   sideNavNodes$ = this.navigationFacade.sideNavNodes$;

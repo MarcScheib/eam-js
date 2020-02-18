@@ -5,13 +5,16 @@ const getAuthState = createFeatureSelector<AuthPartialState, State>(
   AUTH_FEATURE_KEY
 );
 
-const getToken = createSelector(getAuthState, (state: State) => state.token);
+const isLoggedIn = createSelector(getAuthState, state => !!state.token);
 
-const isLoading = createSelector(getAuthState, (state: State) => state.loading);
+const getToken = createSelector(getAuthState, state => state.token);
 
-const getError = createSelector(getAuthState, (state: State) => state.error);
+const isLoading = createSelector(getAuthState, state => state.loading);
+
+const getError = createSelector(getAuthState, state => state.error);
 
 export const authQuery = {
+  isLoggedIn,
   isLoading,
   getToken,
   getError,

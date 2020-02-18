@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   EventEmitter,
+  Input,
   Output,
 } from '@angular/core';
 
@@ -12,6 +13,8 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoggedInUserMenuComponent {
+  @Input() user = false;
+
   @Output() signIn = new EventEmitter<void>();
   @Output() signOut = new EventEmitter<void>();
 }

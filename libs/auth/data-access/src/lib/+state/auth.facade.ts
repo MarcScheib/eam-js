@@ -8,6 +8,7 @@ import { authQuery } from './auth.selectors';
 
 @Injectable()
 export class AuthFacade {
+  loggedIn$ = this.store$.pipe(select(authQuery.isLoggedIn))
   loading$ = this.store$.pipe(select(authQuery.isLoading));
   error$ = this.store$.pipe(select(authQuery.getError));
 
