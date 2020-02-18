@@ -9,4 +9,8 @@ export class LocalStorageService {
   getSavedState(localStorageKey: string): any {
     return JSON.parse(localStorage.getItem(localStorageKey));
   }
+
+  removeSavedState(localStorageKey: string) {
+    localStorage.removeItem(localStorageKey);
+  }
 }
