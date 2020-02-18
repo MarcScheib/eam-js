@@ -12,11 +12,8 @@
 
   <div class="flex-spacer"></div>
 
-  <button mat-icon-button routerLink="settings">
-    <mat-icon>settings</mat-icon>
-  </button>
-
   <logged-in-user-menu
+    [user]="loggedIn$ | async"
     (signIn)="onSignIn()"
     (signOut)="onSignOut()"
   ></logged-in-user-menu>
