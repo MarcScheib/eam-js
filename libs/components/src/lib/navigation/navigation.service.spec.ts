@@ -42,8 +42,8 @@ describe('NavigationService', () => {
       ],
     });
 
-    navService = TestBed.get(NavigationService);
-    httpMock = TestBed.get(HttpTestingController);
+    navService = TestBed.inject(NavigationService);
+    httpMock = TestBed.inject(HttpTestingController);
   });
 
   afterEach(() => httpMock.verify());
@@ -161,7 +161,7 @@ describe('NavigationService', () => {
     };
 
     beforeEach(() => {
-      router = TestBed.get(Router);
+      router = TestBed.inject(Router);
       navService.currentNodes.subscribe(selected => (currentNodes = selected));
       httpMock.expectOne({}).flush(navJson);
     });
