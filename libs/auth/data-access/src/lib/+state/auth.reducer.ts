@@ -2,7 +2,7 @@ import { AuthToken } from '@eam-js/auth/api';
 import { Action, createReducer, on } from '@ngrx/store';
 import { signInFailureAction, signInSuccessAction } from './auth-api.actions';
 import { signInAction } from './auth-page.actions';
-import { signOutAction } from './auth.action';
+import { loadTokenAction, signOutAction } from './auth.action';
 
 export const AUTH_FEATURE_KEY = 'auth';
 
@@ -24,16 +24,17 @@ export const initialState: State = {
 
 const authReducer = createReducer<State>(
   initialState,
+  on(loadTokenAction, (state, { token }) => ({ ...state, token })),
   on(signInAction, (state, _) => ({ ...state, loading: true })),
-  on(signInSuccessAction, (_, action) => ({
-    token: action.token,
+  on(signInSuccessAction, (_, { token }) => ({
+    token,
     loading: false,
     error: null,
   })),
-  on(signInFailureAction, (state, action) => ({
+  on(signInFailureAction, (state, { error }) => ({
     ...state,
     loading: false,
-    error: action.error,
+    error,
   })),
   on(signOutAction, (state, _) => ({
     ...state,

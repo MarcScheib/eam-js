@@ -6,7 +6,7 @@ import {
   Output,
 } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { AuthCredentials } from '@eam-js/auth/api';
+import { SignInData } from '@eam-js/auth/api';
 
 @Component({
   selector: 'sign-in-form',
@@ -33,7 +33,7 @@ export class SignInFormComponent {
 
   @Input() errorMessage: string | null;
 
-  @Output() signIn = new EventEmitter<AuthCredentials>();
+  @Output() signIn = new EventEmitter<SignInData>();
 
   form = this.formBuilder.group({
     username: ['', Validators.required],
@@ -48,7 +48,7 @@ export class SignInFormComponent {
       return;
     }
 
-    const { username, password } = this.form.value;
-    this.signIn.emit({ username, password });
+    const { username, password, keepToken } = this.form.value;
+    this.signIn.emit({ username, password, keepToken });
   }
 }
