@@ -1,3 +1,41 @@
+<a name="0.4.0"></a>
+
+# [0.4.0](https://github.com/MarcScheib/eam-js/compare/0.3.0...0.4.0) (2020-02-19)
+
+### Bug Fixes
+
+- **api:** fix jwt strategy imports ([ed05ea2](https://github.com/MarcScheib/eam-js/commit/ed05ea2))
+- **eam-js:** fix navigation mapping ([deec152](https://github.com/MarcScheib/eam-js/commit/deec152))
+
+### Features
+
+- add dark theme and improve app theming ([0b27c49](https://github.com/MarcScheib/eam-js/commit/0b27c49))
+- **auth:** add api lib ([10ae6f5](https://github.com/MarcScheib/eam-js/commit/10ae6f5))
+- **auth:** add basic auth state ([347fd2e](https://github.com/MarcScheib/eam-js/commit/347fd2e))
+- **auth:** add data-access lib ([baa58bf](https://github.com/MarcScheib/eam-js/commit/baa58bf))
+- **auth:** add interface for sign in page data ([5189d0d](https://github.com/MarcScheib/eam-js/commit/5189d0d))
+- **auth:** add sign in form ui ([b51b809](https://github.com/MarcScheib/eam-js/commit/b51b809))
+- **auth:** add sign out functionality ([e399fab](https://github.com/MarcScheib/eam-js/commit/e399fab))
+- **auth:** add token only for stored tokens ([37f558a](https://github.com/MarcScheib/eam-js/commit/37f558a))
+- **auth:** add ui lib ([7c50cbb](https://github.com/MarcScheib/eam-js/commit/7c50cbb))
+- **auth:** connect sign in form to state & service ([8ee850e](https://github.com/MarcScheib/eam-js/commit/8ee850e))
+- **auth:** replace sign in dialog by page ([ae8b79e](https://github.com/MarcScheib/eam-js/commit/ae8b79e))
+- **auth:** use rest client in service ([979d61b](https://github.com/MarcScheib/eam-js/commit/979d61b))
+- **components:** add confirmation dialog ([5efbb32](https://github.com/MarcScheib/eam-js/commit/5efbb32))
+- **components:** add service for confirmations ([6a97757](https://github.com/MarcScheib/eam-js/commit/6a97757))
+- **components:** add space to heading actions ([73c86ff](https://github.com/MarcScheib/eam-js/commit/73c86ff))
+- **core:** add http utilities ([c6af21a](https://github.com/MarcScheib/eam-js/commit/c6af21a))
+- **core:** add theme switching ([b0fc6e6](https://github.com/MarcScheib/eam-js/commit/b0fc6e6))
+- **core:** add theme switching ([8dd3c21](https://github.com/MarcScheib/eam-js/commit/8dd3c21))
+- **core:** expose local storage svc ([d9d22b0](https://github.com/MarcScheib/eam-js/commit/d9d22b0))
+- **eam-js:** add button container form style ([56593ea](https://github.com/MarcScheib/eam-js/commit/56593ea))
+- **eam-js:** add confirmation to sign out ([bc56e8d](https://github.com/MarcScheib/eam-js/commit/bc56e8d))
+- **eam-js:** add http config ([588c039](https://github.com/MarcScheib/eam-js/commit/588c039))
+- **eam-js:** connect auth module to app ([ce53911](https://github.com/MarcScheib/eam-js/commit/ce53911))
+- **eam-js:** handle user state in menu ([69b30c8](https://github.com/MarcScheib/eam-js/commit/69b30c8))
+- **projects:** add delete to view project ([8b746c1](https://github.com/MarcScheib/eam-js/commit/8b746c1))
+- **projects:** redirect to created project ([67ec36d](https://github.com/MarcScheib/eam-js/commit/67ec36d))
+
 <a name="0.3.0"></a>
 
 # [0.3.0](https://github.com/MarcScheib/eam-js/compare/0.2.0...0.3.0) (2020-02-04)
@@ -63,7 +101,7 @@
 
 <a name="0.1.0"></a>
 
-# 0.1.0 (2019-10-10)
+# [0.1.0](https://github.com/MarcScheib/eam-js/compare/818170e...0.1.0) (2019-10-10)
 
 ### Features
 
