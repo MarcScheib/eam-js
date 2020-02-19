@@ -3,7 +3,7 @@ import { createAction, props } from '@ngrx/store';
 
 export const signInSuccessAction = createAction(
   '[Auth/API] Sign In Success',
-  props<{ token: AuthToken }>()
+  props<{ token: AuthToken; keepToken: boolean }>()
 );
 
 export const signInFailureAction = createAction(
