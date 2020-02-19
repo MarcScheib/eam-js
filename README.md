@@ -1,4 +1,4 @@
-![Node CI](https://github.com/MarcScheib/eam-js/workflows/Node%20CI/badge.svg?branch=master)
+![Master Nightly](https://github.com/MarcScheib/eam-js/workflows/Master%20Nightly/badge.svg)
 
 # Enterprise Administration & Management
 
