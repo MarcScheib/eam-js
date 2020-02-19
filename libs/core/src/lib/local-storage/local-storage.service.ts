@@ -2,11 +2,11 @@ import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class LocalStorageService {
-  setSavedState(state: any, localStorageKey: string) {
+  setSavedState<T>(state: T, localStorageKey: string) {
     localStorage.setItem(localStorageKey, JSON.stringify(state));
   }
 
-  getSavedState(localStorageKey: string): any {
+  getSavedState<T>(localStorageKey: string): T {
     return JSON.parse(localStorage.getItem(localStorageKey));
   }
 
