@@ -101,7 +101,8 @@
           "options": {
             "jestConfig": "apps/eam-js/jest.config.js",
             "tsConfig": "apps/eam-js/tsconfig.spec.json",
-            "setupFile": "apps/eam-js/src/test-setup.ts"
+            "setupFile": "apps/eam-js/src/test-setup.ts",
+            "passWithNoTests": true
           }
         }
       }
@@ -171,7 +172,8 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/api/jest.config.js",
-            "tsConfig": "apps/api/tsconfig.spec.json"
+            "tsConfig": "apps/api/tsconfig.spec.json",
+            "passWithNoTests": true
           }
         }
       }
@@ -197,7 +199,8 @@
           "options": {
             "jestConfig": "libs/projects/feature-shell/jest.config.js",
             "tsConfig": "libs/projects/feature-shell/tsconfig.spec.json",
-            "setupFile": "libs/projects/feature-shell/src/test-setup.ts"
+            "setupFile": "libs/projects/feature-shell/src/test-setup.ts",
+            "passWithNoTests": true
           }
         }
       },
@@ -227,7 +230,8 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/projects/api/jest.config.js",
-            "tsConfig": "libs/projects/api/tsconfig.spec.json"
+            "tsConfig": "libs/projects/api/tsconfig.spec.json",
+            "passWithNoTests": true
           }
         }
       }
@@ -253,7 +257,8 @@
           "options": {
             "jestConfig": "libs/components/jest.config.js",
             "tsConfig": "libs/components/tsconfig.spec.json",
-            "setupFile": "libs/components/src/test-setup.ts"
+            "setupFile": "libs/components/src/test-setup.ts",
+            "passWithNoTests": true
           }
         }
       },
@@ -284,7 +289,8 @@
           "options": {
             "jestConfig": "libs/projects/data-access/jest.config.js",
             "tsConfig": "libs/projects/data-access/tsconfig.spec.json",
-            "setupFile": "libs/projects/data-access/src/test-setup.ts"
+            "setupFile": "libs/projects/data-access/src/test-setup.ts",
+            "passWithNoTests": true
           }
         }
       },
@@ -315,7 +321,8 @@
           "options": {
             "jestConfig": "libs/projects/ui/jest.config.js",
             "tsConfig": "libs/projects/ui/tsconfig.spec.json",
-            "setupFile": "libs/projects/ui/src/test-setup.ts"
+            "setupFile": "libs/projects/ui/src/test-setup.ts",
+            "passWithNoTests": true
           }
         }
       },
@@ -346,7 +353,8 @@
           "options": {
             "jestConfig": "libs/utilities/jest.config.js",
             "tsConfig": "libs/utilities/tsconfig.spec.json",
-            "setupFile": "libs/utilities/src/test-setup.ts"
+            "setupFile": "libs/utilities/src/test-setup.ts",
+            "passWithNoTests": true
           }
         }
       },
@@ -377,7 +385,8 @@
           "options": {
             "jestConfig": "libs/core/jest.config.js",
             "tsConfig": "libs/core/tsconfig.spec.json",
-            "setupFile": "libs/core/src/test-setup.ts"
+            "setupFile": "libs/core/src/test-setup.ts",
+            "passWithNoTests": true
           }
         }
       },
@@ -408,7 +417,8 @@
           "options": {
             "jestConfig": "libs/users/ui/jest.config.js",
             "tsConfig": "libs/users/ui/tsconfig.spec.json",
-            "setupFile": "libs/users/ui/src/test-setup.ts"
+            "setupFile": "libs/users/ui/src/test-setup.ts",
+            "passWithNoTests": true
           }
         }
       },
@@ -439,7 +449,8 @@
           "options": {
             "jestConfig": "libs/users/feature-shell/jest.config.js",
             "tsConfig": "libs/users/feature-shell/tsconfig.spec.json",
-            "setupFile": "libs/users/feature-shell/src/test-setup.ts"
+            "setupFile": "libs/users/feature-shell/src/test-setup.ts",
+            "passWithNoTests": true
           }
         }
       },
@@ -470,7 +481,8 @@
           "options": {
             "jestConfig": "libs/auth/feature-shell/jest.config.js",
             "tsConfig": "libs/auth/feature-shell/tsconfig.spec.json",
-            "setupFile": "libs/auth/feature-shell/src/test-setup.ts"
+            "setupFile": "libs/auth/feature-shell/src/test-setup.ts",
+            "passWithNoTests": true
           }
         }
       },
@@ -504,7 +516,8 @@
           "options": {
             "jestConfig": "libs/dashboard/feature-shell/jest.config.js",
             "tsConfig": "libs/dashboard/feature-shell/tsconfig.spec.json",
-            "setupFile": "libs/dashboard/feature-shell/src/test-setup.ts"
+            "setupFile": "libs/dashboard/feature-shell/src/test-setup.ts",
+            "passWithNoTests": true
           }
         }
       },
@@ -535,7 +548,8 @@
           "options": {
             "jestConfig": "libs/settings/feature-shell/jest.config.js",
             "tsConfig": "libs/settings/feature-shell/tsconfig.spec.json",
-            "setupFile": "libs/settings/feature-shell/src/test-setup.ts"
+            "setupFile": "libs/settings/feature-shell/src/test-setup.ts",
+            "passWithNoTests": true
           }
         }
       },
@@ -566,7 +580,8 @@
           "options": {
             "jestConfig": "libs/auth/api/jest.config.js",
             "tsConfig": "libs/auth/api/tsconfig.spec.json",
-            "setupFile": "libs/auth/api/src/test-setup.ts"
+            "setupFile": "libs/auth/api/src/test-setup.ts",
+            "passWithNoTests": true
           }
         }
       },
@@ -597,7 +612,8 @@
           "options": {
             "jestConfig": "libs/auth/data-access/jest.config.js",
             "tsConfig": "libs/auth/data-access/tsconfig.spec.json",
-            "setupFile": "libs/auth/data-access/src/test-setup.ts"
+            "setupFile": "libs/auth/data-access/src/test-setup.ts",
+            "passWithNoTests": true
           }
         }
       },
@@ -628,7 +644,8 @@
           "options": {
             "jestConfig": "libs/auth/ui/jest.config.js",
             "tsConfig": "libs/auth/ui/tsconfig.spec.json",
-            "setupFile": "libs/auth/ui/src/test-setup.ts"
+            "setupFile": "libs/auth/ui/src/test-setup.ts",
+            "passWithNoTests": true
           }
         }
       },
