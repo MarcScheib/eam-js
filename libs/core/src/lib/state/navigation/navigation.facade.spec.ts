@@ -47,8 +47,8 @@ describe('NavigationFacade', () => {
       class RootModule {}
       TestBed.configureTestingModule({ imports: [RootModule] });
 
-      store = TestBed.get(Store);
-      facade = TestBed.get(NavigationFacade);
+      store = TestBed.inject(Store);
+      facade = TestBed.inject(NavigationFacade);
     });
 
     it('toggleSidenav() should toggle the side nav state', async done => {
