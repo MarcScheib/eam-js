@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { AuthCredentials } from '@eam-js/auth/api';
+import { SignInData } from '@eam-js/auth/api';
 import { AuthFacade } from '@eam-js/auth/data-access';
 
 @Component({
@@ -14,7 +14,7 @@ export class SignInPageComponent {
 
   constructor(private readonly authFacade: AuthFacade) {}
 
-  onSignIn($event: AuthCredentials) {
+  onSignIn($event: SignInData) {
     this.authFacade.signIn($event);
   }
 }
