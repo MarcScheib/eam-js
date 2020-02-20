@@ -12,6 +12,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { PluralHttpUrlGenerator } from './entity-data/plural-http-url-generator';
 import { AppEffects } from './state/app/app.effects';
 import { reducers } from './state/core.state';
+import { NavigationEffects } from './state/navigation/navigation.effects';
 import { SettingsEffects } from './state/settings/settings.effects';
 
 @NgModule({
@@ -25,7 +26,7 @@ import { SettingsEffects } from './state/settings/settings.effects';
         strictStateSerializability: false,
       },
     }),
-    EffectsModule.forRoot([AppEffects, SettingsEffects]),
+    EffectsModule.forRoot([AppEffects, NavigationEffects, SettingsEffects]),
     EntityDataModule.forRoot({}),
     StoreDevtoolsModule.instrument({
       name: 'StableNet Store DevTools',

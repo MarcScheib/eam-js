@@ -1,5 +1,8 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import { actionNavigationToggle } from './navigation.actions';
+import {
+  actionNavigationToggle,
+  actionReloadNavigation,
+} from './navigation.actions';
 import { NavigationState } from './navigation.state';
 
 export const initialState: NavigationState = {
@@ -8,6 +11,10 @@ export const initialState: NavigationState = {
 
 const reducer = createReducer(
   initialState,
+  on(actionReloadNavigation, (state, action) => ({
+    ...state,
+    ...action.navigation,
+  })),
   on(actionNavigationToggle, state => ({
     showSidenav: !state.showSidenav,
   }))
