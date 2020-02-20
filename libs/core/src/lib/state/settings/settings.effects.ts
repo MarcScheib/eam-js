@@ -1,24 +1,46 @@
 import { Injectable } from '@angular/core';
-import { Actions, createEffect, ofType } from '@ngrx/effects';
+import {
+  Actions,
+  createEffect,
+  ofType,
+  ROOT_EFFECTS_INIT,
+} from '@ngrx/effects';
 import { select, Store } from '@ngrx/store';
-import { tap, withLatestFrom } from 'rxjs/operators';
+import { map, tap, withLatestFrom } from 'rxjs/operators';
 import { LocalStorageService } from '../../local-storage/local-storage.service';
 import { ThemeManagerService } from '../../theme-manager.service';
 import {
+  actionReloadSettings,
   actionSettingsChangeAutoNightMode,
   actionSettingsChangeTheme,
 } from './settings.actions';
-import { selectSettings } from './settings.selectors';
+import { selectEffectiveTheme, selectSettings } from './settings.selectors';
+import { SettingsState } from './settings.state';
 
 @Injectable()
 export class SettingsEffects {
+  loadSettings$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(ROOT_EFFECTS_INIT),
+      map(() => {
+        const settings = this.localStorageService.getSavedState<SettingsState>(
+          'settings'
+        );
+        return actionReloadSettings({ settings });
+      })
+    )
+  );
+
   persistSettings$ = createEffect(
     () =>
       this.actions$.pipe(
         ofType(actionSettingsChangeAutoNightMode, actionSettingsChangeTheme),
         withLatestFrom(this.store$.pipe(select(selectSettings))),
         tap(([_, settings]) =>
-          this.localStorageService.setSavedState(settings, 'settings')
+          this.localStorageService.setSavedState<SettingsState>(
+            settings,
+            'settings'
+          )
         )
       ),
     { dispatch: false }
@@ -27,8 +49,9 @@ export class SettingsEffects {
   changeTheme$ = createEffect(
     () =>
       this.actions$.pipe(
-        ofType(actionSettingsChangeTheme),
-        tap(action => this.themeManagerService.setTheme(action.theme))
+        ofType(actionSettingsChangeTheme, actionReloadSettings),
+        withLatestFrom(this.store$.pipe(select(selectEffectiveTheme))),
+        tap(([_, theme]) => this.themeManagerService.setTheme(theme))
       ),
     { dispatch: false }
   );

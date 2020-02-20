@@ -36,6 +36,5 @@ export const selectEffectiveTheme = createSelector(
   selectTheme,
   selectNightTheme,
   selectIsNightHour,
-  (theme, nightTheme, isNightHour) =>
-    (isNightHour ? nightTheme : theme).toLowerCase()
+  (theme, nightTheme, isNightHour) => (isNightHour ? nightTheme : theme)
 );
