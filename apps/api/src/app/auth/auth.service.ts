@@ -1,7 +1,7 @@
 import { AuthToken, AuthTokenPayload } from '@eam-js/auth/api';
 import { Inject, Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { UserEntity } from '../users/user.entity';
+import { User } from '../users/user.entity';
 import { UsersService } from '../users/users.service';
 import { AuthModuleOptions } from './auth-module-options';
 import { AUTH_MODULE_OPTIONS } from './auth.constants';
@@ -18,7 +18,7 @@ export class AuthService {
     return this.options.strategy.authenticate(username, password);
   }
 
-  async retrieveUser(username: string): Promise<UserEntity> {
+  async retrieveUser(username: string): Promise<User> {
     const user = await this.usersService.getUserByName(username);
     if (user) {
       return user;
@@ -37,7 +37,7 @@ export class AuthService {
     throw new UnauthorizedException();
   }
 
-  async validateUser(payload: AuthTokenPayload): Promise<UserEntity> {
+  async validateUser(payload: AuthTokenPayload): Promise<User> {
     return await this.usersService.getUser(payload.id);
   }
 }
