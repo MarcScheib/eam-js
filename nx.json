@@ -35,6 +35,9 @@
     "core": {
       "tags": ["type:lib"]
     },
+    "users-api": {
+      "tags": ["type:api"]
+    },
     "users-ui": {
       "tags": ["type:ui"]
     },

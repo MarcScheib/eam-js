@@ -38,7 +38,8 @@
       ],
       "@eam-js/auth/api": ["libs/auth/api/src/index.ts"],
       "@eam-js/auth/data-access": ["libs/auth/data-access/src/index.ts"],
-      "@eam-js/auth/ui": ["libs/auth/ui/src/index.ts"]
+      "@eam-js/auth/ui": ["libs/auth/ui/src/index.ts"],
+      "@eam-js/users/api": ["libs/users/api/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
