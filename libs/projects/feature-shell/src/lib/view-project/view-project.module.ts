@@ -7,6 +7,10 @@ import { RouterModule } from '@angular/router';
 import { BreadcrumbModule } from '@eam-js/components/breadcrumb';
 import { ConfirmationDialogModule } from '@eam-js/components/confirmation-dialog';
 import { HeadingModule } from '@eam-js/components/heading';
+import {
+  ProjectDescriptionModule,
+  ProjectDetailsModule,
+} from '@eam-js/projects/ui';
 import { ViewProjectComponent } from './view-project.component';
 
 @NgModule({
@@ -19,6 +23,8 @@ import { ViewProjectComponent } from './view-project.component';
     BreadcrumbModule,
     ConfirmationDialogModule,
     HeadingModule,
+    ProjectDescriptionModule,
+    ProjectDetailsModule,
   ],
   declarations: [ViewProjectComponent],
 })
