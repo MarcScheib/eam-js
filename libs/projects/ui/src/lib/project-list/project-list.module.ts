@@ -6,6 +6,7 @@ import { MatTableModule } from '@angular/material/table';
 import { RouterModule } from '@angular/router';
 import { LabelModule } from '@eam-js/components/label';
 import { LoadingIndicatorModule } from '@eam-js/components/loading-indicator';
+import { ProjectStatusModule } from '../project-status/project-status.module';
 import { ProjectListComponent } from './project-list.component';
 
 @NgModule({
@@ -17,6 +18,7 @@ import { ProjectListComponent } from './project-list.component';
     MatTableModule,
     LabelModule,
     LoadingIndicatorModule,
+    ProjectStatusModule,
   ],
   declarations: [ProjectListComponent],
   exports: [ProjectListComponent],

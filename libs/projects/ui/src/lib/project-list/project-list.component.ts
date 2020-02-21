@@ -8,10 +8,10 @@ import {
 import { Project } from '@eam-js/projects/api';
 
 @Component({
-  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'project-list',
   templateUrl: './project-list.component.html',
   styleUrls: ['./project-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectListComponent {
   @Input() loading = false;
