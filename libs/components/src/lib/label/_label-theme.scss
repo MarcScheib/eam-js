@@ -1,0 +1,26 @@
+@mixin eamx-label-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  .eamx-label {
+    color: inherit;
+
+    &.mat-primary {
+      background-color: mat-color($primary);
+      color: mat-color($primary, default-contrast);
+    }
+
+    &.mat-accent {
+      background-color: mat-color($accent);
+      color: mat-color($accent, default-contrast);
+    }
+
+    &.mat-warn {
+      background-color: mat-color($warn);
+      color: mat-color($warn, default-contrast);
+    }
+  }
+}
