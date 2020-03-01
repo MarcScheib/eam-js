@@ -13,6 +13,11 @@ import { ProjectDto } from './response/project.dto';
   },
   dto,
   serialize,
+  query: {
+    join: {
+      creator: {},
+    },
+  },
 })
 @Controller('projects')
 export class ProjectsController {

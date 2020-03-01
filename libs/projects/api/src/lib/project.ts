@@ -1,3 +1,5 @@
+import { User } from '@eam-js/users/api';
+
 export interface Project {
   id: number;
   name: string;
@@ -5,4 +7,5 @@ export interface Project {
   createdAt: string;
   updatedAt: string;
   isActive: boolean;
+  creator?: User;
 }

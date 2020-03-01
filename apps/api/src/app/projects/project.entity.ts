@@ -6,8 +6,9 @@ import {
   IsString,
   MaxLength,
 } from 'class-validator';
-import { Column, Entity } from 'typeorm';
+import { Column, Entity, JoinColumn, OneToOne } from 'typeorm';
 import { BaseEntity } from '../base-entity';
+import { User } from '../users/user.entity';
 
 const { CREATE, UPDATE } = CrudValidationGroups;
 
@@ -28,4 +29,8 @@ export class Project extends BaseEntity {
   @IsBoolean({ always: true })
   @Column({ type: 'boolean', default: true })
   isActive: boolean;
+
+  @OneToOne(_ => User)
+  @JoinColumn()
+  creator: User;
 }
