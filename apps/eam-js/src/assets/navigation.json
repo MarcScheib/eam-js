@@ -11,6 +11,11 @@
       "url": "projects"
     },
     {
+      "title": "Issues",
+      "tooltip": "Issue Management",
+      "url": "issue"
+    },
+    {
       "title": "Customers",
       "tooltip": "Manage your customers",
       "children": [
