@@ -58,7 +58,7 @@ export class SettingsEffects {
 
   constructor(
     private readonly actions$: Actions,
-    private readonly store$: Store<{}>,
+    private readonly store$: Store,
     private readonly localStorageService: LocalStorageService,
     private readonly themeManagerService: ThemeManagerService
   ) {}

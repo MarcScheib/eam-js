@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AuthCredentials, SignInData } from '@eam-js/auth/api';
+import { SignInData } from '@eam-js/auth/api';
 import { select, Store } from '@ngrx/store';
 import { signInRedirectAction } from './auth-api.actions';
 import { signInAction } from './auth-page.actions';
@@ -8,11 +8,11 @@ import { authQuery } from './auth.selectors';
 
 @Injectable()
 export class AuthFacade {
-  loggedIn$ = this.store$.pipe(select(authQuery.isLoggedIn))
+  loggedIn$ = this.store$.pipe(select(authQuery.isLoggedIn));
   loading$ = this.store$.pipe(select(authQuery.isLoading));
   error$ = this.store$.pipe(select(authQuery.getError));
 
-  constructor(private readonly store$: Store<{}>) {}
+  constructor(private readonly store$: Store) {}
 
   signIn(signInData: SignInData) {
     this.store$.dispatch(signInAction({ signInData }));

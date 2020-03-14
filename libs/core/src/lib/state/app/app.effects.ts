@@ -43,7 +43,7 @@ export class AppEffects {
 
   constructor(
     private readonly actions$: Actions,
-    private readonly store$: Store<{}>,
+    private readonly store$: Store,
     private readonly title: Title
   ) {}
 

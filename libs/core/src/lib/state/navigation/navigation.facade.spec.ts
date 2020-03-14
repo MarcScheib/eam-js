@@ -8,15 +8,10 @@ import { readFirst } from '@nrwl/angular/testing';
 import { of } from 'rxjs';
 import { NavigationFacade } from './navigation.facade';
 import { initialState, navigationReducer } from './navigation.reducer';
-import { NavigationState } from './navigation.state';
-
-interface TestSchema {
-  navigation: NavigationState;
-}
 
 describe('NavigationFacade', () => {
   let facade: NavigationFacade;
-  let store: Store<TestSchema>;
+  let store: Store;
 
   describe('used in NgModule', () => {
     beforeEach(() => {

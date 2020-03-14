@@ -14,7 +14,7 @@ export class NavigationFacade {
   );
 
   constructor(
-    private readonly store$: Store<{}>,
+    private readonly store$: Store,
     private readonly navigationService: NavigationService
   ) {}
 

@@ -6,5 +6,5 @@ import { appQuery } from './app.selectors';
 export class AppFacade {
   viewTitle$ = this.store$.pipe(select(appQuery.getViewTitle));
 
-  constructor(private store$: Store<{}>) {}
+  constructor(private store$: Store) {}
 }

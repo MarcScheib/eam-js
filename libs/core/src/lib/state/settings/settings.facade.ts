@@ -10,7 +10,7 @@ import { selectSettings } from './settings.selectors';
 export class SettingsFacade {
   settings$ = this.store$.pipe(select(selectSettings));
 
-  constructor(private store$: Store<{}>) {}
+  constructor(private store$: Store) {}
 
   selectTheme(theme: string) {
     this.store$.dispatch(actionSettingsChangeTheme({ theme }));
