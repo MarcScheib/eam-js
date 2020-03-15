@@ -14,6 +14,7 @@ import { AppEffects } from './state/app/app.effects';
 import { reducers } from './state/core.state';
 import { NavigationEffects } from './state/navigation/navigation.effects';
 import { SettingsEffects } from './state/settings/settings.effects';
+import { windowProvider, WindowToken } from './window';
 
 @NgModule({
   imports: [
@@ -50,6 +51,7 @@ export class CoreModule {
           },
         },
         { provide: HttpUrlGenerator, useClass: PluralHttpUrlGenerator },
+        { provide: WindowToken, useFactory: windowProvider },
       ],
     };
   }
