@@ -1,7 +1,9 @@
+import { ProjectType } from '@eam-js/projects/api';
 import { CrudValidationGroups } from '@nestjsx/crud';
 import {
   IsBoolean,
   IsDefined,
+  IsIn,
   IsOptional,
   IsString,
   MaxLength,
@@ -24,6 +26,12 @@ export class Project extends BaseEntity {
   @IsOptional({ always: true })
   @Column({ type: 'text', nullable: true })
   description: string;
+
+  @IsOptional({ groups: [UPDATE] })
+  @IsDefined({ groups: [CREATE] })
+  @IsIn(Object.values(ProjectType))
+  @Column({ type: 'varchar', nullable: false })
+  type: ProjectType;
 
   @IsOptional({ always: true })
   @IsBoolean({ always: true })

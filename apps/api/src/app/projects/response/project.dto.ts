@@ -1,4 +1,4 @@
-import { Project } from '@eam-js/projects/api';
+import { Project, ProjectType } from '@eam-js/projects/api';
 import { ApiProperty } from '@nestjs/swagger';
 import { UserDto } from '../../users/response/user.dto';
 
@@ -9,6 +9,8 @@ export class ProjectDto implements Project {
   readonly name: string;
   @ApiProperty()
   readonly description: string;
+  @ApiProperty({ enum: Object.values(ProjectType) })
+  readonly type: ProjectType;
   @ApiProperty()
   readonly createdAt: string;
   @ApiProperty()
