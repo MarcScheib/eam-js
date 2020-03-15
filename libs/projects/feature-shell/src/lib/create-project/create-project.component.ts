@@ -1,10 +1,11 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Project } from '@eam-js/projects/api';
+import { Project, ProjectType } from '@eam-js/projects/api';
 import { ProjectsService } from '@eam-js/projects/data-access';
 import { DataServiceError } from '@ngrx/data';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
 
 @Component({
   selector: 'create-project',
@@ -12,13 +13,17 @@ import { Subject } from 'rxjs';
   styleUrls: ['./create-project.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CreateProjectComponent {
+export class CreateProjectComponent implements OnInit {
   loading$ = this.projectsService.loading$;
   error$ = new Subject<string>();
+  filteredOptions$: Observable<ProjectType[]>;
+
+  options = Object.values(ProjectType);
 
   createProjectForm = this.formBuilder.group({
     name: ['', Validators.required],
-    description: [''],
+    type: ['', Validators.required],
+    description: ['', Validators.required],
   });
 
   constructor(
@@ -27,6 +32,16 @@ export class CreateProjectComponent {
     private readonly router: Router,
     private readonly activatedRoute: ActivatedRoute
   ) {}
+
+  ngOnInit() {
+    this.filteredOptions$ = this.createProjectForm
+      .get('type')
+      .valueChanges.pipe(
+        startWith(''),
+        map(value => (typeof value === 'string' ? value : value.name)),
+        map(name => (name ? this._filter(name) : this.options.slice()))
+      );
+  }
 
   create() {
     if (!this.createProjectForm.valid) {
@@ -43,6 +58,18 @@ export class CreateProjectComponent {
     this.router.navigate(['..', project.id], {
       relativeTo: this.activatedRoute,
     });
+  }
+
+  displayFn(type: ProjectType): string {
+    return type || '';
+  }
+
+  private _filter(name: string): ProjectType[] {
+    const filterValue = name.toLowerCase();
+
+    return this.options.filter(
+      option => option.toLowerCase().indexOf(filterValue) === 0
+    );
   }
 }
 
