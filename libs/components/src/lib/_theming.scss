@@ -1,9 +1,11 @@
 @import './heading/heading-theme';
 @import './label/label-theme';
 @import './navigation/navigation-theme';
+@import './text-editor/text-editor-theme';
 
 @mixin eamx-components-theme($theme) {
   @include eamx-heading-theme($theme);
   @include eamx-label-theme($theme);
   @include eamx-navigation-theme($theme);
+  @include eamx-text-editor-theme($theme);
 }

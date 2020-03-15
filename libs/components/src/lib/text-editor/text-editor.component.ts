@@ -29,6 +29,7 @@ export class TextEditorComponent implements ControlValueAccessor {
   @ViewChild(QuillEditorComponent, { static: true })
   quillEditor!: QuillEditorComponent;
 
+  @Input() height = '200px';
   @Input() placeholder = '';
 
   writeValue(obj: any): void {
