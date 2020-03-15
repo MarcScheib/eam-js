@@ -1,7 +1,22 @@
+// VARIABLES
+$hamburgerShownMargin: 0 8px 0 0;
+
 .app-toolbar.mat-toolbar {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding: 0 16px 0 0;
+  z-index: 10;
 
   .nav-link:focus {
     background: rgba($white, 0.15);
   }
+}
+
+.hamburger.mat-button {
+  height: 100%;
+  margin: $hamburgerShownMargin;
+  padding: 0;
 }
