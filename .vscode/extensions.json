@@ -8,6 +8,7 @@
     "mikael.angular-beastcode",
     "k--kato.intellij-idea-keybindings",
     "orta.vscode-jest",
-    "pkief.material-icon-theme"
+    "pkief.material-icon-theme",
+    "firsttris.vscode-jest-runner"
   ]
 }
