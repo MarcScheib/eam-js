@@ -45,12 +45,7 @@
             "assets": ["apps/eam-js/src/favicon.ico", "apps/eam-js/src/assets"],
             "styles": [
               "node_modules/material-design-icons-iconfont/dist/material-design-icons.css",
-              "apps/eam-js/src/styles.scss",
-              {
-                "bundleName": "assets/themes/dark",
-                "input": "apps/eam-js/src/styles/dark.scss",
-                "inject": true
-              }
+              "apps/eam-js/src/styles.scss"
             ],
             "stylePreprocessorOptions": {
               "includePaths": ["libs/"]
