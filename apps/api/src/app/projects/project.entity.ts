@@ -38,7 +38,7 @@ export class Project extends BaseEntity {
   @Column({ type: 'boolean', default: true })
   isActive: boolean;
 
-  @OneToOne(_ => User)
+  @OneToOne(() => User)
   @JoinColumn()
   creator: User;
 }
