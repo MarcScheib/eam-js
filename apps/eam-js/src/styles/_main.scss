@@ -1,13 +1,14 @@
+@use '~@angular/material' as mat;
 @import 'mixins';
 @import '~@angular/material/theming';
 
-$app-typography: mat-typography-config(
+$app-typography: mat.define-typography-config(
   $font-family:
     'Roboto, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif',
 );
 
 // specify theme
-@include mat-core($app-typography);
+@include mat.core($app-typography);
 
 @import 'light';
 

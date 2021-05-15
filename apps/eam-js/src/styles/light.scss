@@ -1,16 +1,17 @@
+@use '~@angular/material' as mat;
 @import 'theme-config';
 
 $background-color: #f3f3f4;
 
-$primary: mat-palette($mat-purple, 800);
-$accent: mat-palette($mat-amber);
-$warn: mat-palette($mat-red);
+$primary: mat.define-palette(mat.$purple-palette, 800);
+$accent: mat.define-palette(mat.$amber-palette);
+$warn: mat.define-palette(mat.$red-palette);
 $theme: map_merge(
-  mat-light-theme($primary, $accent, $warn),
+  mat.define-light-theme($primary, $accent, $warn),
   (
     background:
       map_merge(
-        $mat-light-theme-background,
+        mat.$light-theme-background-palette,
         (
           background: $background-color,
         )
@@ -18,6 +19,6 @@ $theme: map_merge(
   )
 );
 
-@include angular-material-theme($theme);
+@include mat.all-component-themes($theme);
 @include eamx-components-theme($theme);
 @include app-theme($theme);

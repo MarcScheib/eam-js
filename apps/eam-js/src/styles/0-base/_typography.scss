@@ -1,11 +1,12 @@
+@use '~@angular/material' as mat;
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: mat-font-family($app-typography);
+  font-family: mat.font-family($app-typography);
 }
 
 button {
-  font-family: mat-font-family($app-typography);
+  font-family: mat.font-family($app-typography);
 }
 
 a {
