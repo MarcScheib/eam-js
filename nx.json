@@ -1,5 +1,4 @@
 {
-  "npmScope": "eam-js",
   "implicitDependencies": {
     "angular.json": "*",
     "package.json": "*",
@@ -7,6 +6,18 @@
     "nx.json": "*",
     "tsconfig.base.json": "*",
     ".eslintrc.json": "*"
+  },
+  "affected": {
+    "defaultBase": "master"
+  },
+  "npmScope": "eam-js",
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      }
+    }
   },
   "projects": {
     "eam-js": {
@@ -63,16 +74,5 @@
     "settings-feature-shell": {
       "tags": ["type:feature"]
     }
-  },
-  "tasksRunnerOptions": {
-    "default": {
-      "runner": "@nrwl/workspace/tasks-runners/default",
-      "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
-      }
-    }
-  },
-  "affected": {
-    "defaultBase": "master"
   }
 }
