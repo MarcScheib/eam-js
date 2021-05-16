@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { NavigationService } from '@eam-js/components/navigation';
 import { EffectsModule } from '@ngrx/effects';
-import { Store, StoreModule } from '@ngrx/store';
+import { StoreModule } from '@ngrx/store';
 import { NxModule } from '@nrwl/angular';
 import { readFirst } from '@nrwl/angular/testing';
 import { of } from 'rxjs';
@@ -11,7 +11,6 @@ import { initialState, navigationReducer } from './navigation.reducer';
 
 describe('NavigationFacade', () => {
   let facade: NavigationFacade;
-  let store: Store;
 
   describe('used in NgModule', () => {
     beforeEach(() => {
@@ -42,7 +41,6 @@ describe('NavigationFacade', () => {
       class RootModule {}
       TestBed.configureTestingModule({ imports: [RootModule] });
 
-      store = TestBed.inject(Store);
       facade = TestBed.inject(NavigationFacade);
     });
 

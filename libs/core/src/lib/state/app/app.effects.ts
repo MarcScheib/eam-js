@@ -35,7 +35,7 @@ export class AppEffects {
       withLatestFrom(
         this.store$.pipe(select(routerSelectors.selectCurrentRoute))
       ),
-      map(([_, currentRoute]) => currentRoute.data.label || ''),
+      map(([, currentRoute]) => currentRoute.data.label || ''),
       tap(viewTitle => this.setTitle(viewTitle)),
       map(viewTitle => actionSetViewTitle({ viewTitle }))
     )

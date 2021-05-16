@@ -84,7 +84,7 @@ export class AuthEffects implements OnInitEffects {
     () =>
       this.actions$.pipe(
         ofType(signInRedirectAction, signOutAction),
-        tap(_ => this.router.navigate(['/auth/sign-in']))
+        tap(() => this.router.navigate(['/auth/sign-in']))
       ),
     { dispatch: false }
   );

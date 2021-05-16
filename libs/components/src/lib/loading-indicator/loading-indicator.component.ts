@@ -22,7 +22,7 @@ export class LoadingIndicatorComponent implements OnChanges {
   constructor(private readonly cd: ChangeDetectorRef) {}
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (!!changes.loading) {
+    if (changes.loading) {
       // stop loading timeout (which, when render is fast, means loading indicator was never shown)
       clearTimeout(this.isLoadingTimeout);
       if (this.loading) {

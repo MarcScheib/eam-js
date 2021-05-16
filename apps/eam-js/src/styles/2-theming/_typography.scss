@@ -1,3 +1,4 @@
+@use '~@angular/material' as mat;
 @mixin app-typography-theme($theme) {
   $primary: map-get($theme, primary);
   $accent: map-get($theme, accent);
@@ -5,24 +6,24 @@
 
   .mat-text {
     &.primary {
-      color: mat-color($primary);
+      color: mat.get-color-from-palette($primary);
     }
 
     &.accent {
-      color: mat-color($accent);
+      color: mat.get-color-from-palette($accent);
     }
 
     &.warn {
-      color: mat-color($warn);
+      color: mat.get-color-from-palette($warn);
     }
   }
 
   a {
-    color: mat-color($primary);
+    color: mat.get-color-from-palette($primary);
   }
 
   .app-toolbar a,
   .app-toolbar .nav-title {
-    color: mat-color($primary, default-contrast);
+    color: mat.get-color-from-palette($primary, default-contrast);
   }
 }

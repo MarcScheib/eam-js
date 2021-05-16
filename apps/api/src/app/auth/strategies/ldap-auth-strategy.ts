@@ -1,5 +1,4 @@
 import * as ActiveDirectory from 'activedirectory';
-
 import { AuthStrategy } from './auth-strategy';
 
 export interface LdapAuthOptions {
@@ -16,8 +15,8 @@ export class LdapAuthStrategy implements AuthStrategy {
     const rootUser = `root\\${username}`;
 
     const ad = new ActiveDirectory(this.options);
-    return new Promise((resolve, reject) => {
-      ad.authenticate(rootUser, password, function(err, auth) {
+    return new Promise(resolve => {
+      ad.authenticate(rootUser, password, function (err, auth) {
         if (err) {
           resolve(false);
         } else {

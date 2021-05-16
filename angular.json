@@ -1,5 +1,27 @@
 {
   "version": 1,
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "defaultProject": "eam-js",
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest",
+      "style": "scss"
+    },
+    "@nrwl/angular:component": {
+      "styleext": "scss"
+    },
+    "@schematics/angular": {
+      "component": {
+        "changeDetection": "OnPush"
+      }
+    }
+  },
   "projects": {
     "eam-js": {
       "projectType": "application",
@@ -10,7 +32,7 @@
       },
       "root": "apps/eam-js",
       "sourceRoot": "apps/eam-js/src",
-      "prefix": "eam-js",
+      "prefix": "",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -20,22 +42,21 @@
             "main": "apps/eam-js/src/main.ts",
             "polyfills": "apps/eam-js/src/polyfills.ts",
             "tsConfig": "apps/eam-js/tsconfig.app.json",
-            "aot": true,
-            "extractCss": true,
             "assets": ["apps/eam-js/src/favicon.ico", "apps/eam-js/src/assets"],
             "styles": [
               "node_modules/material-design-icons-iconfont/dist/material-design-icons.css",
-              "apps/eam-js/src/styles.scss",
-              {
-                "bundleName": "assets/themes/dark",
-                "input": "apps/eam-js/src/styles/dark.scss",
-                "inject": false
-              }
+              "apps/eam-js/src/styles.scss"
             ],
             "stylePreprocessorOptions": {
               "includePaths": ["libs/"]
             },
-            "scripts": []
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -48,7 +69,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -66,7 +86,8 @@
                 }
               ]
             }
-          }
+          },
+          "outputs": ["{options.outputPath}"]
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -87,13 +108,12 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "apps/eam-js/tsconfig.app.json",
-              "apps/eam-js/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!apps/eam-js/**/*"]
+            "lintFilePatterns": [
+              "apps/eam-js/src/**/*.ts",
+              "apps/eam-js/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -101,7 +121,8 @@
           "options": {
             "jestConfig": "apps/eam-js/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/apps/eam-js"]
         }
       }
     },
@@ -141,7 +162,8 @@
                 }
               ]
             }
-          }
+          },
+          "outputs": ["{options.outputPath}"]
         },
         "serve": {
           "builder": "@nrwl/node:execute",
@@ -158,13 +180,12 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "apps/api/tsconfig.app.json",
-              "apps/api/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!apps/api/**/*"]
+            "lintFilePatterns": [
+              "apps/api/src/**/*.ts",
+              "apps/api/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -172,7 +193,8 @@
           "options": {
             "jestConfig": "apps/api/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/apps/api"]
         }
       }
     },
@@ -180,18 +202,14 @@
       "projectType": "library",
       "root": "libs/projects/feature-shell",
       "sourceRoot": "libs/projects/feature-shell/src",
-      "prefix": "eam-js",
+      "prefix": "",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/projects/feature-shell/tsconfig.lib.json",
-              "libs/projects/feature-shell/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/projects/feature-shell/**/*"
+            "lintFilePatterns": [
+              "libs/projects/feature-shell/src/**/*.ts",
+              "libs/projects/feature-shell/src/**/*.html"
             ]
           }
         },
@@ -200,7 +218,8 @@
           "options": {
             "jestConfig": "libs/projects/feature-shell/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/libs/projects/feature-shell"]
         }
       },
       "schematics": {
@@ -216,13 +235,12 @@
       "schematics": {},
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/projects/api/tsconfig.lib.json",
-              "libs/projects/api/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/projects/api/**/*"]
+            "lintFilePatterns": [
+              "libs/projects/api/src/**/*.ts",
+              "libs/projects/api/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -230,7 +248,8 @@
           "options": {
             "jestConfig": "libs/projects/api/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/libs/projects/api"]
         }
       }
     },
@@ -238,16 +257,15 @@
       "projectType": "library",
       "root": "libs/components",
       "sourceRoot": "libs/components/src",
-      "prefix": "eam-js",
+      "prefix": "",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/components/tsconfig.lib.json",
-              "libs/components/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/components/**/*"]
+            "lintFilePatterns": [
+              "libs/components/src/**/*.ts",
+              "libs/components/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -255,7 +273,8 @@
           "options": {
             "jestConfig": "libs/components/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/libs/components"]
         }
       },
       "schematics": {
@@ -268,16 +287,15 @@
       "projectType": "library",
       "root": "libs/projects/data-access",
       "sourceRoot": "libs/projects/data-access/src",
-      "prefix": "eam-js",
+      "prefix": "",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/projects/data-access/tsconfig.lib.json",
-              "libs/projects/data-access/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/projects/data-access/**/*"]
+            "lintFilePatterns": [
+              "libs/projects/data-access/src/**/*.ts",
+              "libs/projects/data-access/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -285,7 +303,8 @@
           "options": {
             "jestConfig": "libs/projects/data-access/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/libs/projects/data-access"]
         }
       },
       "schematics": {
@@ -298,16 +317,15 @@
       "projectType": "library",
       "root": "libs/projects/ui",
       "sourceRoot": "libs/projects/ui/src",
-      "prefix": "eam-js",
+      "prefix": "",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/projects/ui/tsconfig.lib.json",
-              "libs/projects/ui/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/projects/ui/**/*"]
+            "lintFilePatterns": [
+              "libs/projects/ui/src/**/*.ts",
+              "libs/projects/ui/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -315,7 +333,8 @@
           "options": {
             "jestConfig": "libs/projects/ui/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/libs/projects/ui"]
         }
       },
       "schematics": {
@@ -328,16 +347,15 @@
       "projectType": "library",
       "root": "libs/utilities",
       "sourceRoot": "libs/utilities/src",
-      "prefix": "eam-js",
+      "prefix": "",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/utilities/tsconfig.lib.json",
-              "libs/utilities/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/utilities/**/*"]
+            "lintFilePatterns": [
+              "libs/utilities/src/**/*.ts",
+              "libs/utilities/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -345,7 +363,8 @@
           "options": {
             "jestConfig": "libs/utilities/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/libs/utilities"]
         }
       },
       "schematics": {
@@ -358,16 +377,15 @@
       "projectType": "library",
       "root": "libs/core",
       "sourceRoot": "libs/core/src",
-      "prefix": "eam-js",
+      "prefix": "",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/core/tsconfig.lib.json",
-              "libs/core/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/core/**/*"]
+            "lintFilePatterns": [
+              "libs/core/src/**/*.ts",
+              "libs/core/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -375,7 +393,8 @@
           "options": {
             "jestConfig": "libs/core/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/libs/core"]
         }
       },
       "schematics": {
@@ -388,16 +407,15 @@
       "projectType": "library",
       "root": "libs/users/ui",
       "sourceRoot": "libs/users/ui/src",
-      "prefix": "eam-js",
+      "prefix": "",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/users/ui/tsconfig.lib.json",
-              "libs/users/ui/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/users/ui/**/*"]
+            "lintFilePatterns": [
+              "libs/users/ui/src/**/*.ts",
+              "libs/users/ui/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -405,7 +423,8 @@
           "options": {
             "jestConfig": "libs/users/ui/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/libs/users/ui"]
         }
       },
       "schematics": {
@@ -418,16 +437,15 @@
       "projectType": "library",
       "root": "libs/users/feature-shell",
       "sourceRoot": "libs/users/feature-shell/src",
-      "prefix": "eam-js",
+      "prefix": "",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/users/feature-shell/tsconfig.lib.json",
-              "libs/users/feature-shell/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/users/feature-shell/**/*"]
+            "lintFilePatterns": [
+              "libs/users/feature-shell/src/**/*.ts",
+              "libs/users/feature-shell/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -435,7 +453,8 @@
           "options": {
             "jestConfig": "libs/users/feature-shell/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/libs/users/feature-shell"]
         }
       },
       "schematics": {
@@ -448,16 +467,15 @@
       "projectType": "library",
       "root": "libs/auth/feature-shell",
       "sourceRoot": "libs/auth/feature-shell/src",
-      "prefix": "eam-js",
+      "prefix": "",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/auth/feature-shell/tsconfig.lib.json",
-              "libs/auth/feature-shell/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/auth/feature-shell/**/*"]
+            "lintFilePatterns": [
+              "libs/auth/feature-shell/src/**/*.ts",
+              "libs/auth/feature-shell/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -465,7 +483,8 @@
           "options": {
             "jestConfig": "libs/auth/feature-shell/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/libs/auth/feature-shell"]
         }
       },
       "schematics": {
@@ -478,18 +497,14 @@
       "projectType": "library",
       "root": "libs/dashboard/feature-shell",
       "sourceRoot": "libs/dashboard/feature-shell/src",
-      "prefix": "eam-js",
+      "prefix": "",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/dashboard/feature-shell/tsconfig.lib.json",
-              "libs/dashboard/feature-shell/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/dashboard/feature-shell/**/*"
+            "lintFilePatterns": [
+              "libs/dashboard/feature-shell/src/**/*.ts",
+              "libs/dashboard/feature-shell/src/**/*.html"
             ]
           }
         },
@@ -498,7 +513,8 @@
           "options": {
             "jestConfig": "libs/dashboard/feature-shell/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/libs/dashboard/feature-shell"]
         }
       },
       "schematics": {
@@ -511,18 +527,14 @@
       "projectType": "library",
       "root": "libs/settings/feature-shell",
       "sourceRoot": "libs/settings/feature-shell/src",
-      "prefix": "eam-js",
+      "prefix": "",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/settings/feature-shell/tsconfig.lib.json",
-              "libs/settings/feature-shell/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/settings/feature-shell/**/*"
+            "lintFilePatterns": [
+              "libs/settings/feature-shell/src/**/*.ts",
+              "libs/settings/feature-shell/src/**/*.html"
             ]
           }
         },
@@ -531,7 +543,8 @@
           "options": {
             "jestConfig": "libs/settings/feature-shell/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/libs/settings/feature-shell"]
         }
       },
       "schematics": {
@@ -544,16 +557,15 @@
       "projectType": "library",
       "root": "libs/auth/api",
       "sourceRoot": "libs/auth/api/src",
-      "prefix": "eam-js",
+      "prefix": "",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/auth/api/tsconfig.lib.json",
-              "libs/auth/api/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/auth/api/**/*"]
+            "lintFilePatterns": [
+              "libs/auth/api/src/**/*.ts",
+              "libs/auth/api/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -561,7 +573,8 @@
           "options": {
             "jestConfig": "libs/auth/api/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/libs/auth/api"]
         }
       },
       "schematics": {
@@ -574,16 +587,15 @@
       "projectType": "library",
       "root": "libs/auth/data-access",
       "sourceRoot": "libs/auth/data-access/src",
-      "prefix": "eam-js",
+      "prefix": "",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/auth/data-access/tsconfig.lib.json",
-              "libs/auth/data-access/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/auth/data-access/**/*"]
+            "lintFilePatterns": [
+              "libs/auth/data-access/src/**/*.ts",
+              "libs/auth/data-access/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -591,7 +603,8 @@
           "options": {
             "jestConfig": "libs/auth/data-access/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/libs/auth/data-access"]
         }
       },
       "schematics": {
@@ -604,16 +617,15 @@
       "projectType": "library",
       "root": "libs/auth/ui",
       "sourceRoot": "libs/auth/ui/src",
-      "prefix": "eam-js",
+      "prefix": "",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/auth/ui/tsconfig.lib.json",
-              "libs/auth/ui/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/auth/ui/**/*"]
+            "lintFilePatterns": [
+              "libs/auth/ui/src/**/*.ts",
+              "libs/auth/ui/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -621,7 +633,8 @@
           "options": {
             "jestConfig": "libs/auth/ui/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/libs/auth/ui"]
         }
       },
       "schematics": {
@@ -634,16 +647,15 @@
       "projectType": "library",
       "root": "libs/users/api",
       "sourceRoot": "libs/users/api/src",
-      "prefix": "eam-js",
+      "prefix": "",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/users/api/tsconfig.lib.json",
-              "libs/users/api/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/users/api/**/*"]
+            "lintFilePatterns": [
+              "libs/users/api/src/**/*.ts",
+              "libs/users/api/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -651,7 +663,8 @@
           "options": {
             "jestConfig": "libs/users/api/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/libs/users/api"]
         }
       },
       "schematics": {
@@ -660,27 +673,5 @@
         }
       }
     }
-  },
-  "cli": {
-    "defaultCollection": "@nrwl/angular"
-  },
-  "schematics": {
-    "@nrwl/angular:application": {
-      "unitTestRunner": "jest",
-      "e2eTestRunner": "cypress"
-    },
-    "@nrwl/angular:library": {
-      "unitTestRunner": "jest",
-      "style": "scss"
-    },
-    "@nrwl/angular:component": {
-      "styleext": "scss"
-    },
-    "@schematics/angular": {
-      "component": {
-        "changeDetection": "OnPush"
-      }
-    }
-  },
-  "defaultProject": "eam-js"
+  }
 }

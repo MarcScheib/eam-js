@@ -1,3 +1,4 @@
+@use '~@angular/material' as mat;
 @mixin eamx-label-theme($theme) {
   $primary: map-get($theme, primary);
   $accent: map-get($theme, accent);
@@ -9,18 +10,18 @@
     color: inherit;
 
     &.mat-primary {
-      background-color: mat-color($primary);
-      color: mat-color($primary, default-contrast);
+      background-color: mat.get-color-from-palette($primary);
+      color: mat.get-color-from-palette($primary, default-contrast);
     }
 
     &.mat-accent {
-      background-color: mat-color($accent);
-      color: mat-color($accent, default-contrast);
+      background-color: mat.get-color-from-palette($accent);
+      color: mat.get-color-from-palette($accent, default-contrast);
     }
 
     &.mat-warn {
-      background-color: mat-color($warn);
-      color: mat-color($warn, default-contrast);
+      background-color: mat.get-color-from-palette($warn);
+      color: mat.get-color-from-palette($warn, default-contrast);
     }
   }
 }

@@ -38,26 +38,26 @@ export class RESTClient {
 
   post<T>(
     endpoint: string,
-    params: Object,
+    body: any | null,
     options?: JsonRequestOptions
   ): Observable<T> {
-    return this.http.post<T>(this.getUrl(endpoint), params, options);
+    return this.http.post<T>(this.getUrl(endpoint), body, options);
   }
 
   put<T>(
     endpoint: string,
-    params?: Object,
+    body?: any | null,
     options?: JsonRequestOptions
   ): Observable<T> {
-    return this.http.put<T>(this.getUrl(endpoint), params, options);
+    return this.http.put<T>(this.getUrl(endpoint), body, options);
   }
 
   patch<T>(
     endpoint: string,
-    params?: Object,
+    body?: any | null,
     options?: JsonRequestOptions
   ): Observable<T> {
-    return this.http.patch<T>(this.getUrl(endpoint), params, options);
+    return this.http.patch<T>(this.getUrl(endpoint), body, options);
   }
 
   delete<T>(endpoint: string, options?: JsonRequestOptions): Observable<T> {

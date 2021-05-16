@@ -1,3 +1,4 @@
+import { Action } from '@ngrx/store';
 import { actionNavigationToggle } from './navigation.actions';
 import { initialState, navigationReducer } from './navigation.reducer';
 
@@ -13,7 +14,7 @@ describe('Navigation Reducer', () => {
 
   describe('unknown action', () => {
     it('should return the previous state', () => {
-      const action = {} as any;
+      const action = {} as Action;
       const result = navigationReducer(initialState, action);
 
       expect(result).toBe(initialState);

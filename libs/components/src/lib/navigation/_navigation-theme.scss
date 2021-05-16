@@ -1,3 +1,4 @@
+@use '~@angular/material' as mat;
 @mixin eamx-navigation-theme($theme) {
   $primary: map-get($theme, primary);
   $foreground: map-get($theme, foreground);
@@ -7,19 +8,19 @@
     border-left: 4px solid transparent;
 
     &.expanded {
-      color: mat-color($primary, 300);
-      background-color: mat-color($background, background);
-      border-left: 4px solid mat-color($primary);
+      color: mat.get-color-from-palette($primary, 300);
+      background-color: mat.get-color-from-palette($background, background);
+      border-left: 4px solid mat.get-color-from-palette($primary);
     }
   }
 
   .eamx-nav-item {
     .vertical-menu-item {
-      color: rgba(mat-color($foreground, base), 0.7);
+      color: rgba(mat.get-color-from-palette($foreground, base), 0.7);
 
       &:hover,
       &.selected {
-        color: mat-color($primary, 300);
+        color: mat.get-color-from-palette($primary, 300);
       }
 
       &.selected {

@@ -21,9 +21,9 @@ export class NavigationEffects {
     this.actions$.pipe(
       ofType(ROOT_EFFECTS_INIT),
       map(() => {
-        const navigation = this.localStorageService.getSavedState<
-          NavigationState
-        >('navigation');
+        const navigation = this.localStorageService.getSavedState<NavigationState>(
+          'navigation'
+        );
         return actionReloadNavigation({ navigation });
       })
     )
@@ -34,7 +34,7 @@ export class NavigationEffects {
       this.actions$.pipe(
         ofType(actionNavigationToggle),
         withLatestFrom(this.store$.pipe(select(selectNavigationState))),
-        tap(([_, navigation]) =>
+        tap(([, navigation]) =>
           this.localStorageService.setSavedState<NavigationState>(
             navigation,
             'navigation'
