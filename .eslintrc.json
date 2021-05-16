@@ -32,6 +32,5 @@
       "rules": {}
     }
   ],
-  "extends": ["plugin:ngrx/recommended"],
-  "parser": "@typescript-eslint/parser"
+  "extends": ["plugin:ngrx/recommended"]
 }

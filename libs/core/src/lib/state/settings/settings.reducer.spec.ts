@@ -1,3 +1,4 @@
+import { Action } from '@ngrx/store';
 import {
   actionSettingsChangeAutoNightMode,
   actionSettingsChangeHour,
@@ -7,7 +8,7 @@ import { initialState, settingsReducer } from './settings.reducer';
 
 describe('SettingsReducer', () => {
   it('should return default state', () => {
-    const action = {} as any;
+    const action = {} as Action;
     const state = settingsReducer(undefined, action);
     expect(state).toBe(initialState);
   });

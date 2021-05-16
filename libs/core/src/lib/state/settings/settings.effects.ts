@@ -36,7 +36,7 @@ export class SettingsEffects {
       this.actions$.pipe(
         ofType(actionSettingsChangeAutoNightMode, actionSettingsChangeTheme),
         withLatestFrom(this.store$.pipe(select(selectSettings))),
-        tap(([_, settings]) =>
+        tap(([, settings]) =>
           this.localStorageService.setSavedState<SettingsState>(
             settings,
             'settings'
@@ -51,7 +51,7 @@ export class SettingsEffects {
       this.actions$.pipe(
         ofType(actionSettingsChangeTheme, actionReloadSettings),
         withLatestFrom(this.store$.pipe(select(selectEffectiveTheme))),
-        tap(([_, theme]) => this.themeManagerService.setTheme(theme))
+        tap(([, theme]) => this.themeManagerService.setTheme(theme))
       ),
     { dispatch: false }
   );

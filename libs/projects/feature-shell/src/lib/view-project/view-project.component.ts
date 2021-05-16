@@ -51,7 +51,7 @@ export class ViewProjectComponent {
       .subscribe(confirmed => {
         if (confirmed) {
           this.projectsService.delete(project).subscribe(
-            _ => this._goToOverview(),
+            () => this._goToOverview(),
             err => console.log(err)
           );
         }

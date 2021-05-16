@@ -25,7 +25,7 @@ export const initialState: State = {
 const authReducer = createReducer<State>(
   initialState,
   on(loadTokenAction, (state, { token }) => ({ ...state, token })),
-  on(signInAction, (state, _) => ({ ...state, loading: true })),
+  on(signInAction, state => ({ ...state, loading: true })),
   on(signInSuccessAction, (_, { token }) => ({
     token,
     loading: false,
@@ -36,7 +36,7 @@ const authReducer = createReducer<State>(
     loading: false,
     error,
   })),
-  on(signOutAction, (state, _) => ({
+  on(signOutAction, state => ({
     ...state,
     token: null,
   }))

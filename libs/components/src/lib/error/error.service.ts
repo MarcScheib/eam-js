@@ -4,9 +4,7 @@ import { ApplicationError } from './application-error';
 
 const ERROR_CACHE_SIZE = 10;
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable({ providedIn: 'root' })
 export class ErrorService {
   errors$ = new BehaviorSubject<ApplicationError[]>([]);
 

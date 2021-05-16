@@ -48,10 +48,9 @@ export class ProjectOverviewComponent implements OnInit {
       .afterClosed()
       .subscribe(confirmed => {
         if (confirmed) {
-          this.projectsService.delete(project).subscribe(
-            _ => void 0,
-            err => console.log(err)
-          );
+          this.projectsService.delete(project).subscribe({
+            error: err => console.log(err),
+          });
         }
       });
   }

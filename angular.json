@@ -32,7 +32,7 @@
       },
       "root": "apps/eam-js",
       "sourceRoot": "apps/eam-js/src",
-      "prefix": "eam-js",
+      "prefix": "",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -202,7 +202,7 @@
       "projectType": "library",
       "root": "libs/projects/feature-shell",
       "sourceRoot": "libs/projects/feature-shell/src",
-      "prefix": "eam-js",
+      "prefix": "",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
@@ -257,7 +257,7 @@
       "projectType": "library",
       "root": "libs/components",
       "sourceRoot": "libs/components/src",
-      "prefix": "eam-js",
+      "prefix": "",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
@@ -287,7 +287,7 @@
       "projectType": "library",
       "root": "libs/projects/data-access",
       "sourceRoot": "libs/projects/data-access/src",
-      "prefix": "eam-js",
+      "prefix": "",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
@@ -317,7 +317,7 @@
       "projectType": "library",
       "root": "libs/projects/ui",
       "sourceRoot": "libs/projects/ui/src",
-      "prefix": "eam-js",
+      "prefix": "",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
@@ -347,7 +347,7 @@
       "projectType": "library",
       "root": "libs/utilities",
       "sourceRoot": "libs/utilities/src",
-      "prefix": "eam-js",
+      "prefix": "",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
@@ -377,7 +377,7 @@
       "projectType": "library",
       "root": "libs/core",
       "sourceRoot": "libs/core/src",
-      "prefix": "eam-js",
+      "prefix": "",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
@@ -407,7 +407,7 @@
       "projectType": "library",
       "root": "libs/users/ui",
       "sourceRoot": "libs/users/ui/src",
-      "prefix": "eam-js",
+      "prefix": "",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
@@ -437,7 +437,7 @@
       "projectType": "library",
       "root": "libs/users/feature-shell",
       "sourceRoot": "libs/users/feature-shell/src",
-      "prefix": "eam-js",
+      "prefix": "",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
@@ -467,7 +467,7 @@
       "projectType": "library",
       "root": "libs/auth/feature-shell",
       "sourceRoot": "libs/auth/feature-shell/src",
-      "prefix": "eam-js",
+      "prefix": "",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
@@ -497,7 +497,7 @@
       "projectType": "library",
       "root": "libs/dashboard/feature-shell",
       "sourceRoot": "libs/dashboard/feature-shell/src",
-      "prefix": "eam-js",
+      "prefix": "",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
@@ -527,7 +527,7 @@
       "projectType": "library",
       "root": "libs/settings/feature-shell",
       "sourceRoot": "libs/settings/feature-shell/src",
-      "prefix": "eam-js",
+      "prefix": "",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
@@ -557,7 +557,7 @@
       "projectType": "library",
       "root": "libs/auth/api",
       "sourceRoot": "libs/auth/api/src",
-      "prefix": "eam-js",
+      "prefix": "",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
@@ -587,7 +587,7 @@
       "projectType": "library",
       "root": "libs/auth/data-access",
       "sourceRoot": "libs/auth/data-access/src",
-      "prefix": "eam-js",
+      "prefix": "",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
@@ -617,7 +617,7 @@
       "projectType": "library",
       "root": "libs/auth/ui",
       "sourceRoot": "libs/auth/ui/src",
-      "prefix": "eam-js",
+      "prefix": "",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
@@ -647,7 +647,7 @@
       "projectType": "library",
       "root": "libs/users/api",
       "sourceRoot": "libs/users/api/src",
-      "prefix": "eam-js",
+      "prefix": "",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",

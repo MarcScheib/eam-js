@@ -11,7 +11,7 @@
 
 <div *ngIf="node.children">
   <a
-    *ngIf="node.url != null"
+    *ngIf="node.url !== null"
     class="vertical-menu-item heading"
     routerLink="/{{ node.url }}"
     title="{{ node.tooltip }}"
@@ -23,7 +23,7 @@
   </a>
 
   <button
-    *ngIf="node.url == null"
+    *ngIf="node.url === null"
     type="button"
     title="{{ node.tooltip }}"
     class="vertical-menu-item heading"
