@@ -1,7 +1,7 @@
-import { User } from '@eam-js/users/api';
+import { UserDto } from '@eam-js/users/api';
 import { ApiProperty } from '@nestjs/swagger';
 
-export class UserDto implements User {
+export class UserDtoImpl implements UserDto {
   @ApiProperty()
   readonly id: number;
   @ApiProperty()

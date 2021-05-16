@@ -1,1 +1,1 @@
-export { User } from './lib/user';
+export { UserDto } from './lib/user';

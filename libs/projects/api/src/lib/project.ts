@@ -1,4 +1,4 @@
-import { User } from '@eam-js/users/api';
+import { UserDto } from '@eam-js/users/api';
 import { ProjectType } from './project-type';
 
 export interface Project {
@@ -9,5 +9,5 @@ export interface Project {
   createdAt: string;
   updatedAt: string;
   isActive: boolean;
-  creator?: User;
+  creator?: UserDto;
 }

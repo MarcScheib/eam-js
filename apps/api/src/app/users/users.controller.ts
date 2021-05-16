@@ -2,13 +2,13 @@ import { Controller } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { Crud } from '@nestjsx/crud';
 import { serialize } from './response';
-import { UserDto } from './response/user.dto';
+import { UserDtoImpl } from './response/user.dto';
 import { UsersService } from './users.service';
 
 @ApiTags('users')
 @Crud({
   model: {
-    type: UserDto,
+    type: UserDtoImpl,
   },
   routes: {
     only: ['getManyBase', 'getOneBase'],
