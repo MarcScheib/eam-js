@@ -1,18 +1,18 @@
+import { AuthApi } from '@eam-js/auth/api';
 import { Body, Controller, Post } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { AuthService } from './auth.service';
-import { AuthCredentialsDto } from './dto/auth-credentials.dto';
-import { AuthTokenDto } from './dto/auth-token.dto';
+import { AuthCredentialsDtoImpl, AuthTokenDtoImpl } from './response';
 
 @ApiTags('auth')
-@Controller('auth')
+@Controller(AuthApi.BASE)
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
-  @Post('sign-in')
+  @Post(AuthApi.SIGN_IN)
   async signIn(
-    @Body() authCredentials: AuthCredentialsDto
-  ): Promise<AuthTokenDto> {
+    @Body() authCredentials: AuthCredentialsDtoImpl
+  ): Promise<AuthTokenDtoImpl> {
     const { username, password } = authCredentials;
     return await this.authService.signIn(username, password);
   }

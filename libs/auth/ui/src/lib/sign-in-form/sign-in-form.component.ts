@@ -6,7 +6,7 @@ import {
   Output,
 } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { SignInData } from '@eam-js/auth/api';
+import { SignInData } from '@eam-js/auth/data-access';
 
 @Component({
   selector: 'sign-in-form',

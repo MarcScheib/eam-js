@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { SignInData } from '@eam-js/auth/api';
 import { select, Store } from '@ngrx/store';
+import { SignInData } from '../sign-in-data';
 import { signInRedirectAction } from './auth-api.actions';
 import { signInAction } from './auth-page.actions';
 import { signOutAction } from './auth.action';

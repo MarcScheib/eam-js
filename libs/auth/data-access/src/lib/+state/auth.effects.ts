@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthToken } from '@eam-js/auth/api';
+import { AuthTokenDto } from '@eam-js/auth/api';
 import { LocalStorageService } from '@eam-js/core';
 import { Actions, createEffect, ofType, OnInitEffects } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { catchError, exhaustMap, filter, map, tap } from 'rxjs/operators';
-import { AuthService } from '../auth.service';
+import { AuthApiService } from '../auth-api.service';
 import {
   signInFailureAction,
   signInRedirectAction,
@@ -25,27 +25,25 @@ export class AuthEffects implements OnInitEffects {
   init$ = createEffect(() =>
     this.actions$.pipe(
       ofType(authEffectsInitAction),
-      map(() => {
-        const token = this.localStorage.getSavedState<AuthToken>(
-          TOKEN_STORAGE_KEY
-        );
-        return loadTokenAction({ token });
-      })
+      map(() =>
+        this.localStorage.getSavedState<AuthTokenDto>(TOKEN_STORAGE_KEY)
+      ),
+      map(token => loadTokenAction({ token }))
     )
   );
 
-  signIn$ = createEffect(() => {
-    return this.actions$.pipe(
+  signIn$ = createEffect(() =>
+    this.actions$.pipe(
       ofType(signInAction),
       map(action => action.signInData),
       exhaustMap(({ username, password, keepToken }) =>
-        this.authService.login({ username, password }).pipe(
+        this.authService.signIn({ username, password }).pipe(
           map(token => signInSuccessAction({ token, keepToken })),
           catchError(error => of(signInFailureAction({ error })))
         )
       )
-    );
-  });
+    )
+  );
 
   persistToken$ = createEffect(
     () =>
@@ -53,7 +51,7 @@ export class AuthEffects implements OnInitEffects {
         ofType(signInSuccessAction),
         filter(action => action.keepToken),
         tap(action =>
-          this.localStorage.setSavedState<AuthToken>(
+          this.localStorage.setSavedState<AuthTokenDto>(
             action.token,
             TOKEN_STORAGE_KEY
           )
@@ -92,7 +90,7 @@ export class AuthEffects implements OnInitEffects {
   constructor(
     private readonly actions$: Actions,
     private readonly router: Router,
-    private readonly authService: AuthService,
+    private readonly authService: AuthApiService,
     private readonly localStorage: LocalStorageService
   ) {}
 

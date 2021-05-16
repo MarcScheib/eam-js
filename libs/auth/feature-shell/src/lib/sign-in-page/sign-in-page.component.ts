@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { SignInData } from '@eam-js/auth/api';
-import { AuthFacade } from '@eam-js/auth/data-access';
+import { AuthFacade, SignInData } from '@eam-js/auth/data-access';
 
 @Component({
   selector: 'sign-in-page',

@@ -15,10 +15,10 @@ export class LdapAuthStrategy implements AuthStrategy {
     const rootUser = `root\\${username}`;
 
     const ad = new ActiveDirectory(this.options);
-    return new Promise(resolve => {
+    return new Promise((resolve, reject) => {
       ad.authenticate(rootUser, password, function (err, auth) {
         if (err) {
-          resolve(false);
+          reject(err);
         } else {
           resolve(auth);
         }

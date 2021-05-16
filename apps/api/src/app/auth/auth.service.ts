@@ -1,13 +1,25 @@
-import { AuthToken, AuthTokenPayload } from '@eam-js/auth/api';
-import { Inject, Injectable, UnauthorizedException } from '@nestjs/common';
+import { AuthTokenDto } from '@eam-js/auth/api';
+import {
+  Inject,
+  Injectable,
+  Logger,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { User } from '../users/user.entity';
 import { UsersService } from '../users/users.service';
-import { AuthModuleOptions } from './auth-module-options';
-import { AUTH_MODULE_OPTIONS } from './auth.constants';
+import { AuthModuleOptions, AUTH_MODULE_OPTIONS } from './auth-module-options';
+
+export interface AuthTokenPayload {
+  id: number;
+  iat: number;
+  exp: number;
+}
 
 @Injectable()
 export class AuthService {
+  private readonly logger = new Logger(AuthService.name);
+
   constructor(
     private readonly jwtService: JwtService,
     private readonly usersService: UsersService,
@@ -26,15 +38,20 @@ export class AuthService {
     return await this.usersService.create({ name: username });
   }
 
-  async signIn(username: string, password: string): Promise<AuthToken> {
-    const authenticated = await this.authenticate(username, password);
-    if (authenticated) {
-      const user = await this.retrieveUser(username);
-      const payload: Partial<AuthTokenPayload> = { id: user.id };
-      const token = this.jwtService.sign(payload);
-      return { token };
+  async signIn(username: string, password: string): Promise<AuthTokenDto> {
+    try {
+      const authenticated = await this.authenticate(username, password);
+      if (authenticated) {
+        const user = await this.retrieveUser(username);
+        const payload: Partial<AuthTokenPayload> = { id: user.id };
+        const token = this.jwtService.sign(payload);
+        return { token };
+      }
+      throw new UnauthorizedException();
+    } catch (error) {
+      this.logger.error(error);
+      throw new UnauthorizedException();
     }
-    throw new UnauthorizedException();
   }
 
   async validateUser(payload: AuthTokenPayload): Promise<User> {

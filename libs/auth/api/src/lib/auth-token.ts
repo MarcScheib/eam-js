@@ -1,9 +1,3 @@
-export interface AuthToken {
+export interface AuthTokenDto {
   token: string;
-}
-
-export interface AuthTokenPayload {
-  id: number;
-  iat: number;
-  exp: number;
 }

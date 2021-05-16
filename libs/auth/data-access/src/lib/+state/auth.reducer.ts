@@ -1,4 +1,4 @@
-import { AuthToken } from '@eam-js/auth/api';
+import { AuthTokenDto } from '@eam-js/auth/api';
 import { Action, createReducer, on } from '@ngrx/store';
 import { signInFailureAction, signInSuccessAction } from './auth-api.actions';
 import { signInAction } from './auth-page.actions';
@@ -7,7 +7,7 @@ import { loadTokenAction, signOutAction } from './auth.action';
 export const AUTH_FEATURE_KEY = 'auth';
 
 export interface State {
-  token: AuthToken;
+  token: AuthTokenDto;
   loading: boolean;
   error: any;
 }

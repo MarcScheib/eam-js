@@ -1,9 +1,9 @@
-import { AuthToken } from '@eam-js/auth/api';
+import { AuthTokenDto } from '@eam-js/auth/api';
 import { createAction, props } from '@ngrx/store';
 
 export const signInSuccessAction = createAction(
   '[Auth/API] Sign In Success',
-  props<{ token: AuthToken; keepToken: boolean }>()
+  props<{ token: AuthTokenDto; keepToken: boolean }>()
 );
 
 export const signInFailureAction = createAction(
