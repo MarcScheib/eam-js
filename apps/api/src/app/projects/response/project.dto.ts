@@ -1,6 +1,6 @@
 import { Project, ProjectType } from '@eam-js/projects/api';
 import { ApiProperty } from '@nestjs/swagger';
-import { UserDto } from '../../users/response/user.dto';
+import { UserDtoImpl } from '../../users/response/user.dto';
 
 export class ProjectDto implements Project {
   @ApiProperty()
@@ -18,5 +18,5 @@ export class ProjectDto implements Project {
   @ApiProperty()
   readonly isActive: boolean;
   @ApiProperty()
-  readonly creator?: UserDto;
+  readonly creator?: UserDtoImpl;
 }
