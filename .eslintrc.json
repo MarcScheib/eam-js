@@ -33,6 +33,7 @@
     },
     {
       "files": ["*.ts"],
+      "extends": ["plugin:ngrx/recommended"],
       "rules": {
         "@angular-eslint/component-selector": [
           "error",
@@ -143,7 +144,8 @@
       "plugins": [
         "eslint-plugin-import",
         "@angular-eslint/eslint-plugin",
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "ngrx"
       ]
     }
   ]
