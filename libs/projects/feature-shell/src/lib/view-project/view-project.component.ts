@@ -6,7 +6,7 @@ import {
   ConfirmationDialogData,
 } from '@eam-js/components/confirmation-dialog';
 import { Project } from '@eam-js/projects/api';
-import { ProjectsService } from '@eam-js/projects/data-access';
+import { ProjectsApiService } from '@eam-js/projects/data-access';
 import { map, share, switchMap } from 'rxjs/operators';
 
 @Component({
@@ -18,7 +18,7 @@ import { map, share, switchMap } from 'rxjs/operators';
 export class ViewProjectComponent {
   project$ = this.route.paramMap.pipe(
     map(params => params.get('id')),
-    switchMap(id => this.projectsService.getByKey(id)),
+    switchMap(id => this.projectsApiService.getByKey(id)),
     share()
   );
 
@@ -26,7 +26,7 @@ export class ViewProjectComponent {
     private readonly route: ActivatedRoute,
     private readonly router: Router,
     private readonly dialogSvc: MatDialog,
-    private readonly projectsService: ProjectsService,
+    private readonly projectsApiService: ProjectsApiService,
     private readonly activatedRoute: ActivatedRoute
   ) {}
 
@@ -50,7 +50,7 @@ export class ViewProjectComponent {
       .afterClosed()
       .subscribe(confirmed => {
         if (confirmed) {
-          this.projectsService.delete(project).subscribe(
+          this.projectsApiService.delete(project).subscribe(
             () => this._goToOverview(),
             err => console.log(err)
           );

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
-import { ProjectsService } from './projects.service';
+import { ProjectsApiService } from './projects-api.service';
 
 @NgModule({
-  providers: [ProjectsService],
+  providers: [ProjectsApiService],
 })
 export class ProjectsDataAccessModule {}

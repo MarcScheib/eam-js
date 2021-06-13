@@ -6,7 +6,7 @@ import {
 } from '@ngrx/data';
 
 @Injectable()
-export class ProjectsService extends EntityCollectionServiceBase<Project> {
+export class ProjectsApiService extends EntityCollectionServiceBase<Project> {
   constructor(serviceElementsFactory: EntityCollectionServiceElementsFactory) {
     super('Project', serviceElementsFactory);
   }

@@ -5,7 +5,7 @@ import {
   ConfirmationDialogData,
 } from '@eam-js/components/confirmation-dialog';
 import { Project } from '@eam-js/projects/api';
-import { ProjectsService } from '@eam-js/projects/data-access';
+import { ProjectsApiService } from '@eam-js/projects/data-access';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -14,12 +14,12 @@ import { ProjectsService } from '@eam-js/projects/data-access';
   styleUrls: ['./project-overview.component.scss'],
 })
 export class ProjectOverviewComponent implements OnInit {
-  loading$ = this.projectsService.loading$;
-  projects$ = this.projectsService.entities$;
+  loading$ = this.projectsApiService.loading$;
+  projects$ = this.projectsApiService.entities$;
 
   constructor(
     private readonly dialogSvc: MatDialog,
-    private readonly projectsService: ProjectsService
+    private readonly projectsApiService: ProjectsApiService
   ) {}
 
   ngOnInit() {
@@ -27,7 +27,7 @@ export class ProjectOverviewComponent implements OnInit {
   }
 
   refresh() {
-    this.projectsService.getAll();
+    this.projectsApiService.getAll();
   }
 
   search() {
@@ -48,7 +48,7 @@ export class ProjectOverviewComponent implements OnInit {
       .afterClosed()
       .subscribe(confirmed => {
         if (confirmed) {
-          this.projectsService.delete(project).subscribe({
+          this.projectsApiService.delete(project).subscribe({
             error: err => console.log(err),
           });
         }

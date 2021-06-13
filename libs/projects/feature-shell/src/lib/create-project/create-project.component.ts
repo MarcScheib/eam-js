@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Project, ProjectType } from '@eam-js/projects/api';
-import { ProjectsService } from '@eam-js/projects/data-access';
+import { ProjectsApiService } from '@eam-js/projects/data-access';
 import { DataServiceError } from '@ngrx/data';
 import { Observable, Subject } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
@@ -14,7 +14,7 @@ import { map, startWith } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CreateProjectComponent implements OnInit {
-  loading$ = this.projectsService.loading$;
+  loading$ = this.projectsApiService.loading$;
   error$ = new Subject<string>();
   filteredOptions$: Observable<ProjectType[]>;
 
@@ -28,7 +28,7 @@ export class CreateProjectComponent implements OnInit {
 
   constructor(
     private readonly formBuilder: FormBuilder,
-    private readonly projectsService: ProjectsService,
+    private readonly projectsApiService: ProjectsApiService,
     private readonly router: Router,
     private readonly activatedRoute: ActivatedRoute
   ) {}
@@ -48,7 +48,7 @@ export class CreateProjectComponent implements OnInit {
       return;
     }
 
-    this.projectsService.add(this.createProjectForm.value).subscribe(
+    this.projectsApiService.add(this.createProjectForm.value).subscribe(
       project => this._goToProject(project),
       err => this.error$.next(getErrorMessage(err))
     );

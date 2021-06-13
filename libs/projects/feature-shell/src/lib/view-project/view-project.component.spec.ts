@@ -1,5 +1,5 @@
 import { RouterTestingModule } from '@angular/router/testing';
-import { ProjectsService } from '@eam-js/projects/data-access';
+import { ProjectsApiService } from '@eam-js/projects/data-access';
 import { createComponentFactory, Spectator } from '@ngneat/spectator/jest';
 import { ViewProjectComponent } from './view-project.component';
 import { ViewProjectModule } from './view-project.module';
@@ -9,7 +9,7 @@ describe('ViewProjectComponent', () => {
   const createComponent = createComponentFactory({
     component: ViewProjectComponent,
     imports: [RouterTestingModule, ViewProjectModule],
-    mocks: [ProjectsService],
+    mocks: [ProjectsApiService],
     declareComponent: false,
   });
 
