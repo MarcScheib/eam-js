@@ -14,13 +14,13 @@ export const THEMES: { [key: string]: Theme } = {
   [ThemeName.LIGHT]: {
     value: ThemeName.LIGHT,
     name: 'Light',
-    href: 'light.css',
+    href: 'themes-light.css',
     default: true,
   },
   [ThemeName.DARK]: {
     value: ThemeName.DARK,
     name: 'Dark',
-    href: 'dark.css',
+    href: 'themes-dark.css',
   },
 };
 

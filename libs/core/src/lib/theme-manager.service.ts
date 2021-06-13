@@ -2,8 +2,6 @@ import { DOCUMENT } from '@angular/common';
 import { Inject, Injectable, Renderer2, RendererFactory2 } from '@angular/core';
 import { THEMES } from './state/settings/settings.state';
 
-const ASSET_URL = 'assets/themes/';
-
 @Injectable({ providedIn: 'root' })
 export class ThemeManagerService {
   private readonly _renderer: Renderer2;
@@ -26,7 +24,7 @@ export class ThemeManagerService {
     if (theme.default) {
       this._removeTheme(el);
     } else {
-      const href = ASSET_URL + theme.href;
+      const href = theme.href;
       this._createLinkElement(href, key).then(() => {
         this._removeTheme(el);
       });
