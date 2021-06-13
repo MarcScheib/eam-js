@@ -1,11 +1,11 @@
 import { Inject, Injectable } from '@angular/core';
-import { WindowToken } from '../window';
+import { WINDOW_TOKEN } from '../window';
 
 @Injectable({ providedIn: 'root' })
 export class LocalStorageService {
   private readonly storage: Storage;
 
-  constructor(@Inject(WindowToken) window: Window) {
+  constructor(@Inject(WINDOW_TOKEN) window: Window) {
     try {
       this.storage = window.localStorage;
     } catch {
