@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { Project } from '@eam-js/projects/api';
+import { ProjectDto } from '@eam-js/projects/api';
 
 @Component({
   selector: 'project-description',
@@ -7,5 +7,5 @@ import { Project } from '@eam-js/projects/api';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectDescriptionComponent {
-  @Input() project: Project;
+  @Input() project: ProjectDto;
 }

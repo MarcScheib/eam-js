@@ -5,7 +5,7 @@ import {
   ConfirmationDialogComponent,
   ConfirmationDialogData,
 } from '@eam-js/components/confirmation-dialog';
-import { Project } from '@eam-js/projects/api';
+import { ProjectDto } from '@eam-js/projects/api';
 import { ProjectsApiService } from '@eam-js/projects/data-access';
 import { map, share, switchMap } from 'rxjs/operators';
 
@@ -36,7 +36,7 @@ export class ViewProjectComponent {
     });
   }
 
-  delete(project: Project) {
+  delete(project: ProjectDto) {
     this.dialogSvc
       .open<ConfirmationDialogComponent, ConfirmationDialogData, boolean>(
         ConfirmationDialogComponent,

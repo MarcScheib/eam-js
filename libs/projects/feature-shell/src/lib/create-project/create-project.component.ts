@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Project, ProjectType } from '@eam-js/projects/api';
+import { ProjectDto, ProjectType } from '@eam-js/projects/api';
 import { ProjectsApiService } from '@eam-js/projects/data-access';
 import { DataServiceError } from '@ngrx/data';
 import { Observable, Subject } from 'rxjs';
@@ -54,7 +54,7 @@ export class CreateProjectComponent implements OnInit {
     );
   }
 
-  private _goToProject(project: Project) {
+  private _goToProject(project: ProjectDto) {
     this.router.navigate(['..', project.id], {
       relativeTo: this.activatedRoute,
     });

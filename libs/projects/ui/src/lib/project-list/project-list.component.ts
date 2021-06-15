@@ -5,7 +5,7 @@ import {
   Input,
   Output,
 } from '@angular/core';
-import { Project } from '@eam-js/projects/api';
+import { ProjectDto } from '@eam-js/projects/api';
 
 @Component({
   selector: 'project-list',
@@ -15,13 +15,13 @@ import { Project } from '@eam-js/projects/api';
 })
 export class ProjectListComponent {
   @Input() loading = false;
-  @Input() projects: Project[];
+  @Input() projects: ProjectDto[];
 
-  @Output() delete = new EventEmitter<Project>();
+  @Output() delete = new EventEmitter<ProjectDto>();
 
   displayedColumns = ['ative', 'name', 'actions'];
 
-  deleteProject(project: Project) {
+  deleteProject(project: ProjectDto) {
     this.delete.emit(project);
   }
 }

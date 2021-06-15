@@ -4,7 +4,7 @@ import {
   ConfirmationDialogComponent,
   ConfirmationDialogData,
 } from '@eam-js/components/confirmation-dialog';
-import { Project } from '@eam-js/projects/api';
+import { ProjectDto } from '@eam-js/projects/api';
 import { ProjectsApiService } from '@eam-js/projects/data-access';
 
 @Component({
@@ -34,7 +34,7 @@ export class ProjectOverviewComponent implements OnInit {
     console.log('search');
   }
 
-  onDelete(project: Project) {
+  onDelete(project: ProjectDto) {
     this.dialogSvc
       .open<ConfirmationDialogComponent, ConfirmationDialogData, boolean>(
         ConfirmationDialogComponent,

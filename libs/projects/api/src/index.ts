@@ -1,2 +1,2 @@
-export { Project } from './lib/project';
+export { ProjectDto } from './lib/project';
 export { ProjectType } from './lib/project-type';

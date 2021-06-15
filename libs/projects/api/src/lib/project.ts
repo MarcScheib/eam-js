@@ -1,7 +1,7 @@
 import { UserDto } from '@eam-js/users/api';
 import { ProjectType } from './project-type';
 
-export interface Project {
+export interface ProjectDto {
   id: number;
   name: string;
   description: string;
